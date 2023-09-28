@@ -6,16 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Time Table</title>
     <style>
-        table, tr,
-        th,
-        td {
-            border: 1px solid black;
+        .container {
             text-align: center;
         }
 
-        .bg-pink {
-
+        table, tr, th, td {
+            border: 1px solid black;
+            /* text-align: center; */
+            margin:auto;
         }
+
+        .bg-pink {
+            background-color: pink;
+        }
+
+        .bg-blue {
+            background-color: lightblue;
+        }
+
+        .bg-yellow {
+            background-color: lightyellow;
+        }
+        
     </style>
 </head>
 
@@ -33,11 +45,11 @@
             </tr>
             <tr class="bg-yellow">
                 <td class="bg-blue">早自習<br>0750~0830</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td colspan="5" class="bg-yellow"></td>
+                <!-- <td></td> -->
+                <!-- <td></td> -->
+                <!-- <td></td> -->
+                <!-- <td></td> -->
             </tr>
             <tr>
                 <td class="bg-blue">第一節<br>0840~0920</td>
@@ -73,14 +85,14 @@
             </tr>
             <tr class="bg-yellow">
                 <td class="bg-blue">午休時間<br>1200~1320</td>
-                <td colspan="5"></td>
+                <td colspan="5" class="bg-yellow"></td>
                 <!-- <td></td> -->
                 <!-- <td></td> -->
                 <!-- <td></td> -->
                 <!-- <td></td> -->
             </tr>
             <tr>
-                <td>第五節<br>1330~1410</td>
+                <td class="bg-blue">第五節<br>1330~1410</td>
                 <td>社會<br>劉展華</td>
                 <td rowspan="2">美勞<br>許文杰</td>
                 <td rowspan="3"></td>
@@ -88,7 +100,7 @@
                 <td>體育<br>潘文欽</td>
             </tr>
             <tr>
-                <td>第六節<br>1420~1500</td>
+                <td class="bg-blue">第六節<br>1420~1500</td>
                 <td>體育<br>潘文欽</td>
                 <!-- <td>美勞<br>許文杰</td> -->
                 <!-- <td></td> -->
@@ -96,7 +108,7 @@
                 <td>國語<br>劉展華</td>
             </tr>
             <tr>
-                <td>第七節<br>1520~1600</td>
+                <td class="bg-blue">第七節<br>1520~1600</td>
                 <td colspan="2">彈性<br>劉展華</td>
                 <!-- <td>彈性<br>劉展華</td> -->
                 <!-- <td></td> -->
