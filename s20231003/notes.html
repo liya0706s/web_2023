@@ -30,36 +30,67 @@
         }
 
         .knl {
-            height: 350px;
-            width: 500px;
+            height: 35%;
+            width: 70%;
+            background-color: lightgoldenrodyellow;
+        }
+
+        .knl-c {
+            height: 100px;
         }
 
         .dd {
             height: 300px;
             width: 650px;
+            background-color: lightgrey;
         }
 
         .mkx {
             height: 300px;
             width: 550px;
+            background-color: bisque;
         }
 
         .hlsd {
             height: 200px;
             width: 900px;
+            background-color: lightblue;
         }
+
 
         .hlsd-1 {
             border-top: 0px;
             height: 200px;
             width: 900px;
+            background-color: lightblue;
+        }
+
+        ul {
+            margin:auto;
+            text-align: center;
         }
 
         li {
             display: inline-block;
             text-align: center;
             margin-right: 15%;
-            background-color: bisque;
+            font-size: 18px;
+        }
+
+        .nav {
+            background-color: lightpink;
+            /* margin:auto; */
+        }
+
+        .red {
+            color: red;
+            font-size: 30px;
+        }
+        .knl-b, .knl-a, .knl-c{
+            width: 40%;
+            font-size: 30px;
+        }
+        .def {
             font-size: 18px;
         }
     </style>
@@ -68,7 +99,8 @@
 <body>
     <header>
         <h1>筆記法大集合</h1>
-        <div class="bookmark">
+        <!-- navigation bra -->
+        <div class="nav">
             <ul>
                 <li><a href="#knl">康乃爾筆記法</a></li>
                 <li><a href="#dd">東大筆記法</a></li>
@@ -83,11 +115,29 @@
         <h2>康乃爾筆記法</h2>
         <table class="knl">
             <tr>
-                <td>B<br>整理<br></td>
-                <td>A<br>筆記</td>
+                <td class="knl-b">B
+                    <article class="red">整理</article>
+                    <br>
+                    <p class="def">
+                        善用標示><br>建立自己的<br>筆記規則<br>
+                    </p>
+                    <p class="def">
+                        筆記不狂抄><br>真正吸收<br>
+                    </p>
+                </td>
+                <td class="knl-a">A<br>
+                    <article class="red">筆記</article>
+                    <br>
+                    <p class="def">
+
+                    </p>
+                </td>
             </tr>
-            <tr>
-                <td colspan="2">C<br>總結</td>
+            <tr >
+                <td colspan="2" class="knl-c">C<br>
+                    <article class="red">總結</article>    
+                
+                </td>
                 <!-- <td></td> -->
             </tr>
         </table>
@@ -135,7 +185,7 @@
                 <!-- <td></td> -->
             </tr>
         </table>
-        
+
         <table class="hlsd-1">
             <tr class="hlsd-1">
                 <td class="hlsd-1">Cost Structure <br>成本結構</td>
