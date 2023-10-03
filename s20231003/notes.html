@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>筆記法</title>
+    <style>
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 35px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 30px;
+        }
+
+        table,
+        tr,
+        td {
+            border: 1px black solid;
+            border-collapse: collapse;
+            vertical-align: text-top;
+            margin: auto;
+            font-size: 18px;
+        }
+
+        .knl {
+            height: 350px;
+            width: 500px;
+        }
+
+        .dd {
+            height: 300px;
+            width: 650px;
+        }
+
+        .mkx {
+            height: 300px;
+            width: 550px;
+        }
+
+        .hlsd {
+            height: 200px;
+            width: 900px;
+        }
+
+        .hlsd-1 {
+            border-top: 0px;
+            height: 200px;
+            width: 900px;
+        }
+
+        li {
+            display: inline-block;
+            text-align: center;
+            margin-right: 15%;
+            background-color: bisque;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>筆記法大集合</h1>
+        <div class="bookmark">
+            <ul>
+                <li><a href="#knl">康乃爾筆記法</a></li>
+                <li><a href="#dd">東大筆記法</a></li>
+                <li><a href="#mkx">麥肯錫筆記法</a></li>
+                <li><a href="#hlsd">獲利世代</a></li>
+            </ul>
+        </div>
+    </header>
+    <hr>
+    <div class="container">
+        <div id="knl"></div>
+        <h2>康乃爾筆記法</h2>
+        <table class="knl">
+            <tr>
+                <td>B<br>整理<br></td>
+                <td>A<br>筆記</td>
+            </tr>
+            <tr>
+                <td colspan="2">C<br>總結</td>
+                <!-- <td></td> -->
+            </tr>
+        </table>
+
+        <div id="dd"></div>
+        <h2>東大筆記法</h2>
+        <table class="dd">
+            <tr>
+                <td>A <br>筆記</td>
+                <td>B <br>整理</td>
+                <td>C <br>總結</td>
+            </tr>
+        </table>
+
+        <div id="mkx"></div>
+        <h2>麥肯錫筆記法</h2>
+        <table class="mkx">
+            <tr>
+                <td colspan="3">重點問題</td>
+                <!-- <td></td> -->
+                <!-- <td></td> -->
+            </tr>
+            <tr>
+                <td>A <br>現狀</td>
+                <td>B <br>解釋</td>
+                <td>C <br>行動</td>
+            </tr>
+        </table>
+
+        <div id="hlsd"></div>
+        <h2>獲利世代</h2>
+        <table class="hlsd">
+            <tr>
+                <td rowspan="2">Key Partners <br>關鍵合作夥伴</td>
+                <td>Key Activities <br>關鍵活動</td>
+                <td rowspan="2">Value Proposition <br>價值主張</td>
+                <td>Customer Relationships <br>顧客關係</td>
+                <td rowspan="2">Customer Segments <br>目標客層</td>
+            </tr>
+            <tr>
+                <!-- <td></td> -->
+                <td>Key Resources <br>關鍵資源</td>
+                <!-- <td></td> -->
+                <td>Channels <br>通路</td>
+                <!-- <td></td> -->
+            </tr>
+        </table>
+        
+        <table class="hlsd-1">
+            <tr class="hlsd-1">
+                <td class="hlsd-1">Cost Structure <br>成本結構</td>
+                <td class="hlsd-1">Revenue Streams <br>收益流</td>
+            </tr>
+        </table>
+
+        <!-- <tr>
+                <td colspan="2">Cost Structure <br>成本結構</td>
+                <td></td>
+                <td colspan="3">Revenue Streams <br>收益流</td>
+                <td></td>
+                <td></td>
+            </tr> -->
+        </table>
+    </div>
+
+</body>
+
+</html>
