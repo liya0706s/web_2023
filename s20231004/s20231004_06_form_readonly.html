@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input attributes readonly</title>
+</head>
+<body>
+    <div class="container">
+        <form action="" method="get">
+            <p>
+                <!-- 提示字 -->
+                <input type="text" placeholder="name">
+            </p>
+            <p>
+                <!-- 只可以讀 不能輸入 -->
+                <input type="text" readonly>
+            </p>
+            <p>
+                <!-- 不能選 -->
+                <input type="text" disabled>
+            </p>
+            <p>
+                <!-- 送出表單 一定要填寫 -->
+                <input type="text" required>
+            </p>
+            <button type="submit">submit</button>
+            <button type="reset">reset</button>
+        </form>
+    </div>
+</body>
+</html>
