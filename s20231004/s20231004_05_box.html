@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>釐清排版比例大小</title>
+    <style>
+        body {
+            background-color: grey;
+        }
+
+        .container{
+            background-color: lightskyblue;
+            width:80%;
+            height:80vh;
+            margin:auto;
+        }
+
+        .box{
+            background-color: lightpink;
+            width: 80%;
+            height:80vh;
+            margin:auto;
+        }
+
+        table {
+            background-color: red;
+            width: 80%;
+            margin: auto;
+            height:10vh;
+        }
+
+        table, tr, td {
+            /* background-color: lightgreen; */
+            border: 1px black solid;
+            border-collapse: collapse;
+        }
+
+        .td1{
+            width:30%;
+
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 從外面寫進來 -->
+    body
+    <div class="container">
+        container
+        <div class="box">
+            box
+            <table>
+                <tr>
+                    <td class="td1">123</td>
+                    <td class="td2">456</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

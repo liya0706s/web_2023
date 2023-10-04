@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframe table</title>
+    <style>
+        table,
+        tr,
+        td {
+            border: 1px grey solid;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td {
+            width: 80%;
+            height:30vh;
+
+        }
+
+        .v_super {
+            vertical-align: top;
+        }
+
+        h3 {
+            color: lightslategray;
+            font-size: 30px;
+            text-align: center;
+            /* margin:auto; */
+        }
+
+        iframe {
+            border: 5px solid grey;
+            box-shadow: 3px 3px;
+            margin:auto;
+            text-align: center;
+        }
+        p {
+            margin: auto;
+        }
+
+        .content {
+            font-size:20px;
+        }
+
+        .top {
+            text-align: left center;
+            margin-left: auto;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <table>
+            <tr>
+                <td class="v_super">
+                    <h3>影片介紹</h3>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/TscR0cyH7RE?si=Fu97TdcY2FMYS1ky"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </td>
+                <td class="v_super">
+                    
+                    <h3>商品詳情</h3>
+                    <div class="top">
+                    <p class="content">
+                        【商品名稱】恆溫熱敷眼罩<br>
+                        【商品材質】石磨材質:棉+混紡+電子元件<br>
+                        【商品淨重】145g<br>
+                        【商品規格】眼罩x1，3檔調溫USB磁吸x1，說明書x1，噴瓶x1，收納袋x1<br>
+                        【輸入電流】DC5V/1A     【使用功率】2.5~4.5w<br>
+                        【商品尺寸】22*10cm (±2公分內屬正常誤差值)<br>
+                        【商品產地】中國代工<br>
+                    </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="v_super">
+                    <h3>Google Maps</h3>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57831.68781978042!2d121.38227018711412!3d25.051698687833564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7c04550ece3%3A0xadda2ea92b99408e!2sMcDonald&#39;s%20Taishan%20Mingzhi%20Branch!5e0!3m2!1sen!2stw!4v1696388237781!5m2!1sen!2stw"
+                        width="600" height="450" style="border:400;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </td>
+                <td class="v_super">
+                    <h3>麥當勞都是維尼</h3>
+                    <img src="./images/mcdonald.png" alt="">
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

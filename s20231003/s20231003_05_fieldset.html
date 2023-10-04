@@ -1,26 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hr表單</title>
+    <style>
+        .container {
+            margin:auto;
+            text-align: center;
+            background-color: lightpink;
+        }
+        .note {
+            margin-top: auto;
+        }
+        .title {
+            font-size: 25px;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
         <form action="">
             <fieldset>
-                <legend>hr表單</legend>
-                    <p>姓名</p>
-                    <p>電話</p>
-                    <p>地址</p>
-                    <p>下拉選單</p>
-                    <p>單選</p>
-                    <p>多選</p>
-                    <p>備註</p>
-                    <p>reset</p>
-                    <p>submit</p>
+                <legend class="title">hr表單</legend>
+                <label for="name">姓名:</label>
+                <input type="text" name="name" id="name">
+                <br>
+                <label for="tel">電話:</label>
+                <input type="tel" name="tel" id="tel">
+                <br>
+                <label for="addr">地址:</label>
+                <select name="addr" id="">
+                    <optgroup label="北部">
+                        <option value="tpc">台北市</option>
+                        <option value="ntp">新北市</option>
+                        <option value="tyc">桃園市</option>
+                        <option value="hcc">新竹市</option>
+                        <option value="hsinchu">新竹縣</option>
+                        <option value="yilan">宜蘭縣</option>
+                        <option value="klc">基隆市</option>
+                    </optgroup>
+                </select>
+                <br>
+                <label for="age">年齡:</label>
+                <input type="radio" name="age" id="age">20-30
+                <input type="radio" name="age" id="age">30-40
+                <input type="radio" name="age" id="age">40-50
+                <br>
+                <label for="car">通勤方式:</label>
+                <input type="checkbox" name="" id="car">走路
+                <input type="checkbox" name="" id="car">機車
+                <input type="checkbox" name="" id="car">公車
+                <input type="checkbox" name="" id="car">飛機
+                <br>
+                <label for="note" class="note">理想待遇:</label>
+                <br>
+                <textarea name="note" id="note" cols="30" rows="10"></textarea>
+                <br>
+                <button type="submit">送出</button>
+                <button type="reset">重設</button>
+                
             </fieldset>
         </form>
     </div>
 </body>
+
 </html>
