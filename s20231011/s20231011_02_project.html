@@ -45,8 +45,7 @@
         td {
             width: 33%;
             text-align: center;
-            font-size: larger;
-            font-weight: bold;
+            font-size: large;
         }
 
         .box {
@@ -60,11 +59,12 @@
         }
 
         .box1 {
-            margin-top: 10px;
+            margin-top: 0px;
             background-image: url('./images/06.jpg');
         }
 
         .box2 {
+            margin-top: 10px;
             background-image: url('./images/04.jpg');
             background-repeat: no-repeat;
         }
@@ -78,14 +78,14 @@
             text-shadow: 5px 5px 10px black;
         }
 
-        iframe{
+        iframe {
             width: 100%;
             height: 60%;
         }
 
         .nav {
             position: fixed;
-            
+
         }
 
         #top {
@@ -95,67 +95,58 @@
         }
 
         #icon {
+            size-adjust: 40%;
             border: 0;
             width: 25px;
+            height: 50%;
             margin-left: 20px;
         }
-        
-        
     </style>
 </head>
 
 <body>
     <div class="nav">
-        <img src="./images/icon.png" alt="">
-        <ul>
-            <li><a href="#v1">卡通</a></li>
-            <li><a href="#v2">航海王yt</a></li>
-            <li><a href="#v3">航海王餐廳</a></li>
-        </ul>
+        <a href="#">
+            <img src="./images/icon.png" alt="" id="icon">
+        </a>
+        <a href="#v1">Photo</a>
+        <a href="#v2">航海王yt</a>
+        <a href="#v3">航海王餐廳</a>
     </div>
     <div id="v1"></div>
     <div class="container box1">
         <div class="box">
-        <h2>卡通</h2>
-        <table>
-            <tr>
-                <td>
-                    <h2>可愛大王</h2>
-                    <img src="./images/18s.gif" alt="">
-                </td>
-                <td>
-                    <h2>航海王</h2>
-                    <img src="./images/01.avif" alt="">
-                </td>
-                <td>
-                    <h2>寶可夢</h2>
-                    <img src="./images/03.jpg" alt="">
-                </td>
-            </tr>
-            <tr>
-                <td>
-
-                    weiweiboy於2012年開始發表的圖文創作品牌。
-                    透過角色喂喂、毛毛熊、可愛大王，繪製療癒的各種圖文，希望透過一點力量，讓世界再可愛一些!
-                    並在LINE WEBTOON上分享自身有趣的漫畫故事，有不同面向的插畫發展!
-
-                </td>
-                <td>
-
-                    作品以虛構的「大海賊時代」為故事舞台，描述海賊蒙其·D·魯夫 想要得到「ONE PIECE」（一個大秘寶）和成為「海賊王」為夢想而出海向「偉大的航道」航行的海洋冒險故事。
-
-                </td>
-                <td class="white">
-
-                    起源
-                    本作概念起源於一種日本的鄉下兒童早年流行的娛樂方式——昆蟲收集與交換不同物種，當創始人田尻智小的時候，他就很喜歡這類消遣，日後日本工業發展並經歷了都市化，他成年進入城市工作後，希望能讓都市的孩子也感受到這種樂趣，便動手開發了寶可夢這部作品，遊戲允許玩家捕獲，收集，培育數百隻生物，也就是通常所說的寶可夢，而這些怪獸則是在GAME
-                    FREAK的早期小遊戲中所構思的。任天堂為了讓這系列走出日本，在1998年將寶可夢連同動畫引入了美國，自此開啟了海外市場。
-
-                </td>
-            </tr>
-        </table>
+            <h2>卡通</h2>
+            <table>
+                <tr>
+                    <td>
+                        <h2>可愛大王</h2>
+                        <img src="./images/18s.gif" alt="">
+                    </td>
+                    <td>
+                        <h2>航海王</h2>
+                        <img src="./images/01.avif" alt="">
+                    </td>
+                    <td>
+                        <h2>寶可夢</h2>
+                        <img src="./images/03.jpg" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        weiweiboy於2012年開始發表的圖文創作品牌。
+                        透過角色喂喂、毛毛熊、可愛大王，繪製療癒的各種圖文，希望透過一點力量，讓世界再可愛一些!
+                        並在LINE WEBTOON上分享自身有趣的漫畫故事，有不同面向的插畫發展!
+                    </td>
+                    <td>
+                        作品以虛構的「大海賊時代」為故事舞台，描述海賊蒙其·D·魯夫 想要得到「ONE PIECE」（一個大秘寶）和成為「海賊王」為夢想而出海向「偉大的航道」航行的海洋冒險故事。
+                    </td>
+                    <td>
+                        起源
+                        本作概念起源於一種日本的鄉下兒童早年流行的娛樂方式——昆蟲收集與交換不同物種，當創始人田尻智小的時候，他就很喜歡這類消遣，日後日本工業發展並經歷了都市化，他成年進入城市工作後，希望能讓都市的孩子也感受到這種樂趣，便動手開發了寶可夢這部作品。
+                </tr>
+            </table>
         </div>
-
     </div>
     <br>
     <hr><br>
@@ -165,12 +156,14 @@
             <h2>youtube</h2>
             <table>
                 <tr>
-                    <td><iframe width="560" height="315"
+                    <td>
+                        <iframe width="560" height="315"
                             src="https://www.youtube.com/embed/fUgUEKL6PIQ?si=GLtS_6eesbs-6KFt"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen></iframe></td>
-                    <td class="yellow">Netflix《航海王》演員回答50個有關原作的熱搜問題！大家對自己的角色定位了解多少？｜GQ Taiwan
+                            allowfullscreen></iframe>
+                    </td>
+                    <td>Netflix《航海王》演員回答50個有關原作的熱搜問題！大家對自己的角色定位了解多少？｜GQ Taiwan
                         Netflix 新推出的真人版《航海王》的演員們回答了漫畫和動畫粉絲在 Google 上搜索最多的 50 個問題（劇透警告！） 觀看Iñaki Godoy（飾魯夫）、Emily
                         Rudd（飾娜美）、新田真劍佑（飾索隆）、Taz Skylar（飾香吉士）和 Jacob Romero（是騙人布）回答像是「One Piece
                         是什麼？」、「蒙奇·D·魯夫的父母是誰？」、「香吉士和索隆誰更強？」之類的問題。
@@ -186,18 +179,20 @@
             <h2>google maps</h2>
             <table>
                 <tr>
-                    <td><iframe
+                    <td>
+                        <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14458.918311898247!2d121.53917421173924!3d25.04324968696514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abc4d8b71827%3A0x3d26b8d777e78677!2z5Y-w54Gj6Iiq5rW3546L6aSQ5buzIE9ORSBQSUVDRSBSZXN0YXVyYW50!5e0!3m2!1sen!2stw!4v1696995721563!5m2!1sen!2stw"
                             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe></td>
-                    <td class="yellow">
+                    <td>
                         位在熱鬧的東區，交通方便，店內空間寬敞。店內裝潢充滿滿滿的海賊元素，連餐盤道具與餐點擺飾裝飾也都是海賊相關，餐點還可以，但是偏貴，照燒雞排飯醬味濃郁，但吃到最後可能會有點膩。蔥燒牛肉飯有滿滿的青蔥，口味比較淡一些，蔥給的很多，滿滿蔥的嗆味。紅茶拿鐵很香濃，上面的鮮奶油偏甜了點。布朗尼很濃，白巧克力甜而不膩，很好吃！
-                        店內還有在販賣海賊王相關商品，如果說海賊迷這裡很值得來。</td>
+                        店內還有在販賣海賊王相關商品，如果說海賊迷這裡很值得來。
+                    </td>
                 </tr>
             </table>
         </div>
     </div>
-    <div id="top"><a href="#">top</a></div>
+    <a href="#" id="top">top</a>
 </body>
 
 </html>
