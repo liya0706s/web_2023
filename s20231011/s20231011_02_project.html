@@ -6,6 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        .nav {
+            width: 100%;
+            height: 7vh;
+            background-color: lightgray;
+        }
+
+        .container {
+            width: 85%;
+            height: 66vh;
+            margin: auto;
+            background-color: lightblue;
+
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
         table,
         tr,
         td {
@@ -13,52 +30,65 @@
             border-collapse: collapse;
         }
 
-        td {
-            text-align: center;
-            font-size: larger;
+        table {
+            width: 100%;
+            height: 100%;
         }
 
-        .container{
-            background-image: url('./images/04.jpg');
-            background-repeat: no-repeat;
-            background-position: right;
-            background-size: 50% 480px;
-
+        td {
+            width: 33%;
+            text-align: center;
+            font-size: larger;
+            font-weight: bold;
         }
 
         img {
             width: 150px;
             height: 180px;
+        }
+
+        .box {
             opacity: 0.6;
         }
 
-        .white {
-            color:white;
-            font-size: larger;
+        .box2 {
+            background-image: url('./images/04.jpg');
+            background-repeat: no-repeat;
         }
 
-        .yellow{
-            color: lightcyan;
+        .box3 {
+            background-image: url('./images/04.jpg');
+            background-repeat: no-repeat;
         }
         
     </style>
 </head>
 
 <body>
-    <nav>
+    <div class="nav">
         <ul>
             <li><a href="#v1">卡通</a></li>
             <li><a href="#v2">航海王yt</a></li>
             <li><a href="#v3">航海王餐廳</a></li>
         </ul>
-    </nav>
+    </div>
     <div class="container box1">
-        <h3 id="v1">卡通</h3>
+        <div class="box">
+        <h2 id="v1">卡通</h2>
         <table>
             <tr>
-                <td><img src="./images/18s.gif" alt=""></td>
-                <td><img src="./images/01.avif" alt=""></td>
-                <td><img src="./images/03.jpg" alt=""></td>
+                <td>
+                    <h2>可愛大王</h2>
+                    <img src="./images/18s.gif" alt="">
+                </td>
+                <td>
+                    <h2>航海王</h2>
+                    <img src="./images/01.avif" alt="">
+                </td>
+                <td>
+                    <h2>寶可夢</h2>
+                    <img src="./images/03.jpg" alt="">
+                </td>
             </tr>
             <tr>
                 <td>
@@ -82,34 +112,46 @@
                 </td>
             </tr>
         </table>
-    </div>
+        </div>
 
+    </div>
+    <br>
+    <hr><br>
     <div class="container box2">
-        <h3 id="v2">youtube</h3>
-        <table>
-            <tr>
-                <td><iframe width="560" height="315" src="https://www.youtube.com/embed/fUgUEKL6PIQ?si=GLtS_6eesbs-6KFt"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe></td>
-                <td class="yellow">Netflix《航海王》演員回答50個有關原作的熱搜問題！大家對自己的角色定位了解多少？｜GQ Taiwan
-                    Netflix 新推出的真人版《航海王》的演員們回答了漫畫和動畫粉絲在 Google 上搜索最多的 50 個問題（劇透警告！） 觀看Iñaki Godoy（飾魯夫）、Emily
-                    Rudd（飾娜美）、新田真劍佑（飾索隆）、Taz Skylar（飾香吉士）和 Jacob Romero（是騙人布）回答像是「One Piece
-                    是什麼？」、「蒙奇·D·魯夫的父母是誰？」、「香吉士和索隆誰更強？」之類的問題。
-                </td>
-            </tr>
-        </table>
+        <div class="box">
+            <h2 id="v2">youtube</h2>
+            <table>
+                <tr>
+                    <td><iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/fUgUEKL6PIQ?si=GLtS_6eesbs-6KFt"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe></td>
+                    <td class="yellow">Netflix《航海王》演員回答50個有關原作的熱搜問題！大家對自己的角色定位了解多少？｜GQ Taiwan
+                        Netflix 新推出的真人版《航海王》的演員們回答了漫畫和動畫粉絲在 Google 上搜索最多的 50 個問題（劇透警告！） 觀看Iñaki Godoy（飾魯夫）、Emily
+                        Rudd（飾娜美）、新田真劍佑（飾索隆）、Taz Skylar（飾香吉士）和 Jacob Romero（是騙人布）回答像是「One Piece
+                        是什麼？」、「蒙奇·D·魯夫的父母是誰？」、「香吉士和索隆誰更強？」之類的問題。
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <div class="container box3">
-        <h3 id="v3">google maps</h3>
-        <table>
-            <tr>
-                <td><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14458.918311898247!2d121.53917421173924!3d25.04324968696514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abc4d8b71827%3A0x3d26b8d777e78677!2z5Y-w54Gj6Iiq5rW3546L6aSQ5buzIE9ORSBQSUVDRSBSZXN0YXVyYW50!5e0!3m2!1sen!2stw!4v1696995721563!5m2!1sen!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></td>
-                <td class="yellow">位在熱鬧的東區，交通方便，店內空間寬敞。店內裝潢充滿滿滿的海賊元素，連餐盤道具與餐點擺飾裝飾也都是海賊相關，餐點還可以，但是偏貴，照燒雞排飯醬味濃郁，但吃到最後可能會有點膩。蔥燒牛肉飯有滿滿的青蔥，口味比較淡一些，蔥給的很多，滿滿蔥的嗆味。紅茶拿鐵很香濃，上面的鮮奶油偏甜了點。布朗尼很濃，白巧克力甜而不膩，很好吃！
-                    店內還有在販賣海賊王相關商品，如果說海賊迷這裡很值得來。</td>
-            </tr>
-        </table>
+        <div class="box">
+            <h2 id="v3">google maps</h2>
+            <table>
+                <tr>
+                    <td><iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14458.918311898247!2d121.53917421173924!3d25.04324968696514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abc4d8b71827%3A0x3d26b8d777e78677!2z5Y-w54Gj6Iiq5rW3546L6aSQ5buzIE9ORSBQSUVDRSBSZXN0YXVyYW50!5e0!3m2!1sen!2stw!4v1696995721563!5m2!1sen!2stw"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe></td>
+                    <td class="yellow">
+                        位在熱鬧的東區，交通方便，店內空間寬敞。店內裝潢充滿滿滿的海賊元素，連餐盤道具與餐點擺飾裝飾也都是海賊相關，餐點還可以，但是偏貴，照燒雞排飯醬味濃郁，但吃到最後可能會有點膩。蔥燒牛肉飯有滿滿的青蔥，口味比較淡一些，蔥給的很多，滿滿蔥的嗆味。紅茶拿鐵很香濃，上面的鮮奶油偏甜了點。布朗尼很濃，白巧克力甜而不膩，很好吃！
+                        店內還有在販賣海賊王相關商品，如果說海賊迷這裡很值得來。</td>
+                </tr>
+            </table>
+        </div>
     </div>
 </body>
 
