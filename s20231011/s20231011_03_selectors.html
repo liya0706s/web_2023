@@ -14,12 +14,23 @@
         .classP {
             color:aquamarine;
         }
+
+        /* 組合使用，.box的下一層 */
+        .box > p {
+            color: pink;
+        }
+        .box>h2 {
+            color:brown;
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
         <!-- element -->
         <h2>basic selectors</h2>
+        <!-- 這裡的p不在組合使用的變色範圍內 -->
+        <p>安安阿耶耶耶</p>
         <br>
         <!-- id -->
         <div id="myP">Lorem ipsum dolor sit.</div>
@@ -27,6 +38,13 @@
         <!-- class -->
         <div class="classP">Lorem ipsum dolor sit amet consectetur.</div>
     
+        <div class="box">
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+        </div>
+
         <!-- 選擇器 -->
         <!-- 1. CSS 越靠近 優先 -->
         <!-- 2. 精準指定 優先 -->
