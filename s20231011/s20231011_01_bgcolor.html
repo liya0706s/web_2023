@@ -12,13 +12,14 @@
             height: 95vh;
             margin:auto;
             background-color: lightblue;
-            background-image:url(./images/01.avif);
+            background-image:url('./images/01.avif');
         }
         .box1 {
             background-color: lightblue;
-            background-image:url(./images/01.avif);
+            background-image:url(./images/01.avif), url('./images/02.jpg');
             background-repeat: no-repeat;
-            background-position: right bottom;
+            background-position: right bottom, left top;
+            width: 80%;    
         }
         .box2 {
             width:20%;
@@ -26,10 +27,41 @@
             background-image:url(./images/01.avif);
             background-repeat: no-repeat;
         }
+        table, tr, td {
+            border: 1px black solid;
+            border-collapse: collapse;
+        }
+        table {
+            margin: auto;
+            width: 80%;  
+            /* container的80趴 */
+            height: 50vh;
+            /* 外一層container的50vh */
+        }
+        img{
+            width: 120px;
+            opacity: 0.6;
+        }
+        td {
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
     <div class="container box1">
+        <table>
+            <tr>
+                <td><img src="./images/03.jpg" alt=""></td>
+                <td><img src="./images/03.jpg" alt=""></td>
+                <td><img src="./images/03.jpg" alt=""></td>
+            </tr>
+            <tr>
+                <td><img src="./images/03.jpg" alt=""></td>
+                <td><img src="./images/03.jpg" alt=""></td>
+                <td><img src="./images/03.jpg" alt=""></td>
+            </tr>
+        </table>
 
     </div>
     <div class="container box2">
