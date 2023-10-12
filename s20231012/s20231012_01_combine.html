@@ -26,6 +26,24 @@
         .box1 > div > p {
             color: pink;
         }
+
+        /* > 只影響下一層 */
+        /* divA下一層沒有p,是divA下divA1的下一層才有p */
+        .divA > p {
+            color:blue;
+        }
+
+        /* 空格 影響所有以下的 */
+        .divB p {
+            color:yellow;
+        }
+
+        .sibling + p{
+            color:lightcoral;
+        }
+        .sibling~p{
+            color:lightgreen;
+        }
     </style>
 </head>
 <body>
@@ -83,5 +101,34 @@
     <div class="container box3">
         
     </div>
+
+    <h3>空格 如果可以 要少用</h3>
+    <div class="divA">
+        divA Lorem ipsum dolor sit amet.
+        <div class="divA1">
+            divA1
+            <p>pp Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+    </div>
+    <br>
+    <div class="divB">
+        divB Lorem ipsum dolor sit amet.
+        <div class="divB1">
+            divB1
+            <p>pp Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+    </div>
+
+    <br><hr><br>
+    <!-- 同一層的兄弟用加+ -->
+    <div class="sibling">
+        <p>Lorem ipsum dolor sit amet.</p>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+    <p>Lorem ipsum dolor sit.</p>
+    <p>Lorem ipsum dolor sit.</p>
+    <p>Lorem ipsum dolor sit.</p>
 </body>
 </html>
