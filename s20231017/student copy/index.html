@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            margin:auto;
+            width:80%;
+            margin-top:30px;
+        }
+        table, tr, td, th{
+            border: 2px palevioletred solid;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        table{
+            width:100%;
+        }
+
+        .myTable tr:nth-child(odd){
+            background-color: lightpink;
+        }
+
+        th {
+            background-color: lightgrey;
+            /* color: white; */
+        }
+
+        img {
+            width: 180px;
+            height: 15vh;
+        }
+        .text-right{
+            text-align:right;
+        }
+
+        .text-right > a{
+            text-decoration: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container text-right">
+        <h3>Student List</h3>
+        <a href="./create.html">Next page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <table class="myTable">
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>mobile</th>
+                <th>pic</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>amy</td>
+                <td>0911-111-111</td>
+                <td>
+                    <img src="https://picsum.photos/seed/picsum/200/300" alt="">
+                    amy.jpg
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>bob</td>
+                <td>0912-345-678</td>
+                <td>bob.jpg</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>cat</td>
+                <td>0933-333-333</td>
+                <td>cat.jpg</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>amy</td>
+                <td>0911-111-111</td>
+                <td>amy.jpg</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>bob</td>
+                <td>0912-345-678</td>
+                <td>bob.jpg</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>cat</td>
+                <td>0933-333-333</td>
+                <td>cat.jpg</td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+</html>
