@@ -27,13 +27,25 @@
             background-color: lightgrey;
             /* color: white; */
         }
-        
+
+        img {
+            width: 180px;
+            height: 15vh;
+        }
+        .text-right{
+            text-align:right;
+        }
+
+        .text-right > a{
+            text-decoration: none;
+        }
         
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container text-right">
         <h3>Student List</h3>
+        <a href="./create.html">Next page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
         <table class="myTable">
             <tr>
                 <th>id</th>
@@ -46,7 +58,10 @@
                 <td>1</td>
                 <td>amy</td>
                 <td>0911-111-111</td>
-                <td>amy.jpg</td>
+                <td>
+                    <img src="https://picsum.photos/seed/picsum/200/300" alt="">
+                    amy.jpg
+                </td>
             </tr>
             <tr>
                 <td>2</td>
