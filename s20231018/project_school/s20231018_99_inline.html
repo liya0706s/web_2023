@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        th,
+        tr,
+        td {
+            border: 2px black solid;
+            border-collapse: collapse;
+        }
+
+        table{
+            width
+        }
+
+        td>div{
+            background-color: lightgoldenrodyellow;
+            width: 50px;
+            height: 55px;
+        }
+
+        .inline{
+            background-color: lightpink;
+            
+        }
+        .inline-block{
+            display:inline-block;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <table>
+            <tr>
+                <th>display:</th>
+                <th>origin</th>
+                <th>after</th>
+                <th>example tag</th>
+            </tr>
+            <tr>
+                <td>inline</td>
+                <td>
+                    <span>123</span>
+                    <span>456</span>
+                    <a href="">789</a>
+                </td>
+                <td >
+                    <span class="inline">123</span>
+                    <span class="inline">456</span>
+                    <a href="" class="inline">789</a>
+                </td>
+                <td>span、a、input、img</td>
+            </tr>
+            <tr>
+                <td>block</td>
+                <td>
+                    123456789
+                </td>
+                <td>
+                    <div>123</div>
+                    <div>456</div>
+                    <div>789</div>
+                </td>
+                <td>div、ul li、p、h1</td>
+            </tr>
+            <tr>
+                <td>inline-block</td>
+                <td>123456789</td>
+                <td>
+                    <span class="inline-block">123</span>
+                    <span class="inline-block">456</span>
+                    <span class="inline-block">789</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
