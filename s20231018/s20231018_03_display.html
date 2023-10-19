@@ -5,15 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+
+        /* span只有inline不能調整大小，也不會換行。 */
         span {
             width:100px;
             height: 50px;
             background-color: lightblue;
         }
+
+        /* span套上display:block css會變成block，會換行可以調整大小 */
         .display-block{
             display: block;
+            border-radius: 25px;
         }
 
+        /* a標籤本身是inline */
+        /* 因為下一個bbb有套用display:block所以bbb換行了，且可以調整大小 */
+        /* ccc和ddd都是預設的a標籤，inline */
         a {
             width:50px;
             height:100px;

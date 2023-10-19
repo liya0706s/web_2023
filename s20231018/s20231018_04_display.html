@@ -4,8 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* 更改寬和高沒有變動，所以a標籤不是inline-block,是inline */
+        a {
+            width:300px;
+            height:300px;
+            background-color: lightsteelblue;
+        }
+
+        /* 變成block可以塞圖片，做效果 */
+        a:active {
+            display: block;
+            background-image: url('https://picsum.photos/id/24/200/300');
+            background-repeat: no-repeat;
+        }
+
+        nav > .my-div {
+            width:150px;
+            height: 150px;
+            background-image: url('https://picsum.photos/id/36/200/300');
+        }
+    </style>
 </head>
 <body>
-    
+    <nav>
+        <!-- a標籤是inline -->
+        <a href="">Home</a>
+        <a href="">About</a>
+        <a href="">Other</a>
+        
+        <!-- 比較用div包a標籤 -->
+        <div class="my-div">
+            <a href="">div-home</a>
+        </div>
+        <div class="my-div">
+            <a href="">div-about</a>
+        </div>
+        <div class="my-div">
+            <a href="">div-other</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- img是inline -->
+        <img src="https://picsum.photos/200/300" alt="">
+        <img src="https://picsum.photos/200/300" alt="">
+        <img src="https://picsum.photos/200/300" alt="">
+        <!-- 用p標籤包img做換行 -->
+        <p>
+            <img src="https://picsum.photos/id/20/200/300" alt="">
+        </p>
+        <p>
+            <img src="https://picsum.photos/id/22/200/300" alt="">
+        </p>
+        <p>
+            <img src="https://picsum.photos/id/24/200/300" alt="">
+        </p>
+        <!-- 有無用p標籤包input的差別 -->
+        <!-- input是inline --> 
+        <!-- 只有用br斷行還是很擠 -->
+        <input type="text"> <br>
+        <input type="text">
+        <input type="text">
+        <hr>
+        <!-- 以下是用p標籤包input -->
+        <p>
+            <input type="text">
+        </p>
+        <p>
+            <input type="text">
+        </p>
+        <p>
+            <input type="text">
+        </p>
+    </div>
 </body>
 </html>
