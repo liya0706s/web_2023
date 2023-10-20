@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Margin</title>
+    <style>
+        .container {
+            background-color: lightgrey;
+            width: 80%;
+            height: 50vh;
+            /* 灰色margin上方空白50px */
+            margin-top: 50px;
+            /* padding內推上方，藍色上方被內推30px */
+            padding-top: 30px;
+            border: 1px black solid;
+        }
+        .box {
+            background-color: lightblue;
+            width: 80%;
+            height: 20vh;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="box">
+
+        </div>
+    </div>
 </body>
 </html>
