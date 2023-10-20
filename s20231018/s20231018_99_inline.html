@@ -12,15 +12,16 @@
         td {
             border: 2px black solid;
             border-collapse: collapse;
+            font-size: 20px;
         }
 
-        table{
-            width: 50%;
+        td {
+            padding: 10px;
         }
 
         td > div {
             background-color: lightgoldenrodyellow;
-            /* width: 50px; */
+            width: 500px;
             height: 55px;
         }
 
@@ -31,6 +32,8 @@
         .inline-block{
             display:inline-block;
             background-color: lightblue;
+            width:30%;
+            height:8vh;
         }
         .div-1{
             color:red;
@@ -40,6 +43,13 @@
         }
         .div-3{
             color:green;
+        }
+        .center {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -51,10 +61,11 @@
                 <th>display:</th>
                 <th>origin</th>
                 <th>after</th>
+                <th>大小/換行</th>
                 <th>常見代表</th>
             </tr>
             <tr>
-                <td>inline</td>
+                <td class="center">inline</td>
                 <td>
                     <span>123</span>
                     <span>456</span>
@@ -64,10 +75,13 @@
                     <span class="inline">123456</span>
                     <a href="" class="inline">789</a>
                 </td>
+                <td>
+                    不可調整大小，不會換行
+                </td>
                 <td>span、a、input、img</td>
             </tr>
             <tr>
-                <td>block</td>
+                <td class="center">block</td>
                 <td>
                     123456789
                 </td>
@@ -76,16 +90,18 @@
                     <div class="div-2">456</div>
                     <div class="div-3">789</div>
                 </td>
+                <td>可調整大小、會換行</td>
                 <td>div、ul li、p、h1</td>
             </tr>
             <tr>
-                <td>inline-block</td>
+                <td class="center">inline-block</td>
                 <td>123456789</td>
                 <td>
                     <span class="inline-block">123</span>
                     <span class="inline-block">456</span>
                     <span class="inline-block">789</span>
                 </td>
+                <td>可調整大小、不會換行</td>
             </tr>
         </table>
     </div>
