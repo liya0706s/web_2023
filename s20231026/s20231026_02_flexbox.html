@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            /* 宣告flexbox */
+            display: flex;
+            /* 以row為主 */
+            flex-direction: row;
+            /* 以container的row置中 */
+            justify-content: space-evenly;
+            /* 以column 置中 */
+            align-items: center;
+            background-color: lightblue;
+            width:100%;
+            height: 80vh;
+            margin: auto;
+            flex-wrap:wrap;
+        }
+        .item{
+            width:300px;
+            height: 300px;
+            background-color: lightgrey;
+        }
+        .item-0{
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">item1</div>
+        <div class="item">item2</div>
+        <div class="item">item3</div>
+        <div class="item">item4</div>
+        <div class="item">item5</div>
+        <div class="item">item6</div>
+        <div class="item-0">item7</div>
+        <div class="item-0">item8</div>
+    </div>
+</body>
+</html>
