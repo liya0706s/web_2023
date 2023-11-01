@@ -25,7 +25,7 @@
             width: 80%;
             background-color: lightblue;
             margin: auto;
-            height: 75vh;
+            height: 50vh;
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
@@ -46,10 +46,14 @@
 
         .h-30 {
             height: 30vh;
+            align-items: center;
         }
 
         .w-20 {
             width: 20%;
+        }
+        .w-100{
+            width: 100%;
         }
 
         .w-50 {
@@ -60,8 +64,11 @@
         }
 
         img {
-            border-radius: 25%;
+            border-radius: 20%;
             box-shadow: 5px 5px lightcoral;
+        } 
+        input[type="file"]{
+            margin: auto;
         }
     </style>
 </head>
@@ -89,7 +96,7 @@
                 name
             </div>
             <div class="item w-50 h-30">
-                <img src="https://picsum.photos/200/150" alt="">
+                <img src="https://picsum.photos/400/180" alt="">
             </div>
             <div class="item w-20 h-30">
                 <input type="file" name="" id="">
