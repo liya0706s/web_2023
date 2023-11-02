@@ -49,8 +49,11 @@
     color: #FF00FF;
     font-family: '標楷體';
     font-weight: 500;
-    margin-top: 10px;
+    margin-top: 50px;
     margin-bottom: 10px;
+    /* border-bottom: 2px solid black; */
+    width: 100px;
+    margin:auto;
 }
 
 .club{
@@ -69,6 +72,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
+    margin-top: 15px;
 }
 
 .club:hover{
@@ -113,4 +117,8 @@
     /* background-color: blue; */
     border: 1px solid black;
     margin: auto;
+    font-family: '標楷體';
+    color: #000000;
+    text-align: center;
+    font-size: 16px;
 }
