@@ -42,6 +42,39 @@
     /* background-color: purple; */
 }
 
+.intro{
+    font-size: 24px;
+    text-decoration: underline black;
+    text-align: center;
+    color: #FF00FF;
+    font-family: '標楷體';
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.club{
+    margin: auto;
+    width: 200px;
+    height: 35px;
+    /* 從資料夾找 圖片內容的尺寸 */
+    color: #000000;
+    font-size: 16px;
+    font-family: '標楷體';
+    font-weight: 500;
+    /* border: 1px solid black; */
+    background-image: url(./images/menu1.png);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.club:hover{
+    background-image: url(./images/menu2.png);
+}
+
 .aside-footer{
     height: 25px;
     /* background-color: lightblue; */
