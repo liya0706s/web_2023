@@ -105,13 +105,15 @@
     
 }
 
-
 .main-header{
     height: 29px;
     /* background-color: lightcyan; */
     /* width: 215px; */
     color: #0000FF;
     font-family: '標楷體';
+    display: flex;
+    align-items: center;
+    font-size: 24px;
 }
 .main-footer{
     height: calc(100% - 29px);
@@ -137,3 +139,4 @@ iframe{
     text-align: center;
     font-size: 16px;
 }
+
