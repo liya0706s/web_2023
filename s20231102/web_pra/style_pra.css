@@ -1,0 +1,35 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+
+.header{
+    width: 1024px;
+    height: 65px;
+    background-color: lightgoldenrodyellow;
+}
+.aside{
+    width: 215px;
+    height: calc(768px - 65px);
+    background-color: tomato;
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+}
+
+.aside-header{
+    height:calc(100% - 25px);
+    background-color: lightcyan;
+}
+
+.aside-footer{
+    height: 25px;
+    background-color: lightgreen;
+}
+.main{
+    width: calc(100% - 215px);
+    background-color: lightslategray;
+}
