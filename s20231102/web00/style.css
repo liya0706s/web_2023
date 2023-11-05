@@ -9,6 +9,7 @@
     margin: auto;
     display: flex;
     flex-wrap: wrap;
+    /* 斷行設定在container這 */
 }
 
 /* body{
@@ -108,7 +109,6 @@
 .main-header{
     height: 29px;
     /* background-color: lightcyan; */
-    /* width: 215px; */
     color: #0000FF;
     font-family: '標楷體';
     display: flex;
@@ -117,6 +117,7 @@
 }
 .main-footer{
     height: calc(100% - 29px);
+    /* main的100%-29px */
     /* background-color: lightpink; */
 }
 
