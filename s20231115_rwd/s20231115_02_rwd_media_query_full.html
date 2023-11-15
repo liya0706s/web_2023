@@ -6,6 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 <style>
+    /* mobile css */
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        background-color: lightblue;
+        margin:auto;
+        width: 100%;
+        /* height: 80vh; */
+    }
+    .item{
+        border: 3px solid black;
+        width: 80%;
+        height: 300px;
+        background-color: lightgrey;
+        margin-bottom: 30px;
+    }
+
     /* large css */
     .container{
         display: flex;
@@ -24,29 +43,8 @@
     }
 
 
-    /* mobile css */
-    .container{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: center;
-        background-color: lightblue;
-        margin:auto;
-        /* 修改以下 */
-        width: 100%;
-        /* height: 80vh; */
-    }
-    .item{
-        /* 增加border */
-        border: 3px solid black;
-        /* 寬度變寬 */
-        width: 80%;
-        height: 300px;
-        background-color: lightgrey;
-        margin-bottom: 30px;
-    }
+    
 
-    /* 兩者差異點: container多高度，item下margin-bottom有間距、下width */
 </style>
 </head>
 <body>

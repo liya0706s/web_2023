@@ -3,10 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>沒有bootstrap的form表單包table</title>
+    <style>
+        table, tr, td{
+            border: 2px solid blue;
+            border-collapse:collapse;
+        }
+
+        table{
+            width:100%;
+        }
+
+        input {
+            width:90%;
+            margin-left: 10px;
+        }
+
+    </style>
 </head>
 <body>
-    <!-- form要在 table外面 -->
-    
+    <!-- form要在table外面 -->
+    <form action="">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" name="" id="">
+                </td>
+                <td>
+                    <input type="text" name="" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="" id="">
+                </td>
+                <td>
+                    <input type="text" name="" id="">
+                </td>
+            </tr>
+        </table>
+    </form>
 </body>
 </html>
