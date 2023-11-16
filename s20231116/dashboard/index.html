@@ -23,6 +23,7 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
   <!-- font awesome css -->
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.css"
     integrity="sha512-KOWhIs2d8WrPgR4lTaFgxI35LLOp5PRki/DxQvb7mlP29YZ5iJ5v8tiLWF7JLk5nDBlgPP1gHzw96cZ77oD7zQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -72,7 +73,7 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">
                 <span data-feather="home"></span>
-                Dashboard
+                Dashboard12345
               </a>
             </li>
             <li class="nav-item">
@@ -143,151 +144,81 @@
       </nav>
 
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div
-          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">Dashboard</h1>
-          <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group me-2">
-              <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-            </div>
-            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-              <span data-feather="calendar"></span>
-              This week
-            </button>
+        <!-- content -->
+
+        <div class="container mt-3">
+          <h2>Products</h2>
+          <p>The .table-hover class enables a hover state on table rows:</p>
+          <div class="text-end mb-2">
+            <a href="./create.html" class="btn btn-success">&nbsp; <i class="fa-solid fa-square-plus"></i> &nbsp;</a>
           </div>
-        </div>
-
-        <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-
-        <h2>Section title</h2>
-        <div class="table-responsive">
-          <table class="table table-striped table-sm">
+          <table class="table table-hover text-center align-middle ">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Header</th>
-                <th scope="col">Header</th>
-                <th scope="col">Header</th>
-                <th scope="col">Header</th>
+                <th width="5%">id</th>
+                <th width="20%">img_url</th>
+                <th width="30%">desc</th>
+                <th width="5%">price</th>
+                <th width="10%">unit</th>
+                <th>operate</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>1,001</td>
-                <td>random</td>
-                <td>data</td>
-                <td>placeholder</td>
-                <td>text</td>
+                <td>
+                  <div class="td-box">
+                    1
+                  </div>
+                </td>
+                <td>
+                  <div class="td-box">
+                    <img src="https://picsum.photos/id/25/5000/3333" class="img-rounded" alt="Cinque Terre" width="304"
+                      height="236">
+
+
+                  </div>
+                </td>
+
+                <td class="text-start">
+                  <div class="td-box">
+                    <p class="w-100">
+                      imgURL:pic.jpg
+                    </p>
+                    <p class="w-100">
+                      Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Earum,
+                      corrupti! Lorem ipsum dolor sit amet.
+                    </p>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="td-box">
+                    45
+                  </div>
+                </td>
+
+                <td>
+                  <div class="td-box">
+                    元
+                  </div>
+                </td>
+
+                <td>
+                  <div class="td-box-btn">
+                    <a href="./edit.html" class="btn btn-primary"> <i class="fa-solid fa-pen-to-square"></i> </a>
+                    <a href="./del.html" class="ms-3 btn btn-danger"> <i class="fa-solid fa-trash"></i> </a>
+
+                  </div>
+                </td>
               </tr>
-              <tr>
-                <td>1,002</td>
-                <td>placeholder</td>
-                <td>irrelevant</td>
-                <td>visual</td>
-                <td>layout</td>
-              </tr>
-              <tr>
-                <td>1,003</td>
-                <td>data</td>
-                <td>rich</td>
-                <td>dashboard</td>
-                <td>tabular</td>
-              </tr>
-              <tr>
-                <td>1,003</td>
-                <td>information</td>
-                <td>placeholder</td>
-                <td>illustrative</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td>1,004</td>
-                <td>text</td>
-                <td>random</td>
-                <td>layout</td>
-                <td>dashboard</td>
-              </tr>
-              <tr>
-                <td>1,005</td>
-                <td>dashboard</td>
-                <td>irrelevant</td>
-                <td>text</td>
-                <td>placeholder</td>
-              </tr>
-              <tr>
-                <td>1,006</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td>1,007</td>
-                <td>placeholder</td>
-                <td>tabular</td>
-                <td>information</td>
-                <td>irrelevant</td>
-              </tr>
-              <tr>
-                <td>1,008</td>
-                <td>random</td>
-                <td>data</td>
-                <td>placeholder</td>
-                <td>text</td>
-              </tr>
-              <tr>
-                <td>1,009</td>
-                <td>placeholder</td>
-                <td>irrelevant</td>
-                <td>visual</td>
-                <td>layout</td>
-              </tr>
-              <tr>
-                <td>1,010</td>
-                <td>data</td>
-                <td>rich</td>
-                <td>dashboard</td>
-                <td>tabular</td>
-              </tr>
-              <tr>
-                <td>1,011</td>
-                <td>information</td>
-                <td>placeholder</td>
-                <td>illustrative</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td>1,012</td>
-                <td>text</td>
-                <td>placeholder</td>
-                <td>layout</td>
-                <td>dashboard</td>
-              </tr>
-              <tr>
-                <td>1,013</td>
-                <td>dashboard</td>
-                <td>irrelevant</td>
-                <td>text</td>
-                <td>visual</td>
-              </tr>
-              <tr>
-                <td>1,014</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td>1,015</td>
-                <td>random</td>
-                <td>tabular</td>
-                <td>information</td>
-                <td>text</td>
-              </tr>
+
             </tbody>
           </table>
         </div>
+
+        <!-- content end -->
+
       </main>
     </div>
   </div>
