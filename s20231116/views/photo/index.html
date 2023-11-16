@@ -15,11 +15,29 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
+        .td-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            height: 236px;
+            /* 不用bs的align-middle，高度要抓出來flexbox才有辦法顯現 */
+        }
+
+        .td-box-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 236px;
+
+        }
+
         body{
             background-image: url("https://picsum.photos/id/10/2500/1667");
         }
 
-        table, tr, td{
+        table{
             background-color: pink;
         }
     </style>
@@ -57,12 +75,12 @@
       </nav>
 
     <div class="container mt-3">
-        <h2>Products</h2>
+        <h2>Photos</h2>
         <p>The .table-hover class enables a hover state on table rows:</p>
-        <div class="text-end mb-2">
-            <a href="./create.html" class="btn btn-success">&nbsp; <i class="fa-solid fa-square-plus"></i> &nbsp;</a>
+        <div class="text-end">
+            <a href="#" class="btn btn-success">&nbsp; <i class="fa-solid fa-square-plus"></i> &nbsp;</a>
         </div>
-        <table class="table table-hover text-center align-middle ">
+        <table class="table table-hover text-center">
             <thead>
                 <tr>
                     <th width="5%">id</th>
@@ -82,10 +100,8 @@
                     </td>
                     <td>
                         <div class="td-box">
-                            <img src="https://picsum.photos/id/25/5000/3333" class="img-rounded" alt="Cinque Terre"
+                            <img src="https://picsum.photos/id/16/310/250" class="img-rounded" alt="Cinque Terre"
                                 width="304" height="236">
-
-                                
                         </div>
                     </td>
 
@@ -116,8 +132,8 @@
 
                     <td>
                         <div class="td-box-btn">
-                            <a href="./edit.html" class="btn btn-primary"> <i class="fa-solid fa-pen-to-square"></i> </a>
-                            <a href="./del.html" class="ms-3 btn btn-danger"> <i class="fa-solid fa-trash"></i> </a>
+                            <a href="#" class="btn btn-primary"> <i class="fa-solid fa-pen-to-square"></i> </a>
+                            <a href="#" class="ms-3 btn btn-danger"> <i class="fa-solid fa-trash"></i> </a>
                             
                         </div>
                     </td>
