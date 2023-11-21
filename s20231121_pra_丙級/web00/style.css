@@ -69,10 +69,17 @@
 
 .club > a {
     color:#000000;
-    font-size: 16px;
+    font-size: 18px;
     text-decoration: none;
 }
 
+.club-1:hover{
+    background-image: url(./images/menu2.png);
+}
+
+.club:hover{
+    background-image: url(./images/menu2.png);
+}
 
 .aside-footer{
     width: 215px;
@@ -118,4 +125,5 @@
     width: 1024px;
     height: 20px;
     /* background-color: lightseagreen; */
+    text-align: center;
 }
