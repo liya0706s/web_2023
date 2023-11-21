@@ -70,9 +70,11 @@
     /* border: 1px solid black; */
     background-image: url(./images/menu1.png);
     text-align: center;
+
     display: flex;
     justify-content: center;
     align-items: center;
+    
     margin-bottom: 10px;
     margin-top: 15px;
 }

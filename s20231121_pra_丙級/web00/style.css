@@ -28,22 +28,59 @@
 .aside{  
     width: 215px;
     height: calc(768px - 65px- 20px);
-    background-color: yellow;
+    /* background-color: yellow; */
     border: 1px black solid;
     border-top:0;
     border-right: 0;
+    text-align: center;
 }
 
 .aside-header{
     width: 215px;
     height: calc(100% - 25px);
-    background-color: lightcoral; 
+    /* background-color: lightcoral;  */
 }
+
+.intro{
+    text-align: center;
+    text-decoration: underline black;
+    font-weight: 500;
+    font-size: 24px;
+    color:#FF00FF;
+}
+
+.club-1, .club{
+    color:#000000;
+    font-size: 16px;
+    background-image: url(./images/menu1.png);
+    width: 200px;
+    height: 35px;
+    text-align: center;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top:10px;
+    margin-bottom:10px;
+
+}
+
+.club > a {
+    color:#000000;
+    font-size: 16px;
+    text-decoration: none;
+}
+
 
 .aside-footer{
     width: 215px;
     height: 25px;
-    background-color: grey; 
+    /* background-color: grey;  */
+    color: #000000;
+    font-size: 16px;
+    text-align: center;
 }
 
 .main-header{
@@ -53,8 +90,6 @@
     font-size: 24px;
     /* background-color: lightskyblue;  */
     border-bottom: 1px black solid;
-    
-
 }
 
 .main-footer{
@@ -68,8 +103,6 @@
     height: 100%;
     /* background-color: purple;  */
 }
-
-
 
 .main{
     border: 1px black solid;
