@@ -53,7 +53,7 @@ body{
 .club-1, .club{
     color:#000000;
     font-size: 16px;
-    background-image: url(./images/menu1.png);
+    background-image: url(../images/menu1.png);
     width: 200px;
     height: 35px;
     text-align: center;
@@ -75,11 +75,11 @@ body{
 }
 
 .club-1:hover{
-    background-image: url(./images/menu2.png);
+    background-image: url(../images/menu2.png);
 }
 
 .club:hover{
-    background-image: url(./images/menu2.png);
+    background-image: url(../images/menu2.png);
 }
 
 .aside-footer{
