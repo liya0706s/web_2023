@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+    font-family: '標楷體';
+    overflow: hidden;
+}
+
+body{
+    width:1024px;
+    height: 768px;
+    /* margin:auto; */
+}
+
+.header {
+    width: 1024px;
+    height: 65px;
+    /* background-color: lightpink; */
+    border: 1px solid black;
+    text-align: center;
+}
+
+.container {
+    width: 1024px;
+    /* height: calc(768px - 65px); */
+    /* background-color: lightblue; */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.aside {
+    width: 215px;
+    height: calc(768px - 65px - 20px);
+    /* background-color: lightgoldenrodyellow; */
+    border: 1px black solid;
+    border-top:0;
+    text-align: center;
+}
+
+.main {
+    width: calc(1024px - 215px);
+    height: calc(768px - 65px - 20px);
+    /* background-color: lightsalmon; */
+}
+
+.footer {
+    width: 1024px;
+    height: 20px;
+    /* background-color: lightgray; */
+    border: 1px solid black;
+    border-top: 0;
+}
+
+.aside-header{
+    width:215px;
+    height: calc(100% - 25px);
+    /* background-color: lightgreen; */
+}
+
+.aside-footer{
+    width:100%;
+    height: 25px;
+    /* background-color: lightseagreen; */
+    border-top:1px black solid;
+    text-align: center;
+}
+
+.main-header{
+    width: 100%;
+    height: 29px;
+    /* background-color: lightskyblue; */
+    border-right: 1px black solid;
+    border-bottom: 0;
+    font-size: 24px;
+    color: #0000FF;
+}
+
+.main-footer{
+    width: calc(1024px - 215px);
+    height: calc(768px - 65px - 29px - 20px);
+    /* background-color: plum; */
+    border: 1px black solid;
+    border-left: 0;
+}
+
+/* 重要!!! */
+.main-footer > iframe{
+    width:100%;
+    height:100%;
+}
+
+.intro{
+    font-size: 24px;
+    text-decoration: underline;
+    color: #FF00FF;
+    margin-bottom: 6px;
+}
+
+.club-1, .club{
+    color: #000000;
+    font-size: 16px;
+    background-image: url(../images/menu1.png);
+    width:200px;
+    height:35px;
+    text-align: center;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 5px;
+}
+
+.club-1:hover{
+    background-image: url(../images/menu2.png);
+}
+
+.club:hover{
+    background-image: url(../images/menu2.png);
+}

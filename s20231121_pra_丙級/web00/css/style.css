@@ -22,6 +22,7 @@ body{
 .container{
     width: 1024px;
     /* height: calc(768px - 65px); */
+    /* flexbox 重要，aside和main才會換行 */
     display: flex;
     flex-wrap: wrap;
 }
