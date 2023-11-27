@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<style>
+  .modalBox {
+    width: 300px;
+    height: 300px;
+    background-color: lightblue;
+    margin: auto;
+    overflow-y: scroll;
+
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+
+
+<body>
+
+  <div class="container mt-3">
+    <h3>Modal Example</h3>
+    <p>Click on the button to open the modal.</p>
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+      Open modal
+    </button>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal">
+      Open modal
+    </button>
+  </div>
+
+  <div class="modalBox" id="modalBox">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum autem accusamus ex ut doloribus in consequuntur
+    deleniti, eveniet sequi totam recusandae incidunt iusto vel veniam ad suscipit, similique, reiciendis esse excepturi
+    rerum eaque modi. Molestiae quam voluptates ducimus enim, eveniet deserunt dolorem doloribus tempore magni? Libero
+    animi fuga perspiciatis eum beatae delectus maiores minus numquam! Placeat tempora, obcaecati beatae, saepe magnam
+    totam veritatis quibusdam nostrum doloremque dolorem ullam quaerat, fugit aliquid. Facere quos nostrum tempora
+    magni, debitis doloribus corrupti non velit repellendus veritatis! Tenetur, blanditiis deleniti ab, cumque optio
+    perferendis aliquam unde adipisci ipsum corrupti, at deserunt nobis error necessitatibus? Fuga accusantium totam
+    molestias eius quibusdam cum? Dolor ratione cumque saepe quam quae ullam, nostrum mollitia accusamus culpa tempore
+    sed modi quod. Laboriosam eaque facilis velit, maiores ipsam natus similique voluptate recusandae nostrum quos sed
+    iusto vitae praesentium ducimus? Iure commodi voluptatem harum! Commodi, corrupti qui quibusdam libero non
+    perferendis veniam. Doloribus rerum accusantium natus suscipit. Saepe, aliquam. Saepe ratione labore sequi! Illo
+    quaerat facilis accusamus nesciunt! Voluptate repellat nihil modi iusto maxime accusantium, et amet ducimus beatae
+    perspiciatis assumenda, excepturi maiores vel nam veniam. Sapiente illum ipsum est natus. Voluptates dicta minus
+    veniam neque minima magni, explicabo quod earum vero, aliquid, incidunt omnis commodi necessitatibus nihil adipisci
+    sunt iure nisi asperiores facere libero nulla quae quos. Iure expedita veritatis eos, soluta dolorum iusto, adipisci
+    sapiente molestias perspiciatis a tempora maxime possimus! Natus totam, exercitationem, commodi itaque dicta
+    repellat illo nihil perferendis architecto ipsam asperiores porro est, nesciunt accusamus? Cumque tempora non quo
+    ut. Similique quod ducimus dolores molestias totam ea fuga delectus laboriosam vel temporibus possimus error
+    officiis eius sed earum necessitatibus magnam, ratione aperiam neque incidunt molestiae. Modi dolorum at quis
+    laborum harum sapiente libero ex assumenda facere dignissimos, commodi delectus incidunt quasi sit nihil quod fugit
+    architecto!
+  </div>
+
+  <div class="modalBox bg-danger" id="modalBoxRed">
+
+  </div>
+
+
+  <!-- 暫時用jquery顯示效果-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      const modalBox = $('#modalBox');
+      const modalBoxRed = $('#modalBoxRed');
+      $(".btn-primary").click(function () {
+        modalBox.toggle();
+      });
+
+      $(".btn-danger").click(function () {
+        modalBoxRed.toggle();
+      });
+    });
+  </script>
+
+</body>
+
+</html>
