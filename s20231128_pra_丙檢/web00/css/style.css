@@ -1,5 +1,7 @@
 *{
     box-sizing: border-box;
+    font-family: '標楷體';
+    overflow: hidden;
 }
 
 body{
@@ -10,44 +12,87 @@ body{
 .header{
     width: 1024px;
     height: 65px;
-    background-color: bisque;
+    /* background-color: bisque; */
+    border: 1px black solid;
+    border-bottom:0;
+    text-align: center
 }
 
 .container{
     width: 1024px;
     height:calc(768px - 65px - 20px);
-    background-color: lightgoldenrodyellow;
+    /* background-color: lightgoldenrodyellow; */
     display: flex;
 }
 
 .aside{
    width: 215px;
    height: calc(768px - 65px - 20px);
-   background-color: lightseagreen; 
+   /* background-color: lightseagreen;  */
+   border: 1px black solid;
 }
 
 .aside-header{
     width: 100%;
     height: calc(100% - 25px);
-    background-color: indianred;
+    /* background-color: indianred; */
+    font-weight: 500;
+    text-align: center;
+    margin: auto;
 }
+
+.intro{
+    font-size: 24px;
+    text-decoration: underline;
+    color:#FF00FF;
+}
+
+.club-1, .club{
+    font-size: 16px;
+    width:200px;
+    height:35px;
+    background-image: url(../images/menu1.png);
+    margin-bottom: 10px;
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.club{
+    color:#000000;
+}
+
+
+.club-1:hover, .club:hover{
+    font-size: 16px;
+    background-image: url(../images/menu2.png);
+}
+
 
 .aside-footer{
     width: 100%;
     height: 25px;
     background-color: lightblue;
+    border-top:1px black solid;
+    border-bottom: 0;
 }
 
 .main{
     width: calc(1024px - 215px);
     height: calc(768px - 65px - 20px);
-    background-color: lightpink;
+    /* background-color: lightpink; */
+    border: 1px solid black;
+    border-left: 0;
+    border-bottom: 0;
 }
 
 .main-header{
     width: 100%;
     height: 29px;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
+    border-bottom: 1px solid black;
+    font-size: 24px;
 }
 
 .main-footer{
@@ -56,8 +101,16 @@ body{
     background-color: burlywood;
 }
 
+iframe{
+    width:100%;
+    height: 100%;
+}
+
 .footer{
     width: 1024px;
     height: 20px;
     background-color: lightgray;
+    border-top: 0;
+    border: 1px solid black;
 }
+
