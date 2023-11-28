@@ -2,6 +2,7 @@
     box-sizing: border-box;
     font-family: '標楷體';
     overflow: hidden;
+    margin: auto;
 }
 
 body{
