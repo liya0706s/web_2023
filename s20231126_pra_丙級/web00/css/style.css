@@ -48,6 +48,9 @@ body{
     /* background-color: lightgray; */
     border: 1px solid black;
     border-top: 0;
+    color: #000000;
+    font-size: 16px;
+    text-align: center;
 }
 
 .aside-header{
@@ -83,6 +86,7 @@ body{
 }
 
 /* 重要!!! */
+/* 這樣背景圖片才有大小 */
 .main-footer > iframe{
     width:100%;
     height:100%;
