@@ -2,6 +2,7 @@
     box-sizing: border-box;
     font-family: '標楷體';
     overflow: hidden;
+    margin: auto;
 }
 
 body{
@@ -110,7 +111,8 @@ iframe{
 .footer{
     width: 1024px;
     height: 20px;
-    background-color: lightgray;
+    /* background-color: lightgray; */
+    text-align: center;
     border-top: 0;
     border: 1px solid black;
 }
