@@ -1,58 +1,97 @@
-body{
-    width:1024px;
-    height:768px;
+* {
+    box-sizing: border-box;
 }
 
-.header{
-    width:100%;
-    height:65px;
-    background-color:aliceblue;
+body {
+    width: 1024px;
+    height: 768px;
+    border: 1px black solid;
 }
 
-.container{
+.header {
+    width: 100%;
+    height: 65px;
+    /* background-color:aliceblue; */
+    text-align: center;
+    border-bottom: 1px black solid;
+}
+
+.container {
     display: flex;
     width: 1024px;
     height: calc(768px - 65px - 20px);
 }
 
-.aside{
+.aside {
     width: 215px;
-    height:calc(768px - 65px - 20px);
+    height: calc(768px - 65px - 20px);
     background-color: lightblue;
 }
 
-.aside-header{
+.aside-header {
     width: 215px;
     height: calc(100% - 25px);
     background-color: lightgoldenrodyellow;
+    text-align: center;
 }
 
-.aside-footer{
+.intro{
+    text-decoration: underline;
+}
+
+.club-1,
+.club {
+    width: 200px;
+    height: 35px;
+    margin: 5px;
+    background-image: url(../images/menu1.png);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.club-1:hover, .club:hover{
+    background-image: url(../images/menu2.png);
+}
+
+.aside-footer {
     width: 215px;
     height: 25px;
-    background-color:yellowgreen;
+    background-color: yellowgreen;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
-.main{
+.main {
     width: calc(1024px - 215px);
-    height:calc(768px - 65px - 20px);
-    background-color: blanchedalmond;
+    height: calc(768px - 65px - 20px);
+    /* background-color: blanchedalmond; */
+    border: 1px solid black;
+    border-top: 0;
 }
 
-.main-header{
+.main-header {
     width: 100%;
     height: 29px;
-    background-color: violet;
+    /* background-color: violet; */
+    font-size: 24px;
+    color: #0000FF;
+    border-bottom: 1px solid black;
+
 }
 
-.main-footer{
+.main-footer {
     width: 100%;
     height: calc(100% - 29px);
-    background-color:turquoise;
+    background-color: turquoise;
+    border-top: 1px
 }
 
-.footer{
+.footer {
     width: 1024px;
     height: 20px;
     background-color: lightcoral;
+    border: 1px solid black;
+    border-top: 0;
+
 }
