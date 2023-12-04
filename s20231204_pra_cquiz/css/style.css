@@ -109,8 +109,8 @@ iframe {
 .footer {
     width: 1024px;
     height: 20px;
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
     border: 1px solid black;
-    border-top: 0;
-
+    border-bottom: 0;
+    text-align: center;
 }
