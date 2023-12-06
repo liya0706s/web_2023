@@ -30,7 +30,6 @@ body {
     height: calc(768px - 65px - 20px);
     /* background-color: lavender; */
     border-bottom: 1px black solid;
-
 }
 
 .aside-header {
@@ -40,6 +39,7 @@ body {
     border-right: 1px black solid;
     border-bottom: 1px black solid;
     text-align: center;
+    font-size: 16px;
 }
 
 .intro {
@@ -55,7 +55,7 @@ body {
     height: 35px;
     background-image: url(../images/menu1.png);
     margin-bottom: 10px;
-    padding-top: 5px;
+    padding-top: 7px;
     margin-left: 5px;
 }
 
@@ -112,5 +112,7 @@ font-size: 24px;
 .footer {
     width: 1024px;
     height: 20px;
-    background-color: lemonchiffon;
+    /* background-color: lemonchiffon; */
+    text-align: center;
+    font-size: 16px;
 }
