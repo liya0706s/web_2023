@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition</title>
+    <style>
+        /* 主功能 共通的*/
+        .box {
+            width: 600px;
+            height: 300px;
+            transition: 3s;
+            transform: rotate(20deg);
+            margin-top: 100px;
+        }
+
+        /* .box:hover{
+            width:600px;
+            transform: rotate(20deg);
+
+        } */
+
+        /* 次功能 solid 單一原則 */
+        .box1{
+            background-color: lightblue;
+            transform: rotate(-20deg);
+
+        }
+
+        .box2{
+            background-color: lightpink;
+        }
+
+        .container{
+            display: flex;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="box box1">
+        </div>
+        <br>
+        <div class="box box2">
+            <img src="https://picsum.photos/id/220/500/300" alt="">
+        </div>
+
+    </div>
+    
+</body>
+
+</html>
