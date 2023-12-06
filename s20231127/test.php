@@ -26,10 +26,15 @@ $data = [
 
 $sum = 0;
 foreach($data as $key => $value){
-    // dd($key);
-    // dd($value['price']);
     $sum=$sum+$value['price'];
 }
 
+// foreach 循環：遍歷 $data 陣列中的每個元素。
+// 在每次迭代中，它將 'price' 鍵對應的值添加到 $sum 變數中。!!!
+// 這樣，最終 $sum 將包含所有元素的 'price' 值的總和。
+
 dd($sum);
-// dd($data);
+
+// 最後的 dd($sum)：
+// 調用了先前定義的 dd 函數，並將 $sum 作為參數傳遞給該函數。
+// 這樣做的效果是以易讀的格式打印出 $sum 的值，顯示所有元素 'price' 的總和。
