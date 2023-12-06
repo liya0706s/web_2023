@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition</title>
+    <style>
+        /* 主功能 共通的*/
+        .box {
+            width: 600px;
+            height: 300px;
+            /* 動畫名稱,動畫時間 */
+            animation-name: ani;
+            animation-duration: 4s;
+        }
+
+        div>img{
+            width:100%;
+            height:100%;
+        }
+
+        /* 動畫效果 */
+        /* @keyframes 規則用於定義一個動畫序列。
+        0%、50% 和 100% 是這個動畫序列的關鍵幀（keyframes），它們分別代表動畫的起始、中間和結束狀態。 */
+        @keyframes ani {
+            0%{
+                background-color: red;
+            }
+            50%{
+                background-color: lightgoldenrodyellow;
+            }
+            100%{
+                background-color: lightpink;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="box box1">
+            <!-- <img src="https://picsum.photos/id/320/500/300" alt=""> -->
+        </div>
+
+    </div>
+    
+</body>
+
+</html>
