@@ -1,0 +1,116 @@
+* {
+    font-family: '標楷體';
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+body {
+    width: 1024px;
+    height: 768px;
+    /* background-color: aliceblue; */
+    border: 1px black solid;
+}
+
+.header {
+    width: 1024px;
+    height: 65px;
+    /* background-color: lightcyan; */
+    border-bottom: 1px black solid;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    width: 1024px;
+    height: calc(768px - 65px - 20px);
+}
+
+.aside {
+    width: 215px;
+    height: calc(768px - 65px - 20px);
+    /* background-color: lavender; */
+    border-bottom: 1px black solid;
+
+}
+
+.aside-header {
+    width: 100%;
+    height: calc(100% - 25px);
+    /* background-color: lightgreen; */
+    border-right: 1px black solid;
+    border-bottom: 1px black solid;
+    text-align: center;
+}
+
+.intro {
+    text-decoration: underline black;
+    margin-bottom: 10px;
+    color: #FF00FF;
+    font-size: 24px;
+}
+
+.club,
+.club-1 {
+    width: 200px;
+    height: 35px;
+    background-image: url(../images/menu1.png);
+    margin-bottom: 10px;
+    padding-top: 5px;
+    margin-left: 5px;
+}
+
+.club>a {
+    text-decoration: none;
+}
+
+.club:hover, .club-1:hover{
+    background-image: url(../images/menu2.png);
+}
+
+.club{
+    color:#000000;
+    font-size: 16px;
+}
+
+
+.aside-footer {
+    width: 100%;
+    height: 25px;
+    /* background-color: lightsalmon; */
+    border-right: 1px black solid;
+    text-align: center;
+}
+
+iframe{
+    width: 100%;
+    height:100%;
+}
+
+.main {
+    width: calc(1024px - 215px);
+    height: calc(768px - 65px - 20px);
+    /* background-color: lightpink; */
+}
+
+.main-header {
+    width: 100%;
+    height: 29px;
+    /* background-color: lightseagreen; */
+    border-bottom: 1px black solid;
+color:#0000FF;
+font-size: 24px;
+}
+
+.main-footer {
+    width: 100%;
+    height: calc(100% - 29px);
+    background-color: lightskyblue;
+    border-bottom: 1px black solid;
+
+}
+
+.footer {
+    width: 1024px;
+    height: 20px;
+    background-color: lemonchiffon;
+}
