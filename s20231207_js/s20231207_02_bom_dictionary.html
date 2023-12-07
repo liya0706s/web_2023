@@ -15,7 +15,7 @@
 <body>
     <div class="container mt-3">
         <h2>Word Searching</h2>
-        <p>查詢單字，可以連接三個字典和google搜圖</p>
+        <p>查詢單字，連接三個字典和google搜圖</p>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -26,8 +26,7 @@
             <thead>
                 <tr>
                     <td>
-                        <input type="text" class="form-control" placeholder="Enter Text" name="word" id="word"
-                            value="12346">
+                        <input type="text" class="form-control" placeholder="Enter Text" name="word" id="word">
                     </td>
                     <td>
                         <button type="button" id="myBtn">search</button>
@@ -40,7 +39,11 @@
     <script>
         // function()
         function openFun(searchText){
-            window.open('')
+            window.open('https://www.merriam-webster.com/dictionary/' + searchText);
+            window.open('https://dictionary.cambridge.org/' + searchText);
+            window.open('https://www.ldoceonline.com/dictionary/' + searchText);
+            window.open('' + searchText);
+
         }
 
         // 1. 綁定
