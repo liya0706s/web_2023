@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body id="demo">
+    <h2>JavaScript Window</h2>
+
+    <button type="button" id="myBtn">myBtn</button>
+    <button type="button" id="colseBtn">closeBtn</button>
+
+    <script>
+        // 1. 綁定
+        let myBtn = document.getElementById('myBtn');
+        let closeBtn = document.getElementById('closeBtn');
+
+        let screenHeight = screen.height;
+        let screenWidth = screen.width;
+
+        document.getElementById("demo").innerHTML =
+            "Browser inner window width: " + window.innerWidth + "px<br>" +
+            "Browser inner window height: " + window.innerHeight + "px";
+    </script>
+
+</body>
+
+</html>
