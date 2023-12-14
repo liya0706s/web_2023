@@ -14,7 +14,7 @@
 
 <body>
 
-<input type="text" name="" id="myInput" value="123">
+    <input type="text" name="" id="myInput" value="123">
 
     <script>
         // let 變數 只能宣告一次
@@ -34,16 +34,36 @@
         // yConst = 500;
         // console.log('yConst', yConst);
         
+        // -----------------------------------------------------
+
+        let myInput = document.getElementById('myInput');
+        console.log('myInput', myInput);
+        myInput.value = "55688";
+        console.log('myInput', myInput);
+
+        // 綁定用const避免 不小心改掉變數
+
+        // myInput = 123;
+        // console.log('myinput', myinput);
+
+        // -----------------------------------------------------
+
+        function aFun(){
+            let testStr = 'Hello aFun';
+            console.log('testStr', testStr);
+        }
+
+        function bFun(){
+            let testStr='Hello bFun';
+            console.log('testStr', testStr);
+        }
+
         // let在不同的 block 裡面可以命名相同名字 (block scope)
         // A班級和B班級 都有命名班長 是不同的人
         // 全域變數在外面用 區域變數在裡面用
 
-        const myInput = document.getElementById('myInput');
-        console.log('myInput', myInput);
-        myInput
-
-        
-
+        aFun();
+        bFun();
 
     </script>
 </body>
