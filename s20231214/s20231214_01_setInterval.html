@@ -13,27 +13,45 @@
 </head>
 
 <body>
-    <button type="button" id="myBtn" onclick="oneFun()">Button</button>
+    <button type="button" id="myBtn" onclick="oneFun();">one</button>
+    <button type="button" id="myBtn" onclick="clearFun();">clearBtn</button>
 
     <script>
-        // 可以灌成function
-        function oneFun() {
-            // 一次
-            setTimeout(function () {
-                console.log('setTimeout');
-            }, 5000);
-        }
+        // setTimeout() 可以灌成function
+        // function oneFun() {
+        //     // 一次
+        //     setTimeout(function () {
+
+        //     },);
+        // }
 
         // 無限重複
-        setInterval(function () {
-            console.log('Hello setInterval');
-        }, 1000);
+        // setInterval(function () {
+        //     console.log('Hello setInterval');
+        // }, 1000);
 
-        // clearInterval關閉重複
+        // ------------------------------------------------
+
+        // clearInterval() 關閉重複
         // https://stackoverflow.com/questions/109086/stop-setinterval-call-in-javascript
-        var refreshIntervalId = setInterval(fname, 10000);
-        /* later */ 
-        clearInterval(refreshIntervalId);
+        function fname() {
+            console.log("hello fname");
+        }
+
+        function clearFun() {
+            // console.log('click OK'); 
+            //為什麼加這個就可以????
+            clearInterval(refreshIntervalId);
+        }
+        let refreshIntervalId = setInterval(fname, 1000);
+        /* later */
+        // clearInterval(refreshIntervalId);
+
+        // --------stackoverflow ans-------------
+        // var refreshIntervalId = setInterval(fname, 10000);
+
+        /* later */
+        // clearInterval(refreshIntervalId);
 
 
     </script>
