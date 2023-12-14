@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<button type="button" id="myBtn" onclick="oneFun()"></button>
+    <button type="button" id="myBtn" onclick="oneFun()">Button</button>
 
     <script>
         // 可以灌成function
@@ -28,6 +28,12 @@
         setInterval(function () {
             console.log('Hello setInterval');
         }, 1000);
+
+        // clearInterval關閉重複
+        // https://stackoverflow.com/questions/109086/stop-setinterval-call-in-javascript
+        var refreshIntervalId = setInterval(fname, 10000);
+        /* later */ 
+        clearInterval(refreshIntervalId);
 
 
     </script>
