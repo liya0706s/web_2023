@@ -39,13 +39,12 @@
         }
 
         function clearFun() {
-            // console.log('click OK'); 
-            //為什麼加這個就可以????
+            console.log('click OK'); 
             clearInterval(refreshIntervalId);
         }
-        let refreshIntervalId = setInterval(fname, 1000);
+        let refreshIntervalId = setInterval(fname, 5000);
         /* later */
-        // clearInterval(refreshIntervalId);
+        clearInterval(refreshIntervalId);
 
         // --------stackoverflow ans-------------
         // var refreshIntervalId = setInterval(fname, 10000);
