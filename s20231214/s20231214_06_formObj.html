@@ -13,68 +13,9 @@
 </head>
 
 <body>
-    <div class="container mt-3">
-        <h2>hr form</h2>
-        <form action="">
-            <div class="row">
-                <div class="col mb-3">
-                    <label for="" class="form-label">Name:</label>
-                    <input type="text" name="" id="name" class="form-control">
-                </div>
-                <div class="col mb-3">
-                    <label for="" class="form-label">Mobile:</label>
-                    <input type="text" name="" id="mobile" class="form-control">
-                </div>
-                <div class="col mb-3">
-                    <label for="" class="form-label">Address:</label>
-                    <input type="text" name="" id="addr" class="form-control">
-                </div>
-
-            </div>
-
-            <div class="row">
-                <div class="col mb-3">
-                    <!-- <div class="mb-3 "> -->
-                        <label for="text" class="form-label">Loves:</label>
-                        <select class="form-select form-select" name="" id="love">
-                            <option value="">HR</option>
-                        </select>
-                    <!-- </div> -->
-                </div>
-
-            </div>
-        </form>
-
+    
     <script>
-        let obj = {
-            's1': 'amy',
-            's2': 'bob',
-            's3': 'cat',
-            'arr':['a1','a2','a3']
-        };
-
-        let newer = {
-            'name': 'amy',
-            'mobile': '0922-222-222',
-            'addr': 'Taiwan',
-
-            'loves':['','a2','a3']
-        };
-
-        // 綁定
-        const keyID = document.getElementById('keyID');
-        const valueID = document.getElementById('valueID');
-
-        // 呼叫
-        console.log('obj', obj);
-        // 取obj裡面有property是s1用 點 中括號 或箭頭這裡不行
-        console.log('obj["s1"]', obj['s1']);
-        console.log('obj.s1', obj.s1);
-        // console.log('obj->s1', obj->s1); 
-        console.log('obj typeof', typeof (obj));
-        keyID.innerHTML = 's1';
-        valueID.innerHTML = obj.s1;
-        
+       
 
     </script>
 </body>
