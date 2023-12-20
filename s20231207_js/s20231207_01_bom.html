@@ -9,6 +9,9 @@
 
 <body id="demo">
     <h2>JavaScript Window</h2>
+    <table>
+        tr
+    </table>
 
     <button type="button" id="myBtn">myBtn</button>
     <button type="button" id="colseBtn">closeBtn</button>
@@ -20,10 +23,32 @@
 
         let screenHeight = screen.height;
         let screenWidth = screen.width;
+        console.log('screenHeight',screenHeight);
+        console.log('screenWidth',screenWidth);
 
-        document.getElementById("demo").innerHTML =
-            "Browser inner window width: " + window.innerWidth + "px<br>" +
-            "Browser inner window height: " + window.innerHeight + "px";
+        let searchText ="apple";
+
+        // 2. 動作
+        myBtn.addEventListener('click', function(){
+            window.open('https://www.merriam-webster.com/dictionary/' + searchText);
+            window.open('https://dictionary.cambridge.org/dictionary/english-chinese-traditional/' + searchText);
+            
+            // window.location.assign("https://www.w3schools.com");
+            // window.location.href= "https://www.w3schools.com";
+
+            // replace 無法回到上一頁
+            // window常常可以省略
+            // window.location.replace("https://www.w3schools.com");
+
+        });
+
+        closeBtn.addEventListener('click', function(){
+            window.close();
+        });
+
+        // document.getElementById("demo").innerHTML =
+        //     "Browser inner window width: " + window.innerWidth + "px<br>" +
+        //     "Browser inner window height: " + window.innerHeight + "px";
     </script>
 
 </body>
