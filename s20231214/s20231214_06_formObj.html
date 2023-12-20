@@ -13,10 +13,55 @@
 </head>
 
 <body>
-    
-    <script>
-       
+    <table>
+        <tr>
+            <td>key</td>
+            <td>valueID</td>
+        </tr>
+        <tr>
+            <td id="key"></td>
+            <td id="valueID"></td>
+        </tr>
+    </table>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mt-3">
+                <input type="text" name="" id="name" class="form-control">
+            </div>
+            <div class="col-6 mt-3">
+                <input type="text" name="" id="mobile">
+            </div>
+            <div class="col-12 mt-3">
+                <input type="text" name="" id="address">
+            </div>
+            <div class="col-12 mt-3">
+                <select name="" id="loves">
+                    <option value="value">name</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let obj = {
+            's1': 'amy',
+            's2': 'bob',
+            's3': 'cat',
+            'arr': ['a1', 'a2', 'a3']
+        };
+
+        let studentObj = {
+            'name':'amy',
+            'mobile':'0911-111',
+            'address':'aaaaaaa',
+            'loves':['html','css','js','php']
+        };
+
+        const keyID = document.getElementById('keyID');
+        const valueID = document.getElementById('valueID');
+
+        
     </script>
 </body>
 
