@@ -20,13 +20,13 @@
             <thead>
                 <tr>
                     <th>word</th>
-                    <th>dictionaries</th>
+                    <th>button</th>
                 </tr>
             </thead>
             <thead>
                 <tr>
                     <td>
-                        <input type="text" class="form-control" placeholder="Enter Text" name="word" id="word">
+                        <input type="text" class="form-control" name="word" id="word" placeholder="Enter Text">
                     </td>
                     <td>
                         <button type="button" id="myBtn">search</button>
@@ -42,8 +42,7 @@
             window.open('https://www.merriam-webster.com/dictionary/' + searchText);
             window.open('https://dictionary.cambridge.org/' + searchText);
             window.open('https://www.ldoceonline.com/dictionary/' + searchText);
-            window.open('' + searchText);
-
+            window.open('https://www.google.com/search?q=' + searchText + '&sca_esv=588643820&tbm=isch&source=lnms&sa=X&ved=2ahUKEwiN5qXa2fyCAxXwqFYBHT3AAjwQ_AUoAnoECAIQBA&biw=1920&bih=919&dpr=1' + searchText);
         }
 
         // 1. 綁定
@@ -60,10 +59,12 @@
         myBtn.addEventListener('click', function () {
 
             let searchText = word.value;
+            // input的name是word屬性value，定義變數為searchText
             console.log('searchText', searchText);
             // php string . 
-            // 點的意思是取用該物件的方法
+            // js點的意思是取用該物件的方法
             // js string +
+            openFun(searchText);
         });
 
     </script>
