@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <span id="mySpan"></span>
+
+  <script>
+    let text = "Apple, Banana, Cat";
+    // slice(起始位置,終點位置不包含)
+    // 起始位置從0開始算
+    let newText = text.slice(3, 10);
+    console.log('newText', newText);
+    // log出 le, Ban
+
+    // substr(起始位置,長度)
+    // substr(start,length)
+    let substrText = text.substr(3, 5);
+    console.log('substrText', substrText);
+    // log出le, B
+
+    // substring(start,end)
+    // 沒有第一參數，代表取該數字參數的以後的值
+    // 兩個參數負數視為0
+
+    // trim() 清除前後空白
+    let noTrimText = "     Hello World     ";
+    let trimText = noTrimText.trim();
+    mySpan.innerText = noTrimText;
+
+    console.log('noTrimText', noTrimText);
+    console.log('noTrimText length', noTrimText.length);
+
+    console.log('trimText', trimText);
+    console.log('trimText length', trimText.length);
+
+    
+    // split(): string to array
+    // php:explode
+    let textString = "amy,bob,cat";
+    let textArr = textString.split(',');
+    console.log('textString', textString);
+    console.log('textArr', textArr);
+
+    // toString(): array to string
+    // php implode
+    
+
+
+
+  </script>
+</body>
+
+</html>
