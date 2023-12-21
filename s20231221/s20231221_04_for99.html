@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    
+
     <span id="num">huh?</span>
 
     <!-- js -->
@@ -22,14 +22,19 @@
         let multiTable = '';
 
         for (let i = 1; i <= 9; i++) {
+            // console.log('i',i);
             for (let j = 1; j <= 9; j++) {
-                multiTable += `${i} x ${j} = ${i*j}<br>`;
-            // 連續的產出multiTable公式
+                // console.log('j',j);
+                console.log(`${i}*${j} = ${i * j}`);
+                multiTable += `${i} x ${j} = ${i * j}<br>`;
+                // += 做字串的加總 賦值運算符 
+                // Assignment operators assign values to JavaScript variables.
+                // 連續的產出multiTable公式
             }
             multiTable += '<hr>';
             // 內層的1-9算完，外層放分隔線
         }
-        document.getElementById('num').innerHTML =multiTable;
+        document.getElementById('num').innerHTML = multiTable;
         // 使用innerHTML來解析換行標籤
     </script>
 </body>
