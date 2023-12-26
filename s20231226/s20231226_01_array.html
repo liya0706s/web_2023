@@ -50,7 +50,7 @@
         // }
 
         // 查看object
-        // for in 取得object
+        // for in 取得object (優先)
         for (const key in myObj) {
             console.log('key', key);
             console.log('${myObj[key]}', `${myObj[key]}`);
@@ -59,7 +59,7 @@
         // for of for array 很少用
 
         console.log("<hr>");
-        // object 轉成array
+        // object 轉成array (不適合)
         Object.keys(myObj).forEach(function (value, index, array) {
             console.log('index', index);
             console.log('value', value);
@@ -77,16 +77,20 @@
                 'tel': '0922-222-222'
             },
             {
-                'name':'高雄店',
-                'tel':'0933-333-333'
+                'name': '高雄店',
+                'tel': '0933-333-333'
             }
         ];
-        console.log('storeArr',storeArr);
-        storeArr.forEach(function(value,key){
-            console.log('value',value);
-            console.log('key',key);
-
-        })
+        console.log('storeArr', storeArr);
+        storeArr.forEach(function (value, key) {
+            console.log('key', key);
+            console.log('value', value);
+            console.log('value["name"]', value['name']);
+            console.log('value["tel"]',value['tel']);
+            if(value['name']=='台北店'){
+                console.log('這是台北店');
+            }
+        });
 
 
     </script>
