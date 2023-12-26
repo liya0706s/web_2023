@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+  <script>
+    // sum 1-10
+    // array
+    // 1. 1-10加總
+    // 2. 奇數加總
+    // 3. 偶數加總
+
+    // let data=[1,2,3,4,5,6,7,8,9,10];
+    // index 0-9
+
+    let sum = 0;
+    // 寫迴圈最重要的是，先看每一個 i 是多少
+    for (let i = 1; i <= 10; i++) {
+      // console.log('i', i);
+      // sum=sum+;
+      sum += i;
+      console.log('sum', sum);
+    }
+
+    console.log("<br>");
+    // 2. 奇數加總
+    let sum2 = 0;
+    for (let j = 1; j <= 10; j = j + 2) {
+      console.log('j', j);
+      sum2 += j;
+      console.log('sum2', sum2);
+    }
+
+    // 3. 偶數加總
+    let sum3 = 0;
+    for (let k = 2; k <= 10; k = k + 2) {
+      console.log('k', k);
+      sum3 += k;
+      console.log('sum3', sum3);
+    }
+
+
+  </script>
+</body>
+
+</html>
