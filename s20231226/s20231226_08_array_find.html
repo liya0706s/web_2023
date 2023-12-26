@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        // 定義一個含有重複元素的數組
+        let data = [3, 5, 5, 6, 3, 5, 10];
+
+        // 定義一個空數組，用於存儲去除重複元素後的數據
+        let newData = [];
+
+        // 重複去除
+        // 使用 filter 方法去除重複元素
+        newData=data.filter(function(value,index,array){
+            // 如果元素的當前索引與它首次出現的索引相同，則保留該元素
+            return array.indexOf(value) === index;
+        });
+
+        // 在控制台打印去除重複後的新數組
+        console.log('newData', newData);
+
+
+        // > 5
+        // newData = data.filter((value,key)=>{
+        //     return value > 4;
+        // })
+        // console.log('newData',newData);
+
+        // indexOf 抓array裡面element的index位置
+        // const fruits =['Apple', 'Orange', 'Apple', 'Mango'];
+        // let position =fruits.indexOf("Mango");
+        // console.log('position',position);
+        // 這裡輸出3
+
+        // find 找第一個
+        // let first = data.find(value => {
+        //     return value > 5;
+        // });
+        // console.log('first', first);
+
+        // reduce
+        // let sum = 0;
+        // 1000 是total的初始值
+        // sum = data.reduce(function (total, value, index) {
+        //     console.log('total', total);
+        //     console.log('value', value);
+        //     return total + value;
+        // }, 1000);
+        // console.log('sum', sum);
+
+        // foreach sum 比較好用
+        // let sum =0;
+        // data.forEach(value => {
+        //     sum+=value;
+        // });
+        // console.log('sum',sum);
+    </script>
+</body>
+
+</html>
