@@ -13,7 +13,9 @@
 </head>
 
 <body>
-    <table class="table table-stripped">
+    <h1>Shopping Table</h1>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, corrupti</p>
+    <table class="table table-stripped text-center">
         <tr>
             <th>產品</th>
             <th>單價</th>
@@ -21,61 +23,98 @@
             <th>總價</th>
         </tr>
         <tr>
-            <td><img src="https://picsum.photos/seed/picsum/100/100" alt=""></td>
+            <td>咖啡
+                <br>
+                <img src="https://picsum.photos/seed/picsum/100/100" alt="">
+            </td>
             <td><input type="number" class="form-control" id="item1Price"></td>
             <td><input type="number" class="form-control" id="item1Num"></td>
-            <td><input type="number" class="form-control" name="" id="item1Total"></td>
+            <td><input type="number" class="form-control" name="" id="item1Total" readonly></td>
         </tr>
 
         <tr>
-            <td>咖啡</td>
+            <td>咖啡
+                <br>
+                <img src="https://picsum.photos/id/54/100/100" alt="">
+            </td>
             <td><input type="number" class="form-control" id="item2Price"></td>
             <td><input type="number" class="form-control" id="item2Num"></td>
-            <td><input type="number" class="form-control" name="" id="item2Total"></td>
+            <td><input type="number" class="form-control" name="" id="item2Total" readonly></td>
         </tr>
 
         <tr>
-            <td>咖啡</td>
+            <td>咖啡
+                <br>
+                <img src="https://picsum.photos/id/58/100/100" alt="">
+            </td>
             <td><input type="number" class="form-control" id="item3Price"></td>
             <td><input type="number" class="form-control" id="item3Num"></td>
-            <td><input type="number" class="form-control" name="" id="item3Total"></td>
+            <td><input type="number" class="form-control" name="" id="item3Total" readonly></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td id="result">result>500 打八折</td>
+            <td>Result</td>
+            <td colspan="3"id="result">若超過五百元，打八折</td>
         </tr>
 
     </table>
 
     <script>
-// 1.綁定
-let item1Price = document.getElementById('item1Price');
-let item1Num = document.getElementById('item1Num');
-let item1Total = document.getElementById('item1Total');
+        // 1.綁定
+        let item1Price = document.getElementById('item1Price');
+        let item1Num = document.getElementById('item1Num');
+        let item1Total = document.getElementById('item1Total');
 
-let item2Price = document.getElementById('item2Price');
-let item2Num = document.getElementById('item2Num');
-let item2Total = document.getElementById('item2Total');
+        let item2Price = document.getElementById('item2Price');
+        let item2Num = document.getElementById('item2Num');
+        let item2Total = document.getElementById('item2Total');
 
-let item3Price = document.getElementById('item3Price');
-let item3Num = document.getElementById('item3Num');
-let item3Total = document.getElementById('item3Total');
+        let item3Price = document.getElementById('item3Price');
+        let item3Num = document.getElementById('item3Num');
+        let item3Total = document.getElementById('item3Total');
 
+        let result = document.getElementById('result');
+        console.log('item1Num');
+        // console.log('item1Num typeof', typeof (item1Num));
+        console.log('item1Price');
+        console.log('item1Total');
 
-let result = document.getElementById('result');
-console.log('item1Num');
-console.log('item1Num typeof', typeof(item1Num));
+        // 用於計算並更新總價的函數
+        function updateItemTotal(priceInput, numInput, totalInput) {
+            // parseFloat(numInput.value)）是否「真值」（truthy）。
+            // 在 JavaScript 中，NaN 被認為是「假值」（falsy）。
+            // 如果左邊的表達式是真值，則整個表達式的結果就是左邊表達式的值；
+            // 如果左邊是假值，則結果為右邊表達式的值（這裡是 0）。
+            let price = parseFloat(priceInput.value) || 0;
+            let num = parseFloat(numInput.value) || 0;
+            totalInput.value = price * num;
+        }
 
-console.log('item1Price');
-console.log('item1Total');
+        // 用於計算所有的總和和判斷是否打折
+        function calTotal() {
+            updateItemTotal(item1Price, item1Num, item1Total);
+            updateItemTotal(item2Price, item2Num, item2Total);
+            updateItemTotal(item3Price, item3Num, item3Total);
 
-// 2.動作
-let item1NumValue = Number(item1Num.value);
-let item1PriceValue = Number(item1Price.value);
-let item1TotalValue = Number(item1Total.value);
+            let total = parseFloat(item1Total.value) + parseFloat(item2Total.value) + parseFloat(item3Total.value)
 
+            if (total > 500) {
+                total *= 0.8; //打八折
+                result.innerHTML = '總價大於500，打八折:' + total.toFixed(2);
+            } else {
+                result.innerHTML = '總價:' + total.toFixed(2);
+            }
+        }
+
+        // 為價格和數量的輸入框添加事件監聽器
+        item1Price.addEventListener('input', calTotal);
+        item1Num.addEventListener('input', calTotal);
+        item2Price.addEventListener('input', calTotal);
+        item2Num.addEventListener('input', calTotal);
+        item3Price.addEventListener('input', calTotal);
+        item3Num.addEventListener('input', calTotal);
+        
+        // 初始計算一次總價
+        calTotal();
 
 
     </script>
