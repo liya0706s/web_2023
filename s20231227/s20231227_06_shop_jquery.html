@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1>Shopping Table</h1>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, corrupti</p>
+    <table class="table table-stripped text-center">
+        <tr>
+            <th>產品</th>
+            <th>單價</th>
+            <th>數量</th>
+            <th>總價</th>
+        </tr>
+        <tr>
+            <td>咖啡
+                <br>
+                <img src="https://picsum.photos/seed/picsum/100/100" alt="">
+            </td>
+            <td><input type="number" class="form-control" id="item1Price"></td>
+            <td><input type="number" class="form-control" id="item1Num"></td>
+            <td><input type="number" class="form-control" name="" id="item1Total" readonly></td>
+        </tr>
+
+        <tr>
+            <td>咖啡
+                <br>
+                <img src="https://picsum.photos/id/54/100/100" alt="">
+            </td>
+            <td><input type="number" class="form-control" id="item2Price"></td>
+            <td><input type="number" class="form-control" id="item2Num"></td>
+            <td><input type="number" class="form-control" name="" id="item2Total" readonly></td>
+        </tr>
+
+        <tr>
+            <td>咖啡
+                <br>
+                <img src="https://picsum.photos/id/58/100/100" alt="">
+            </td>
+            <td><input type="number" class="form-control" id="item3Price"></td>
+            <td><input type="number" class="form-control" id="item3Num"></td>
+            <td><input type="number" class="form-control" name="" id="item3Total" readonly></td>
+        </tr>
+        <tr>
+            <td>Result</td>
+            <td colspan="3" id="result">若超過五百元，打八折</td>
+        </tr>
+
+    </table>
+
+    <script>
+        $(function () {
+
+        })
+        // 1.綁定
+        let item1Price = $('#item1Price');
+        let item1Num = $('#item1Num');
+        let item1Total = $('#item1Total');
+
+        let item2Price = $('#item2Price');
+        let item2Num = $('#item2Num');
+        let item2Total = $('#item2Total');
+
+        let item3Price = $('#item3Price');
+        let item3Num = $('#item3Num');
+        let item3Total = $('#item3Total');
+
+        let result = $('#result');
+
+        // js改jq 商數保持不變
+        function updateItemTotal(priceInput, numInput, totalInput) {
+            let price = parseFloat(priceInput.value) || 0;
+            let num = parseFloat(numInput.value) || 0;
+            totalInput.val(price * num);
+        }
+
+        // 用於計算所有的總和和判斷是否打折
+        function calTotal() {
+            updateItemTotal(item1Price, item1Num, item1Total);
+            updateItemTotal(item2Price, item2Num, item2Total);
+            updateItemTotal(item3Price, item3Num, item3Total);
+
+            let total = parseFloat(item1Total.val()) + parseFloat(item2Total.val()) + parseFloat(item3Total.val());
+
+            if (total > 500) {
+                total *= 0.8; //打八折
+                result.innerHTML = '總價大於500，打八折:' + total.toFixed(2);
+            } else {
+                result.innerHTML = '總價:' + total.toFixed(2);
+            }
+        }
+
+        // 綁定事件
+        item1Price.add(item1Num).add(item2Price).add(item2Num).add(item3Price).add(item3Num).on('input', calTotal);
+        // itemPrice.add(item1Num).add(item2Price).add(item2Num).add(item3Price).add(item3Num).on('input', calTotal);
+        console.log(item1Price.add(item1Num).add(item2Price).add(item2Num).add(item3Price).add(item3Num).on('input', calTotal));
+        // 合併 jQuery 對象
+
+        // 初始計算一次總價
+        calTotal();
+
+
+    </script>
+</body>
+
+</html>
