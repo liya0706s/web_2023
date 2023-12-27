@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary myBtn" type="button">Button1</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary myBtn" type="button">Button2</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 以上同一個class="myBtn" querySelectorAll
+        // NodeList 可以跑forEach
+
+        const myBtn = document.querySelectorAll('.myBtn');
+        console.log('myBtn', myBtn);
+        console.log('myBtn typeof', typeof (myBtn));
+        console.log('myBtn isArray', Array.isArray(myBtn));
+        // querySelectorAll -> NodeList 雖然不是array,但可以使用forEach
+        console.log("<br>");
+        myBtn.forEach(function (value, key) {
+            console.log('value', value);
+            console.log('key', key);
+            let getValue = value.innerText;
+            // 這裡的value代表當前迭代的按鈕"元素" element=value
+            // value.innerText獲取該按鈕的本文內容
+            console.log('getValue', getValue);
+
+            value.addEventListener('click',function(){
+                console.log(`${getValue} is clicked`);
+            });
+        // value是這個button, this是window
+        });
+        // id
+        // html
+        // js綁定
+        // js event
+
+        // class
+        // html...html
+        // js 綁定 class
+        // 監聽 foreach -> event
+    </script>
+</body>
+
+</html>
