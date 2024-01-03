@@ -20,17 +20,21 @@
         let strArr = ['amy', 'bob', 'cat'];
         console.log('strArr', strArr);
         console.log('strArr typeof', typeof (strArr));
+        // 判斷strArr是否為陣列，並將結果存儲在result變數中
         let result = Array.isArray(strArr);
+        // 這邊result true
         console.log('result', result);
 
+        // 使用forEach遍歷strArr陣列
         strArr.forEach(function (value, index, array) {
-            console.log('index', index);
-            console.log('value', value);
-            console.log('array', array);
+            console.log('index', index);  // 輸出當前元素的索引
+            console.log('value', value);  // 輸出當前元素的值
+            console.log('array', array);  // 輸出整個陣列
         })
 
         console.log("<hr>");
-        // object
+
+        // 宣告一個對象myObj
         let myObj = {
             's1': 'amy',
             's2': 'bob',
@@ -39,8 +43,9 @@
         console.log('myObj', myObj);
         console.log('myObj tpeof', typeof (myObj));
 
-        let resultObj = Array.isArray(myObj);
-        console.log('resultObj?', resultObj);
+        let resultObj = Array.isArray(myObj); // 判斷myObj是否為陣列
+        // 輸出判斷結果resultObj? false
+        console.log('resultObj ?', resultObj);
 
         // object 無法使用array method
         // myObj.forEach(function(value,index,array)){
@@ -50,23 +55,24 @@
         // }
 
         // 查看object
-        // for in 取得object (優先)
+        // 使用for-in迴圈遍歷myObj對象
         for (const key in myObj) {
-            console.log('key', key);
-            console.log('${myObj[key]}', `${myObj[key]}`);
+            console.log('key', key); // 輸出當前屬性的鍵
+            console.log('${myObj[key]}', `${myObj[key]}`); // 輸出當前屬性的值
         }
 
         // for of for array 很少用
 
         console.log("<hr>");
-        // object 轉成array (不適合)
+        // 將對象myObj的鍵轉換為陣列，然後遍歷
         Object.keys(myObj).forEach(function (value, index, array) {
-            console.log('index', index);
-            console.log('value', value);
-            console.log('array', array);
+            console.log('index', index); // 輸出當前元素的索引
+            console.log('value', value); // 輸出當前元素的值
+            console.log('array', array); // 輸出整個陣列
         })
 
         console.log("<hr>");
+        // 宣告一個含有多個對象的陣列storeArr
         let storeArr = [
             {
                 'name': '台北店',
@@ -81,16 +87,25 @@
                 'tel': '0933-333-333'
             }
         ];
-        console.log('storeArr', storeArr);
+        console.log('storeArr', storeArr); // 輸出storeArr的值
+        // 使用forEach遍歷storeArr陣列
         storeArr.forEach(function (value, key) {
-            console.log('key', key);
-            console.log('value', value);
-            console.log('value["name"]', value['name']);
-            console.log('value["tel"]',value['tel']);
+            console.log('key', key); // 輸出當前元素的索引
+            console.log('value', value);  // 輸出當前元素的值，這裡的value是一個對象
+            
+            // 這裡分別輸出value對象中的'name'和'tel'屬性
+            console.log('value["name"]', value['name']); // 輸出value對象的name屬性
+            console.log('value["tel"]',value['tel']); // 輸出value對象的tel屬性
+            
+             // 判斷value對象的name屬性是否等於'台北店'
             if(value['name']=='台北店'){
-                console.log('這是台北店');
+                console.log('這是台北店'); // 如果是台北店，則輸出這行文字
             }
         });
+
+        // 這段代碼主要做的是遍歷storeArr這個陣列。
+        // storeArr陣列中每一個元素都是一個包含name和tel兩個屬性的對象。
+        // 代碼中的forEach函數用於遍歷這個陣列，並針對每個元素（即每個商店）執行一些操作，例如輸出它們的名稱和電話，並特別標記出台北店。
 
 
     </script>
