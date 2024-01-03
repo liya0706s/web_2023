@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
     <style>
-        body{
-            font-size: 50px;
+        body {
+            font-size: 28px;
             height: 2000px;
         }
+
         .pos-static {
-            left:30px;
+            left: 30px;
         }
-        .pos-relative{
-            /* 魔法是在下一行 */
+
+        .pos-relative {
             position: relative;
-            left:30px;
+            left: 30px;
         }
+
         .pos-fixed {
-            position:fixed;
-            left:100px;
+            position: fixed;
+            left: 100px;
             bottom: 30px;
         }
 
@@ -28,60 +31,122 @@
             display: none;
         } */
         /* 可以隱藏顯示 */
+        a {
+            text-decoration: none;
+        }
 
+        h3 {
+            display: none;
+            /* 消失了 */
+        }
 
         .nav-fixed {
-            /* 黃金position */
-            position:fixed;
+            position: fixed;
             top: 0;
 
-            width:100px;
-            height:15vh;
+            width: 100%;
+            height: 15vh;
             background-color: lightblue;
-            z-index: -200;
+            z-index: -300;
+            /* z-index: 100; */
+
             /* z-index好酷，很像是設定在前方在後方 */
         }
 
         .footer {
-            /* 放廣告 */
-            position:fixed;
-            /* footer要改成bottom */
+            position: fixed;
             bottom: 0;
 
-            width:100px;
-            height:15vh;
+            width: 100%;
+            height: 15vh;
             background-color: lightpink;
             z-index: 100;
         }
+
+        .post-absolute {
+            position: absolute;
+        }
+
+        .box-relative {
+            position: relative;
+            width: 800px;
+            height: 800px;
+            background-color: lightgreen;
+        }
+
+        .box-absolute {
+            width: 100px;
+            height: 100px;
+        }
+
+        .box1 {
+            background-color: lightyellow;
+            position: absolute;
+        }
+
+        .box2 {
+            background-color: red;
+            position: absolute;
+            /* 右邊和上面都沒有 */
+            right: 0;
+            top: 0;
+        }
+
+        .box3 {
+            background-color: greenyellow;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        .box4 {
+            background-color: blue;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <nav class="nav-fixed">
 
         </nav>
         <h3>position</h3>
-        <br><hr><br>
+        <br>
+        <hr><br>
         <h4>static</h4>
         <p class="pos-static">
             Lorem ipsum dolor sit amet.
         </p>
-        <br><hr><br>
+        <br>
+        <hr><br>
         <h4>relative</h4>
         <p class="pos-relative">
             Lorem ipsum dolor sit amet.
         </p>
-        <br><hr><br>
+        <br>
+        <hr><br>
+        <h4>absolute</h4>
+        <div class="box-relative">
+            <div class="box-absolute box1"></div>
+            <div class="box-absolute box2"></div>
+            <div class="box-absolute box3"></div>
+            <div class="box-absolute box4"></div>
+        </div>
+        <br>
+        <hr><br>
         <h4>fixed</h4>
         <!-- <p class="pos-fixed">
             Lorem ipsum dolor sit amet.
         </p> -->
         <a href="#" class="pos-fixed">top</a>
         <footer class="footer">
-            I am footer.
+            I am Footer.
         </footer>
     </div>
-    
+
 </body>
 
 </html>
