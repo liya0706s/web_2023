@@ -10,26 +10,41 @@
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    /* .box{
+    background-color: pink;
+    height:400px;
+    padding-top:110px;
+  } */
+  </style>
 </head>
 
 <body>
 
-  <div class="container mt-3">
+  <div class="container-fluid mt-3">
     <h2>Hover Rows</h2>
     <p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>
-    <table class="table table-hover">
+    <table class="table table-hover align-middle text-center">
+      <!-- 垂直置中 水平置中 -->
       <thead>
         <tr>
-          <th>Firstname</th>
-          <th>Lastname</th>
-          <th>Email</th>
+          <th>品名</th>
+          <th>單價</th>
+          <th>數量</th>
+          <th>總價</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>John</td>
-          <td>Doe</td>
-          <td>john@example.com</td>
+          <!-- 圖片四比三比較好看，正方形會有點呆呆的 -->
+          <td>
+            <!-- <div class="box"> -->
+            <img src="https://picsum.photos/id/58/200/150" alt="">
+            <!-- </div> -->
+          </td>
+          <td><input type="text" class="form-control" id="item1Price"></td>
+          <td><input type="text" class="form-control" id="item1Num"></td>
+          <td><input type="text" class="form-control" id="item1Total"></td>
         </tr>
         <tr>
           <td>Mary</td>
@@ -51,7 +66,22 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script>
+    // $(document).ready是jQuery中的一個方法，
+    // 用於確保在執行任何代碼之前，頁面的DOM已經完全加載。
+    $(document).ready(function () {
+      // 1.綁定:使用jQuery選擇器選擇ID為item1Price的元素，
+      // 並將其賦值給item1Price變量
+      const item1Price =$('#item1Price');
+      const item1Num =$('#item1Num');
+      const item1Total =$('#item1Total');
+      
+      item1Num.val('123');  // 放入值
+      // 在控制台輸出item1Price的值，這裡的值是一個jQuery對象，代表了ID為item1Price的DOM元素
+      console.log('item1Price', item1Price);
+      console.log('item1Num', item1Num);
+      console.log('item1Total', item1Total);
 
+    });
 
   </script>
 </body>
