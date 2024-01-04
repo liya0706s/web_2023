@@ -68,20 +68,6 @@
           </td>
         </tr>
 
-        <tr>
-          <td>
-            <img src="https://picsum.photos/id/60/200/150" alt="">
-          </td>
-          <td>
-            <input type="number" class="form-control my-price" id="item1Price" value="300">
-          </td>
-          <td>
-            <input type="number" class="form-control my-num" id="item1Num" value="1">
-          </td>
-          <td>
-            <input type="number" class="form-control my-total" id="item1Total" value="300" readonly>
-          </td>
-        </tr>
       </tbody>
     </table>
   </div>
@@ -94,12 +80,34 @@
   <script>
     // 綁定不變的值用const
     $(document).ready(function () {
+      
+      // 總計的function
+      function sumFun() {
+        let sum = 0;
+        // jq each() 
+        myTotal.each(function (index, element) {
+          console.log('index', index);
+          console.log('element', element);
+          console.log('this', this);  // 這邊是js element 可以算總計 
+          let getValue = Number($(this).val()); // 變成jquery物件的val()再轉換型態成Number
+          console.log('getValue', getValue);
+          sum += getValue;
+        });
+        console.log('sum', sum);
+
+      }
+
       const myPrice = $('.my-price');
       const myNum = $('.my-num');
       const myTotal = $('.my-total');
       console.log('myPrice', myPrice);
       console.log('myNum', myNum);
       console.log('myTotal', myTotal);
+      // console.log('myTotal[0]', myTotal[0]);
+      // console.log('myTotal[1]', myTotal[1]);
+
+      // init function
+      sumFun();
 
       myNum.change(function () {
         console.log('myNum', myNum);  // 等於jquery object
@@ -134,12 +142,9 @@
         console.log('getNum', getNum);
         console.log('resultTotal', resultTotal);
 
-        // jq each
-        myTotal.each(function (index, element) {
-          console.log('index',index);
-          console.log('element',element);
-          
-        });
+        // change時重新呼叫
+        sumFun();
+
       });
     });
 
