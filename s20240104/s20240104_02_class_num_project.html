@@ -18,15 +18,15 @@
   <div class="container-fluid mt-4">
     <div class="row mt-3">
       <div class="col">
-        <input type="number" class="form-control" name="" id="num1" placeholder="num1?">
+        <input type="number" class="my-num1 form-control" name="" id="" placeholder="num1?">
       </div>
       <div class="col">
-        <input type="number" class="form-control" name="" id="num2" placeholder="num2?">
+        <input type="number" class="my-num2 form-control" name="" id="" placeholder="num2?">
       </div>
       <div class="col">
         <!-- <input type="text" class="form-control" name="" id="opt" placeholder="option?"> -->
-      <select name="" id="opt" class="form-control">
-        <option value="">----請選擇----</option>
+      <select name="" id="" class="my-opt form-control">
+        <option value="1">----請選擇----</option>
         <option value="1">+</option>
         <option value="2">-</option>
         <option value="3">*</option>
@@ -35,11 +35,11 @@
       </div>
       <div class="col">
         <div class="d-grid gap-2">
-          <button type="button" class="btn btn-warning" id="myBtn">Button</button>
+          <button type="button" class="my-btn btn btn-warning" id="">Button</button>
         </div>
       </div>
       <div class="col mt-2">
-        <span id="resultSpan">result...</span>
+        <span id="" class="result-span">result...</span>
       </div>
     </div>
   </div>
@@ -54,11 +54,11 @@
   <!-- 使用const宣告變量，指向DOM元素，並確保這些變量不會被重新賦值 -->
   <script>
     $(document).ready(function () {
-      const num1 = $('#num1');
-      const num2 = $('#num2');
-      const opt = $('#opt');
-      const myBtn = $('#myBtn');
-      const resultSpan = $('#resultSpan');
+      const num1 = $('.my-num1');
+      const num2 = $('.my-num2');
+      const opt = $('.my-opt');
+      const myBtn = $('.my-btn');
+      const resultSpan = $('.result-span');
 
       console.log('num1', num1);
       console.log('num2', num2);
