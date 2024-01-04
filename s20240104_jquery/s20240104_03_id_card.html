@@ -18,18 +18,15 @@
       <div class="col">
         <h2>旅遊網</h2>
         <p>Image at the top (card-img-top):</p>
-        <div class="card" style="width:400px">
+        <div class="card text-center" style="width:400px">
           <img class="card-img-top" src="https://picsum.photos/id/16/536/354" alt="Card image" style="width:100%">
           <div class="card-body">
             <h4 class="card-title">Tokyo</h4>
             <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
 
             <button id="myBtn" data-price="1000" data-level="B" type="button" class="btn btn-primary">Promotion</button>
-
-            <div id="myBox">
-
+            <div id="myBox" class="box text-danger mt-2">
               <span id="mySpan">Lorem ipsum dolor sit.</span>
-
             </div>
           </div>
         </div>
@@ -43,6 +40,12 @@
 
 
     <script>
+
+// 首先獲取並隱藏結果顯示容器 myBox，然後為按鈕 myBtn 綁定一個點擊事件。
+// 當點擊按鈕時，我們根據按鈕上的 data-price 和 data-level 屬性計算優惠價，
+// 然後顯示計算結果，並移除按鈕自身。
+// 這是一個典型的用於電子商務或促銷頁面的交互功能。
+
       $(document).ready(function () {
         // 綁定
         const myBtn = $('#myBtn');
@@ -63,17 +66,23 @@
           console.log('myBtn ok');
           console.log('this', this);
           console.log('$(this)', $(this));
+          // 獲取按鈕上data-price屬性的值，轉換為數字
           let getDataPrice = Number($(this).attr('data-price'));
+          // 獲取按鈕上data-level屬性的值
           let getDataLevel = $(this).attr('data-level');
           // let getDataLevel = $(this).data('level');
           console.log('getDataPrice', getDataPrice);
           console.log('getDataLevel', getDataLevel);
+          // 計算優惠價
           let result = getDataPrice * levelObj[getDataLevel];
+           // 輸出計算結果
           console.log('result', result);
           // myBtn.remove();
+          // 移除按鈕
           $(this).remove();
           myBox.show();
-          
+          // 將計算結果更新到mySpan中
+          mySpan.text(`原價:${getDataPrice}, 優惠價 ${result}`);
         });
 
 
