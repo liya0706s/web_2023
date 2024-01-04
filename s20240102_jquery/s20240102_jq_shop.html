@@ -42,19 +42,15 @@
             <img src="https://picsum.photos/id/58/200/150" alt="">
             <!-- </div> -->
           </td>
-          <td><input type="text" class="form-control" id="item1Price"></td>
-          <td><input type="text" class="form-control" id="item1Num"></td>
-          <td><input type="text" class="form-control" id="item1Total"></td>
-        </tr>
-        <tr>
-          <td>Mary</td>
-          <td>Moe</td>
-          <td>mary@example.com</td>
-        </tr>
-        <tr>
-          <td>July</td>
-          <td>Dooley</td>
-          <td>july@example.com</td>
+          <td>
+            <input type="number" class="form-control" id="item1Price" value="100">
+          </td>
+          <td>
+            <input type="number" class="form-control" id="item1Num" value="1">
+          </td>
+          <td>
+            <input type="number" class="form-control" id="item1Total" value="200" readonly>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -71,16 +67,28 @@
     $(document).ready(function () {
       // 1.綁定:使用jQuery選擇器選擇ID為item1Price的元素，
       // 並將其賦值給item1Price變量
-      const item1Price =$('#item1Price');
-      const item1Num =$('#item1Num');
-      const item1Total =$('#item1Total');
-      
-      item1Num.val('123');  // 放入值
+      const item1Price = $('#item1Price');
+      const item1Num = $('#item1Num');
+      const item1Total = $('#item1Total');
+
+      // item1Num.val('123');
+      // 放入值看看
       // 在控制台輸出item1Price的值，這裡的值是一個jQuery對象，代表了ID為item1Price的DOM元素
       console.log('item1Price', item1Price);
       console.log('item1Num', item1Num);
       console.log('item1Total', item1Total);
 
+      // 2.事件
+      item1Num.change(function () {
+        // 每個function確認有沒有ok 
+        console.log('item1Num ok');
+        // 把值抓出來
+        let getItem1Price = Number(item1Price.val());
+        let getItem1Num = Number(item1Num.val());
+        let getItem1Total = Number(item1Total.val());
+        console.log('getItem1Price', getItem1Price);
+        console.log('getItem1Pirce typeof', typeof (getItem1Price));
+      });
     });
 
   </script>
