@@ -71,25 +71,35 @@
       console.log('myNum', myNum);
       console.log('myTotal', myTotal);
 
-      myNum.change(function(){
-        console.log('myNum',myNum);  // 等於jquery object
-        console.log('this',this);  // this就是myNum這個input, 原生的js
-        console.log('$(this)',$(this));  // jquery object 才可以用jquery的method 
+      myNum.change(function () {
+        console.log('myNum', myNum);  // 等於jquery object
+        console.log('this', this);  // this就是myNum這個input, 原生的js
+        console.log('$(this)', $(this));  // jquery object 才可以用jquery的method 
 
         // 這個抓不到，uncaught this.parent is not a function
         // console.log('this.parent()',this.parent());
-        console.log('$(this).parent()',$(this).parent());
-        console.log('$(this).parent().parent()',$(this).parent().parent());
-        console.log('$(this).parent().parent().find(".my-price")',$(this).parent().parent().find('.my-price'));
+        console.log('$(this).parent()', $(this).parent());
+        console.log('$(this).parent().parent()', $(this).parent().parent());
+        console.log('$(this).parent().parent().find(".my-price")', $(this).parent().parent().find('.my-price'));
 
         let trObj = $(this).parent().parent();
         let nowPrice = trObj.find('.my-price');
         let nowNum = trObj.find('.my-num');
         let nowTotal = trObj.find('.my-total');
 
-        console.log('',);
-        console.log('',);
-        console.log('',);
+        console.log('trObj', trObj);
+        console.log('nowPrice', nowPrice);
+        console.log('nowNum', nowNum);
+        console.log('nowTotal', nowTotal);
+
+        let getPrice = Number(nowPrice.val());
+        let getNum = Number(nowNum.val());
+        let resultTotal = getPrice * getNum;
+        nowTotal.val(resultTotal);  // 把值參數放進去
+
+        console.log('getPrice', getPrice);
+        console.log('getNum', getNum);
+        console.log('resultTotal', resultTotal);
 
 
       });
