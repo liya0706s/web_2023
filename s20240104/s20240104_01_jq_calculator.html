@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row mt-3">
+            <div class="col">
+                <div class="form-group">
+                    <label for="">num1:</label>
+                    <input type="number" class="form-control" id="num1Id">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="">num2:</label>
+                    <input type="number" class="form-control" id="num2Id">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <div class="form-group text-center">
+                        <label for="pwd">option:</label>
+                        <button id="btnPlus">+</button>
+                        <button id="btnMinus">-</button>
+                        <button id="btnMulti">*</button>
+                        <button id="btnDivide">/</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col text-center">
+                    <input id="result" placeholder="result" readonly></input>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- 載入 jquery cdn  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            // 當文檔加載完畢時，執行以下代碼
+
+            // 綁定加、減、乘、除按鈕的點擊事件
+            $('#btnPlus').click(function () { calculate('+'); });
+            $('#btnMinus').click(function () { calculate('-'); });
+            $('#btnMulti').click(function () { calculate('*'); });
+            $('#btnDivide').click(function () { calculate('/'); });
+
+            function calculate(operation) {
+                // 獲取數字輸入欄位的值
+                let num1 = Number($('#num1Id').val());
+                let num2 = Number($('#num2Id').val());
+
+                // let num1 = 10;
+                // let num2 = 2;
+
+                console.log("Num1:", num1, "Num2:", num2); // 試語句，檢查輸入值
+                console.log('typeof num1', typeof (num1));  // 看型態
+
+                let result;
+
+                // 根據操作符進行計算
+                switch (operation) {
+                    case '+': result = num1 + num2; break;
+                    case '-': result = num1 - num2; break;
+                    case '*': result = num1 * num2; break;
+                    case '/': result = num1 / num2; break;
+                    default: result = 'Invalid Operation';
+                }
+
+                // 將計算結果顯示在結果欄位
+                $('#result').val(result);
+            }
+        });
+    </script>
+</body>
+
+</html>
