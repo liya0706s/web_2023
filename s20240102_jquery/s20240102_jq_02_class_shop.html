@@ -67,6 +67,11 @@
             <input type="number" class="form-control my-total" id="item1Total" value="200" readonly>
           </td>
         </tr>
+        <tr>
+          <td colspan="4">
+            <span id="resultSpan"></span>
+          </td>
+        </tr>
 
       </tbody>
     </table>
@@ -80,7 +85,7 @@
   <script>
     // 綁定不變的值用const
     $(document).ready(function () {
-      
+
       // 總計的function
       function sumFun() {
         let sum = 0;
@@ -94,19 +99,28 @@
           sum += getValue;
         });
         console.log('sum', sum);
-
+        if (sum >= 500) {
+          result = sum * 0.8;
+          resultText = `恭喜您 打八折 ${result}`;
+          resultSpan.attr('class','text-danger');
+        } else {
+          resultText = sum;
+        }
+        resultSpan.text(resultText);
       }
 
       const myPrice = $('.my-price');
       const myNum = $('.my-num');
       const myTotal = $('.my-total');
+      const resultSpan = $('#resultSpan');
+
       console.log('myPrice', myPrice);
       console.log('myNum', myNum);
       console.log('myTotal', myTotal);
       // console.log('myTotal[0]', myTotal[0]);
       // console.log('myTotal[1]', myTotal[1]);
 
-      // init function
+      // init function 在change之前初始化
       sumFun();
 
       myNum.change(function () {
@@ -114,11 +128,12 @@
         console.log('this', this);  // this就是myNum這個input, 原生的js
         console.log('$(this)', $(this));  // 變身 jquery object 才可以用jquery的method 
 
-        // 這個抓不到，uncaught this.parent is not a function
+        // 這個抓不到parent()，uncaught this.parent is not a function
         // console.log('this.parent()',this.parent());
-        console.log('$(this).parent()', $(this).parent());
-        console.log('$(this).parent().parent()', $(this).parent().parent());
-        console.log('$(this).parent().parent().find(".my-price")', $(this).parent().parent().find('.my-price'));
+
+        // console.log('$(this).parent()', $(this).parent());
+        // console.log('$(this).parent().parent()', $(this).parent().parent());
+        // console.log('$(this).parent().parent().find(".my-price")', $(this).parent().parent().find('.my-price'));
 
         // 用class關鍵字為基準:
         // jq parent() 找上一層
@@ -142,7 +157,7 @@
         console.log('getNum', getNum);
         console.log('resultTotal', resultTotal);
 
-        // change時重新呼叫
+        // change時，重新呼叫
         sumFun();
 
       });
