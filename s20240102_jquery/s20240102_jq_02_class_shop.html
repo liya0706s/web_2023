@@ -62,23 +62,37 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script>
+    // 綁定不變的值用const
     $(document).ready(function () {
+      const myPrice = $('.my-price');
+      const myNum = $('.my-num');
+      const myTotal = $('.my-total');
+      console.log('myPrice', myPrice);
+      console.log('myNum', myNum);
+      console.log('myTotal', myTotal);
 
-      function sumFun() {
-        let sum = 0;
-        // jquery each method 
-        myTotal.each(function (index, element) {
-          console.log('index', index);  // key
-          console.log('element', element);  // value
-          console.log('this', this);  // this是element
-          let getValue = Number($(this).val());
-          console.log('getValue', getValue);
+      myNum.change(function(){
+        console.log('myNum',myNum);  // 等於jquery object
+        console.log('this',this);  // this就是myNum這個input, 原生的js
+        console.log('$(this)',$(this));  // jquery object 才可以用jquery的method 
 
-        })
-      }
+        // 這個抓不到，uncaught this.parent is not a function
+        // console.log('this.parent()',this.parent());
+        console.log('$(this).parent()',$(this).parent());
+        console.log('$(this).parent().parent()',$(this).parent().parent());
+        console.log('$(this).parent().parent().find(".my-price")',$(this).parent().parent().find('.my-price'));
 
-      // 用parent抓上一個物件做操作
+        let trObj = $(this).parent().parent();
+        let nowPrice = trObj.find('.my-price');
+        let nowNum = trObj.find('.my-num');
+        let nowTotal = trObj.find('.my-total');
 
+        console.log('',);
+        console.log('',);
+        console.log('',);
+
+
+      });
     });
 
   </script>
