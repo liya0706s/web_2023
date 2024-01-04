@@ -25,17 +25,17 @@
       </div>
       <div class="col">
         <!-- <input type="text" class="form-control" name="" id="opt" placeholder="option?"> -->
-      <select name="" id="" class="my-opt form-control">
-        <option value="1">----請選擇----</option>
-        <option value="1">+</option>
-        <option value="2">-</option>
-        <option value="3">*</option>
-        <option value="4">/</option>
-      </select>
+        <select name="" id="" class="my-opt form-control">
+          <option value="1">----請選擇----</option>
+          <option value="1">+</option>
+          <option value="2">-</option>
+          <option value="3">*</option>
+          <option value="4">/</option>
+        </select>
       </div>
       <div class="col">
         <div class="d-grid gap-2">
-          <button type="button" class="my-btn btn btn-warning" id="">Button</button>
+          <button type="button" class="my-btn btn btn-success" id="">Button</button>
         </div>
       </div>
       <div class="col mt-2">
@@ -54,6 +54,7 @@
   <!-- 使用const宣告變量，指向DOM元素，並確保這些變量不會被重新賦值 -->
   <script>
     $(document).ready(function () {
+      // $('css selectors')
       const num1 = $('.my-num1');
       const num2 = $('.my-num2');
       const opt = $('.my-opt');
@@ -66,18 +67,31 @@
       console.log('myBtn', myBtn);
 
       myBtn.click(function () {
-        // 獲取輸入框的值，轉換成數字
-        let getNum1Value = Number(num1.val());
-        let getNum2Value = Number(num2.val());
-        let getOptValue = Number(opt.val());
-        console.log('getNum1Value', getNum1Value);
-        console.log('getNum1Value typeof', typeof (getNum1Value));
+        // 用parent去找object，console看看
+        console.log('this', this);
+        console.log('$(this)', $(this));
+        console.log('$(this).parent()', $(this).parent());
+        console.log('$(this).parent().parent()', $(this).parent().parent());
+        console.log('$(this).parent().parent().parent()', $(this).parent().parent().parent());
 
-        // 判斷有沒有值，給予警訊
-        // length只有支援string not for number
-        // string method - length
-        // 如果輸入框的長度小於等於0，顯示警告
-        if (num1.val().length <= 0 || num2.val().length <= 0) {
+        // console確定object以後，綁定class
+        const nowRow = $(this).parent().parent().parent();
+        const nowNum1 = nowRow.find('.my-num1');
+        const nowNum2 = nowRow.find('.my-num2');
+        const nowOpt = nowRow.find('.my-opt');
+        const nowResultSpan = nowRow.find('.result-span');
+        console.log('nowNum1', nowNum1);
+
+        // 取值轉成Number設定為 變數
+        let getNum1Value = Number(nowNum1.val());
+        let getNum2Value = Number(nowNum2.val());
+        let getOptValue = Number(nowOpt.val());
+        console.log('getNum1Value',getNum1Value);
+        console.log('getNum1Value typeof',typeof(getNum1Value));
+
+
+        // string method length
+        if (nowNum1.val().length <= 0 || nowNum2.val().length <= 0) {
           alert('empty?');
           return false;
         }
@@ -104,7 +118,7 @@
         }
         // 輸出計算結果到控制台
         console.log('result', result);
-        resultSpan.text(result);
+        nowResultSpan.text(result);
       });
 
     });
