@@ -24,7 +24,14 @@
         <input type="number" class="form-control" name="" id="num2" placeholder="num2?">
       </div>
       <div class="col">
-        <input type="text" class="form-control" name="" id="opt" placeholder="option?">
+        <!-- <input type="text" class="form-control" name="" id="opt" placeholder="option?"> -->
+      <select name="" id="opt" class="form-control">
+        <option value="1">----請選擇----</option>
+        <option value="1">+</option>
+        <option value="2">-</option>
+        <option value="3">*</option>
+        <option value="4">/</option>
+      </select>
       </div>
       <div class="col">
         <div class="d-grid gap-2">
@@ -42,27 +49,68 @@
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+  <!-- let -->
+  <!-- const = constant 常數，宣告以後不能再更動 -->
+  <!-- 使用const宣告變量，指向DOM元素，並確保這些變量不會被重新賦值 -->
   <script>
     $(document).ready(function () {
       const num1 = $('#num1');
       const num2 = $('#num2');
+      const opt = $('#opt');
+      const myBtn = $('#myBtn');
+      const resultSpan = $('#resultSpan');
+
+      console.log('num1', num1);
+      console.log('num2', num2);
+      console.log('opt', opt);
+      console.log('myBtn', myBtn);
+
+      myBtn.click(function () {
+        // 獲取輸入框的值，轉換成數字
+        let getNum1Value = Number(num1.val());
+        let getNum2Value = Number(num2.val());
+        let getOptValue = Number(opt.val());
+        console.log('getNum1Value', getNum1Value);
+        console.log('getNum1Value typeof', typeof (getNum1Value));
+
+        // 判斷有沒有值，給予警訊
+        // length只有支援string not for number
+        // string method - length
+        // 如果輸入框的長度小於等於0，顯示警告
+        if (num1.val().length <= 0 || num2.val().length <= 0) {
+          alert('empty?');
+          return false;
+        }
+
+        console.log('click ok');
+        console.log('getNum1Value', getNum1Value);
+        console.log('getNum2Value', getNum2Value);
+        console.log('getOptValue', getOptValue);
+        let result = 0;
+        switch (getOptValue) {
+          case 1:
+            result = getNum1Value + getNum2Value;
+            break;
+          case 2:
+            result = getNum1Value - getNum2Value;
+            break;
+          case 3:
+            result = getNum1Value * getNum2Value;
+            break;
+          case 4:
+            result = getNum1Value / getNum2Value;
+            break;
+          default: break; // 如果沒有匹配的運算，則不執行任何操作
+        }
+        // 輸出計算結果到控制台
+        console.log('result', result);
+        resultSpan.text(result);
+      });
 
     });
 
-    myBtn.click(function () {
-      let getNum1Value = Number(num1.val());
-      let getNum2Value = Number(num2.val());
-      let getOptValue = opt.val();
 
 
-    })
-
-    // 判斷有沒有值，給予警訊
-    // length只有支援string not for number
-    if (getNum1Value <= 0) {
-      alert('empty?');
-      return false;
-    }
 
   </script>
 </body>
