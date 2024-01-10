@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box-a {
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            background-color: lightgoldenrodyellow;
+        }
+
+        .box-b {
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            background-color: lightcoral
+        }
+
+        .product-title {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .content {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box-a"></div>
+    <div class="box-b"></div>
+
+    <div class="product-title">產品介紹</div>
+    <div class="content">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae voluptatibus, mollitia illo exercitationem
+        temporibus quas omnis nulla iusto voluptates necessitatibus at vitae unde facilis possimus repellendus
+        aspernatur rem quo animi.
+    </div>
+
+    <!-- google cdn jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            // test1
+            $(".box-a").click(function () {
+                // $(".box-b").hide();
+                $(".box-b").toggle();
+                // 會判斷如果是關，再按就是開，以此類推
+            });
+
+            // demo1
+            $(".product-title").click(function () {
+                $(".content").toggle();
+
+            });
+        });
+    </script>
+</body>
+
+</html>
