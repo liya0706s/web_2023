@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入系統</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <h1>登入</h1>
+    <form id="loginForm">
+        <label>acc:</label>
+        <input type="text" id="username" placeholder="使用者名稱" required>
+        <br>
+        <label>pw:</label>
+        <input type="password" id="password" placeholder="密碼" required>
+        <br>
+        <button type="submit">登入</button>
+    </form>
+    
+    <script>
+        $(document).ready(function(){
+            $('#loginForm').submit(function(e){
+                e.preventDefault();
+                var username=$('#username').val();
+                var password=$('#password').val();
+
+                // 在這裡可以向後端發送登入請求並處理回應
+                // 例如使用 $.ajax() 函數發送請求
+
+                var loginSuccess = true;
+                if(loginSuccess){
+                    window.location.href="./admin.html";
+                }else{
+                    alert("帳號或密碼錯誤");
+                }
+            })
+        })
+    </script>
+</body>
+</html>
