@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .container{
+        .container {
             width: 100%;
             /* background-color: lightblue; */
             /* 用背景顏色查看container的寬度 */
@@ -37,15 +37,18 @@
             /* 添加圆角 */
         }
 
-        .text-center{
+        .text-center {
             text-align: center;
         }
 
-        .text-end{
-            text-align:right;
+        .text-end {
+            text-align: right;
             margin-right: 150px;
             margin-bottom: 20px;
-            
+        }
+
+        a {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -54,20 +57,36 @@
     <div class="container">
         <h3 class="text-center"><span>User</span>List</h3>
         <div class="text-end">
-            <button type="button">Add</button>
+            <a href="../../views/user/create.html">
+                <button type="button">Add</button>
+            </a>
+        </div>
+        <div class="text-end">
+            <a href="../../api/login/logout.html">
+                <button type="button">Logout</button>
+            </a>
         </div>
         <table>
             <tr>
                 <th style="width: 15%;">id</th>
-                <th style="width: 35%;">name</th>
+                <th style="width: 30%;">name</th>
                 <th>operate</th>
             </tr>
             <tr>
                 <td>1</td>
-                <td>Angie</td>
                 <td>
-                    <button>edit</button>
-                    <button>del</button>
+                    <a href="../user/edit.html?id=1">
+                        <!-- a連結帶id的值 -->
+                        Angie
+                    </a>
+                </td>
+                <td>
+                    <a href="../user/edit.html?id=1">
+                        <button type="button">Edit</button>
+                    </a>
+                    <a href="../../api/user/del.php">
+                        <button type="button">Del</button>
+                    </a>
                 </td>
             </tr>
         </table>

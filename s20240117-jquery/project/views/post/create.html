@@ -53,23 +53,32 @@
 
 <body>
     <div class="container">
-        <h3 class="text-center"><span>User</span>Create 建立帳號密碼</h3>
+        <h3 class="text-center"><span>Post</span>Create 建立帳號密碼</h3>
         <form action="../../api/store.php">
+            <div class="text-end">
+                <button type="button">Add</button>
+            </div>
             <table>
                 <tr>
                     <th style="width: 15%;">欄位名稱</th>
                     <th style="width: 30%;">欄位資料</th>
                 </tr>
                 <tr>
-                    <td>Account</td>
+                    <td>id</td>
+                    <td><input type="text" name="" id="" value=""></td>
+                </tr>
+                <tr>
+                    <td>title</td>
                     <td><input type="text" name="" id=""></td>
                 </tr>
                 <tr>
-                    <td>Password</td>
-                    <td><input type="password" name="" id=""></td>
+                    <td>content</td>
+                    <td><input type="text" name="" id=""></td>
                 </tr>
                 <tr>
                     <td colspan="2">
+                        <input type="hidden" name="user_id" value="1">
+                        <!-- 藏user_id在這筆資料這裡，可以編輯使用 -->
                         <input type="submit" value="User Create">
                     </td>
                 </tr>
