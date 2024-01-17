@@ -1,0 +1,98 @@
+<!-- index裡面有del button action=api/del.php -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 100%;
+            /* background-color: lightblue; */
+            /* 用背景顏色查看container的寬度 */
+        }
+
+        table {
+            margin: 0 auto;
+            width: 80%;
+            font-size: 28px;
+        }
+
+        table,
+        tr,
+        th,
+        td {
+            text-align: center;
+            border: 3px solid lightgoldenrodyellow;
+            border-collapse: collapse;
+        }
+
+        span {
+            background-color: #f2f2f2;
+            /* 添加背景颜色 */
+            padding: 5px;
+            /* 添加内边距 */
+            border-radius: 5px;
+            /* 添加圆角 */
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-end {
+            text-align: right;
+            margin-right: 150px;
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3 class="text-center"><span>Plan</span>List</h3>
+        <div class="text-end">
+            <a href="../../views/user/create.html">
+                <button type="button">Add</button>
+            </a>
+        </div>
+        <div class="text-end">
+            <a href="../../api/login/logout.html">
+                <button type="button">Logout</button>
+            </a>
+        </div>
+        <table>
+            <tr>
+                <th style="width: 15%;">id</th>
+                <th style="width: 30%;">title</th>
+                <th style="width: 30%;">content</th>
+                <th>operate</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>
+                    <a href="../plan/edit.html?id=1">
+                        <!-- a連結帶id的值 -->
+                        Why should we learn to code?
+                    </a>
+                </td>
+                <td><p>No reasons.</p></td>
+                <td>
+                    <a href="../plan/edit.html?id=1">
+                        <button type="button">Edit</button>
+                    </a>
+                    <a href="../../api/plan/del.php">
+                        <button type="button">Del</button>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
