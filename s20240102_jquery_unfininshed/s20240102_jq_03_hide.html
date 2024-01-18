@@ -10,6 +10,14 @@
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    .box{
+      width: 300px;
+      height: 300px;
+      background-color: lightgoldenrodyellow;
+    }
+  </style>
 </head>
 
 <body>
@@ -19,8 +27,41 @@
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <script>
+    <div class="container">
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <div class="box" id="myBox"></div>
+          <!-- 用id=myBox控制 -->
+        </div>
+        <div class="mt-3 d-flex justify-content-center">
+          <button id="showBtn" type="button" class="btn btn-light me-3">showBtn</button>
+          <button id="hideBtn" type="button" class="btn btn-warning">hideBtn</button>
+          <!-- 用id=showBtn和hideBtn控制 -->
+        </div>
+      </div>
+    </div>
 
+
+  <script>
+ $(document).ready(function () {
+  const myBox = $('#myBox');
+  const showBtn = $('#showBtn');
+  const hideBtn = $('#hideBtn');
+  // 綁定變數要記得井字符號
+
+  console.log('myBox', myBox);
+  console.log('showBtn', showBtn);
+  console.log('hideBtn', hideBtn);
+
+  hideBtn.click(function () { 
+    myBox.hide();
+  });
+
+  showBtn.click(function () { 
+    myBox.show();
+  });
+
+ });
 
   </script>
 </body>
