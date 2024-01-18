@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP - tween 補間動畫</title>
+    <!-- bootstrap -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css'>
+
+    <style>
+        body {
+            padding-bottom: 500px;
+        }
+
+        h3 {
+            margin: 20px 0;
+        }
+
+        .box1,
+        .box2,
+        .box3,
+        .box4,
+        .box5,
+        .box6,
+        .box7,
+        .box8,
+        .box9,
+        .box10,
+        .box11,
+        .box12,
+        .box13 {
+            width: 50px;
+            height: 50px;
+            background: black;
+            margin: 10px;
+        }
+
+        .box2 {
+            background-color: red;
+        }
+
+        .box3 {
+            background-color: green;
+        }
+
+        .box4 {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>1.選擇目標</h1>
+        <div class="box1"></div>
+
+        <h1>2.選擇群組使用陣列</h1>
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box3"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+        <div class="box4"></div>
+        <div class="box4"></div>
+
+        <h1>3.設定 CSS 屬性</h1>
+        <div class="box5" style="margin:auto;"></div>
+        <p id="word">
+            <!-- emmet:ctlorem -->
+            一下服飾男子即使，威脅民族配合，逐步透露廣播整個快樂一台怪物，上午因素也就是一次，會計一座附件大學生十年證明先進性案件經營許可證表示成果，關閉怎麼辦上述官方領導發出決策財政陽光檢驗意大利以來愛情所需，記錄集團依舊同步作為畢業生智能資料太多妹妹刺激人們淡淡。
+        </p>
+
+        <h1>4.設定動畫屬性</h1>
+        <div class="box6"></div>
+        <button id="play">play</button>
+        <button id="pause">pause</button>
+
+    </div>
+
+    <!-- 引入 jquery -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
+    <!-- bootstrap -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.js'></script>
+
+    <!-- 引入 gsap 主程式 -->
+    <script src="./gsap/gsap.js"></script>
+
+    <script>
+        // 1.選擇目標----------------------------------------------------------
+        // 抓目標有3種方式
+        const b1 = document.querySelector('.box1');  // js
+        const b2 = $('.box1')  // jq
+        // 第三種 gsap 推薦，使用 css 規範的使用器
+        const tween1 = gsap.to('.box1', {
+            x: 500,
+            duration: 2
+        });
+
+        // 2.選擇群組使用陣列--------------------------------------------------
+        const dom1 = document.querySelectorAll('.box2')
+        // dom1類陣列
+        const dom2 = document.querySelectorAll('.box3')
+        const dom3 = document.querySelectorAll('.box4')
+
+        const jq1 = $('.box2')
+        const jq2 = $('.box3')
+        const jq3 = $('.box4')
+
+        // const tween2=gsap.to([jq1,jq2,jq3],{
+        //     x:300,
+        //     duration:5
+        // })
+
+        const tween2 = gsap.to('.box2,.box3,.box4', {
+            x: 500,
+            duration: 3
+        })
+
+        // 3.設定CSS屬性----------------------------------------------------------
+        const tween3 = gsap.to('.box5', {
+            x: 100,  // translateX
+            y: 100,  // translateY
+            rotation: 720,
+            scale: 2,
+            width: 100,
+            border: '2px solid lightgrey'  // border用字串,不用數字
+            // boxShadow: '0 0 10px rgba(255,0,0,1)',
+            // backgroundColor: 'transparent',
+            // backdropFilter: 'blur(2px)'
+        })
+
+        const word = gsap.to('#word', {
+            color: 'random([pink,lightblue,lightgreen])', // 隨機顏色，使用 random()，是一個字串 
+            fontWeight: 'bold',
+            fontSize: '1.5rem',
+            lineHeight: 2,
+            letterSpacing: '0.5rem'
+        })
+
+        // 4.設定動畫屬性------------------------------------------------------
+        const tween4 = gsap.to('.box6', {
+            y: 200,
+            // x:'+=100',
+            //相對位置
+            // x: 'random(0,100)',
+            // 隨機位置
+            duration: 3,
+            delay: 3,  // 延遲三秒後開始，屬於初始播放的延遲時間
+            // repeat: 2  
+            // 初始播放1次, 重複2次
+            repeat: -1,
+            // 無限播放
+            // repeatDelay: 2
+            // 重複播放的延遲時間
+            // repeatRefresh: true,
+            yoyo: true,
+            // 重複播放時，會來回播放
+            // ease: 'bounce',
+            ease: "steps(12)",
+
+        })
+
+       
+
+    </script>
+</body>
+
+</html>
