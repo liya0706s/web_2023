@@ -147,8 +147,8 @@
             //相對位置
             // x: 'random(0,100)',
             // 隨機位置
-            duration: 3,
-            delay: 3,  // 延遲三秒後開始，屬於初始播放的延遲時間
+            duration: 1,
+            delay: 1,  // 延遲三秒後開始，屬於初始播放的延遲時間
             // repeat: 2  
             // 初始播放1次, 重複2次
             repeat: -1,
@@ -160,10 +160,15 @@
             // 重複播放時，會來回播放
             // ease: 'bounce',
             ease: "steps(12)",
-
         })
 
+        $('#play').on('click',function(){
+            tween4.play()
+        })
        
+        $('#pause').on('click',function(){
+            tween4.pause()
+        })
 
     </script>
 </body>
