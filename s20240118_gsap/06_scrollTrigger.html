@@ -58,7 +58,12 @@
     <section id="section02">
         <h2>2.設定 toggleAction</h2>
         <div class="box b1">b1</div>
-        <div class="box b1 mt-5">b2</div>
+        <div class="box b2 mt-5">b2</div>
+    </section>
+
+    <section id="section03">
+        <h2>3.設定 scrub</h2>
+        <div class="box c1">c1</div>
     </section>
 
     <section></section>
@@ -111,6 +116,7 @@
             start: 'top center',
             end: 'bottom 20%',
             // 值可為 play, pause, resume, reverse, restart, reset, complete, none 
+            // 四個點可運用的函式: 
             // onEnter => 第一次綠碰綠 scroller-start 碰到 trigger start
             // onLeave => 第二次紅碰紅 scroller-end 碰到 trigger end
             // onEnterBack => 往回時紅碰紅 scroller-end 碰到 end
@@ -118,12 +124,41 @@
 
             toggleActions: 'play pause resume reverse',  
             // 第一次綠碰綠 二紅碰紅  三往回時紅碰紅恢復播放 四綠碰綠 
+            // toggleCalss:{
+            //     target:['.b2'],  // 要加 class 的元素
+            //     className:'active'  // 要加的 class 名稱
+            // },
+
+            // 更彈性的四個函式:
+            onEnter(){
+                $('.b2').addClass('active')
+            },
+            onLeave(){
+                $('.b2').removeClass('active')
+            },
             markers: true
         },
         x: '85vw',
         duration: 3,
         ease: 'none'
 
+    })
+
+    // 3.設定 scrub
+    // 將捲動軸的位置與動畫整體進度綁在一起
+    const tween3=gsap.to('.c1',{
+        scrollTrigger:{
+            trigger:'.c1',
+            start: 'top 80%',
+            end: 'bottom 20%',
+            // scrub: true,
+            scrub:3,
+            markers:true
+        },
+        x:'85vw',
+        rotation: 3600,
+        backgroundColor: 'red',
+        ease: 'none'
     })
 </script>
 
