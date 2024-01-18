@@ -77,6 +77,9 @@
         <div class="box13"></div>
         <div class="box14"></div>
         <div class="box15"></div>
+        <div class="progress mb-3">
+            <div class="progress-bar"></div>
+        </div>
 
 
     </div>
@@ -126,7 +129,32 @@
             defaults: {
                 duration: 1,
                 ease: 'power1.back'
-            }
+            },
+            repeat: 1,
+            repeatDelay: 1,  // 重複播放的延遲
+            // yoyo:true,
+            delay: 1,  // 初始播放的延遲
+            repeatRefresh: true,
+
+            onStart(p1, p2) {
+                console.log(p1, p2);
+            },
+            onStartParams: ['時間軸動畫開始', 'AngieLee'],
+
+            onComplete: function (p1, p2) {
+                console.log(p1, p2);
+            },
+            onCompleteParams: ['時間軸動畫結束', 'AngieLee'],
+
+            onUpdate(p1, p2) {
+                // console.log(p1, p2, this.progress().toFixed(2));
+                $('.progress-bar').css({
+                    width: this.totalProgress() * 100 + '%'
+                })
+            },
+            onUpdateParams: ['時間軸動畫更新', 'AngieLee'],
+            // 動畫從0-1的進度條
+
         })
         // defaults 大括號中的是屬性，會被綁到以下.box13/.box14/.box15中
         tl4
