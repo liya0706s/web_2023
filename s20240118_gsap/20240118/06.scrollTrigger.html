@@ -40,6 +40,10 @@
       justify-content: center;
       align-items: center;
     }
+
+    .active {
+      background-color: red;
+    }
   </style>
 </head>
 
@@ -49,6 +53,21 @@
   <section id="section01">
     <h2>1.設定 trigger</h2>
     <div class="box a1">a1</div>
+  </section>
+
+  <section></section>
+
+  <section id="section02">
+    <h2>2.設定 toggleActions</h2>
+    <div class="box b1">b1</div>
+    <div class="box b2 mt-5">b2</div>
+  </section>
+
+  <section></section>
+
+  <section id="section03">
+    <h2>3.設定 scrub</h2>
+    <div class="box c1">c1</div>
   </section>
 
   <section></section>
@@ -65,6 +84,8 @@
   <script>
     // 註冊套件
     gsap.registerPlugin(ScrollTrigger);
+
+    // 1.設定 trigger
     const tween1 = gsap.to('.a1', {
       /*
         start 與 end
@@ -77,12 +98,63 @@
         // start: 'top bottom',
         // end: 'bottom top',
 
-        start: 'center center',
-        end: 'bottom top',
-        markers: true
+        // start: 'center center',
+        // end: 'bottom top',
+
+        start: '100px 60%',
+        end: 'bottom 30%',
+        // markers: true
       },
       x: '85vw',
       duration: 3,
+      ease: 'none'
+    })
+
+    // 2.設定 toggleActions
+    const tween2 = gsap.to('.b1', {
+      scrollTrigger: {
+        trigger: '.b1',
+        start: 'top center',
+        end: 'bottom 20%',
+        /*
+          值可為 play、pause、resume、reverse、restart、reset、complete、none
+          onEnter => 第一次綠碰綠 scroller-start 碰到 start
+          onLeave => 第一次紅碰紅 scroller-end 碰到 end
+          onEnterBack => 往回時紅碰紅 scroller-end 碰到 end
+          onLeaveBack => 往回時綠碰綠 scroller-start 碰到 start
+        */
+        toggleActions: 'play pause resume reverse',
+        // toggleClass: {
+        //   targets: ['.b2'], // 要加 class 的元素
+        //   className: 'active' // 要加的 class 名稱
+        // },
+        onEnter() {
+          $('.b2').addClass('active')
+        },
+        onLeave() {
+          $('.b2').removeClass('active')
+        },
+        // markers: true
+      },
+      x: '85vw',
+      duration: 3,
+      ease: 'none'
+    })
+
+    // 3.設定 scrub
+    // 將捲動軸的位置與動畫整體進度綁在一起
+    const tween3 = gsap.to('.c1', {
+      scrollTrigger: {
+        trigger: '.c1',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        // scrub: true,
+        scrub: 3,
+        markers: true
+      },
+      x: '85vw',
+      rotation: 3600,
+      backgroundColor: 'red',
       ease: 'none'
     })
   </script>
