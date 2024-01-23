@@ -34,19 +34,15 @@
     <section id="section04">SECTION04</section>
     <section id="section05">SECTION05</section>
     <section id="section06">SECTION06</section>
+    
     <!-- 引入 jquery -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
     <!-- bootstrap -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.js'></script>
     <!-- 引入 gsap 主程式 -->
     <script src="./gsap/gsap.js"></script>
+    <!-- 引入 scrollTrigger plugin -->
     <script src="./gsap/ScrollTrigger.js"></script>
-
-    <!-- <img src="https://picsum.photos/300/200/?random=1">
-    <img src="https://picsum.photos/300/200/?random=2">
-    <img src="https://picsum.photos/300/200/?random=3">
-
-    <img src="https://picsum.photos/1920/1080/?random=10"> -->
 
     <script>
         // 註冊套件
@@ -56,17 +52,17 @@
                 backgroundImage:`url(https://picsum.photos/1920/1080/?random=${index})`,
             })
 
-        gsap.to(section,{
-            scrollTrigger:{
-                trigger:secition,
-                start:'top 50%',
-                end: 'bottom 0%',
-                scrub: true,
-                markers:true
-            },
-            backgroundPosition: '50% -50%',
-            ease: 'power1'
-        })
+            gsap.to(section,{
+                scrollTrigger:{
+                    trigger:section,
+                    start:'top 50%',
+                    end:'bottom 0%',
+                    scrub: true,
+                    markers: true
+                },
+                backgroundPosition: '50% -50%',
+                ease: 'none'
+            })
         })
     </script>
 </body>

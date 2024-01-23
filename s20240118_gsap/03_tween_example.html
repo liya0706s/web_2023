@@ -69,9 +69,17 @@
         // 建立星星動畫
 
         gsap.to('.star', {
-            'font-size': `random(12,50)`,
+            'font-size': `random(0.5,1)`,
             filter: 'drop-shadow(0 0 30px rgba(255,255,0,1))',
-            left: '+=random(-10,10)'
+            left: '+=random(-10,10)%',
+            x: 'random(-50,50)',
+            y: 'random(-50,50)',
+            // rotationY:'-=180',
+            scale: 'random(1,2)',
+            duration: 'random(3,5)',
+            repeatRefresh: true,
+            repeat: true,
+            // ease: 'back'
         })
 
     </script>
