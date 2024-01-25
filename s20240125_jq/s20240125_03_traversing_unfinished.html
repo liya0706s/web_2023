@@ -33,7 +33,7 @@
                                 hello SPAN2 class
                             </span>
                         </li>
-                        
+
                         <li>
                             li
                             <b id="myB" class="border border-danger p-3" date-name="li2">
@@ -54,19 +54,18 @@
 
     <script>
         $(document).ready(function () {
-            const mySpan = $('#mySpan');
-            const myB = $('#myB');
-
-            mySpan.click(function () {
+            function colorChange(nowThis) {
                 console.log('mySpan ok');
-                // console.log(this, 'this');  //js
-                // console.log($(this), '$(this)');  //jq物件, this是點擊的那個*
+                console.log(this, 'this');
+                console.log(nowThis, 'nowThis');
+                console.log($(this),'$(this)');
+                console.log("<br>");
                 let nowElement = $(this).parent();  //找上一層
                 console.log('nowElement', nowElement);  //jq物件
 
                 // nowElement.attr('class','text-danger');  
                 //attr是前面整段的清除，剩下attr的
-                nowElement.attr('class','border border-danger p-3 text-danger');  
+                nowElement.attr('class', 'border border-danger p-3 text-danger');
 
 
                 // nowElement.addClass('text-primary');  
@@ -75,10 +74,14 @@
                 let newElement = $(this).parent().parent();
                 console.log('newElement', newElement);
 
-                newElement.addClass('text-warning');  
+                newElement.addClass('text-warning');
+
+            }
+
+            mySpan.click(function () {
 
 
-                
+
             })
 
 
