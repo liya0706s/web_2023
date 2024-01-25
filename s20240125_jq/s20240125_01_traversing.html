@@ -13,20 +13,6 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum odio ut consequuntur accusamus quos
-                facere dolorem blanditiis voluptatibus nihil tenetur. Lorem ipsum dolor sit amet consectetur,
-                adipisicing elit. Ab, totam!
-            </div>
-            <div class="col">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum odio ut consequuntur accusamus quos
-                facere dolorem blanditiis voluptatibus nihil tenetur. Lorem ipsum dolor sit amet consectetur,
-                adipisicing elit. Ab, totam!
-            </div>
-        </div>
-    </div>
 
     <div class="container mt-3">
         <div class="row">
@@ -52,7 +38,6 @@
                     </ul>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -68,9 +53,12 @@
 
             mySpan.click(function () {
                 console.log('mySpan ok');
-                // console.log(this, 'this');  //js
-                // console.log($(this), '$(this)');  //jq物件, this是點擊的那個*
-                let nowElement = $(this).parent();  //找上一層
+                // console.log(this, 'this');  
+                //js傳統的element
+                // console.log($(this), '$(this)');  
+                //jq物件, this是點擊的那個*
+                let nowElement = $(this).parent();  
+                //找上一層
                 console.log('nowElement', nowElement);  //jq物件
 
                 // nowElement.attr('class','text-danger');  
@@ -81,7 +69,7 @@
                 // nowElement.addClass('text-primary');  
                 //addClass是在後面增加
 
-                
+
             })
 
 
