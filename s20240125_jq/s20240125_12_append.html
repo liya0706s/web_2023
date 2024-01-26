@@ -34,10 +34,18 @@
   <script>
     // parent/children階層在使用的:
     // append 加在最後面
-    // preppend 加在最前面
+    // prepend 加在最前面
     // append 和 appendTo 的差別
     // 同層的sibling: 是before 和 after 
     $(document).ready(function () {
+      const myUl = $('#myUl');
+      let insertText = `<li>123456</li>`;
+      myUl.append(insertText);
+      myUl.append(insertText);
+      myUl.append(insertText);
+      let insertText2= `<li>654321</li>`;
+      myUl.prepend(insertText2);
+      myUl.prepend(insertText2);
 
     });
 
