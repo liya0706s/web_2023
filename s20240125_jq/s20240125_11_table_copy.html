@@ -32,7 +32,7 @@
                             <td>1</td>
                             <td>amy</td>
                             <td>
-                                <button id="cloneBtn" class="btn btn-warning"><i class="fa-solid fa-copy"></i></button>
+                                <button id="" class="cloneBtn btn btn-warning"><i class="fa-solid fa-copy"></i></button>
                                 <button class="btn btn-secondary del">DEL</button>
                             </td>
                         </tr>
@@ -40,7 +40,7 @@
                             <td>2</td>
                             <td>bob</td>
                             <td>
-                                <button id="cloneBtn" class="btn btn-warning"><i class="fa-solid fa-copy"></i></button>
+                                <button id="" class="cloneBtn btn btn-warning"><i class="fa-solid fa-copy"></i></button>
                                 <button class="btn btn-secondary del">DEL</button>
                             </td>
                         </tr>
@@ -48,7 +48,7 @@
                             <td>3</td>
                             <td>cat</td>
                             <td>
-                                <button id="cloneBtn" class="btn btn-warning"><i class="fa-solid fa-copy"></i></button>
+                                <button id="" class="cloneBtn btn btn-warning"><i class="fa-solid fa-copy"></i></button>
                                 <button class="btn btn-secondary del">DEL</button>
                             </td>
                         </tr>
@@ -67,7 +67,7 @@
         $(document).ready(function () {
             const delBtn = $('.del');
             const addBtn = $('#addBtn');
-            const cloneBtn = $('#cloneBtn');
+            const cloneBtn = $('.cloneBtn');
 
             delBtn.click(function () {
                 $(this).closest('tr').remove();
@@ -80,6 +80,7 @@
                 console.log('this', this);
                 // js element not jq物件
                 let myTableLastTr = $('#myTable').find('tr').last();
+                // #myTable找到最近的'tr'裡面的最後一個
                 console.log('myTableLastTr', myTableLastTr);
                 myTableLastTr.clone().appendTo("tbody");
 
