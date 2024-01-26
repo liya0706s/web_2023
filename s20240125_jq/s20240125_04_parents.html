@@ -63,30 +63,18 @@
 
     <script>
         $(document).ready(function () {
-            const mySpan = $('#mySpan');
+            const mySpan = $('.mySpan');
             const myB = $('#myB');
 
             mySpan.click(function () {
                 console.log('mySpan ok');
-                // console.log(this, 'this');  //js
-                // console.log($(this), '$(this)');  //jq物件, this是點擊的那個*
-                let nowElement = $(this).parent();  //找上一層
-                console.log('nowElement', nowElement);  //jq物件
-
-                // nowElement.attr('class','text-danger');  
-                //attr是前面整段的清除，剩下attr的
-                nowElement.attr('class','border border-danger p-3 text-danger');  
-
-
-                // nowElement.addClass('text-primary');  
-                //addClass是在後面增加
-
-                let newElement = $(this).parent().parent();
-                console.log('newElement', newElement);
-
-                newElement.addClass('text-warning');  
-
-
+                console.log(this, 'this');  
+                // console.log($(this), '$(this)');  
+                let thisParents = $(this).parents();  
+                //所有父元素的 class
+                // 這裡的 .parents() 方法會選擇當前元素的所有父元素，
+                // 一直到根元素 <html>，包括 <body>、<div class="container"> 等。  
+                thisParents.attr('class','border border-primary p-3 text-primary');
                 
             })
 
