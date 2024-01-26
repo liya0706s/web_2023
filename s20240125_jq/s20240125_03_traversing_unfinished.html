@@ -10,6 +10,17 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+    .box{
+        width: 100%;
+        height: 70vh;
+    }
+
+    .container *{
+        color:#ccc;
+    }
+</style>
+
 </head>
 
 <body>
@@ -21,13 +32,13 @@
                     div
                     <ul class="border border-success p-3">
                         ul
-                        <li class="border border-warning p-3" date-name="li1">
+                        <li class="border border-warning p-3" data-name="li1">
                             li
                             <span id="" class="mySpan border border-danger p-3">
                                 hello SPAN1 class
                             </span>
                         </li>
-                        <li class="border border-warning p-3" date-name="li1">
+                        <li class="border border-warning p-3" data-name="li1">
                             li
                             <span id="" class="mySpan border border-danger p-3">
                                 hello SPAN2 class
@@ -36,7 +47,7 @@
 
                         <li>
                             li
-                            <b id="myB" class="border border-danger p-3" date-name="li2">
+                            <b id="" class="myB border border-danger p-3" data-name="li2">
                                 hello BOLD
                             </b>
                         </li>
@@ -57,31 +68,40 @@
             function colorChange(nowThis) {
                 console.log('mySpan ok');
                 console.log(this, 'this');
-                console.log(nowThis, 'nowThis');
+                console.log(nowThis, 'nowThis');  
+                // nowThis是函數的一個參數名稱，它可以是任何名稱
                 console.log($(this),'$(this)');
                 console.log("<br>");
-                let nowElement = $(this).parent();  //找上一層
+                let nowElement = $(nowThis).parent();  //找上一層
                 console.log('nowElement', nowElement);  //jq物件
 
                 // nowElement.attr('class','text-danger');  
                 //attr是前面整段的清除，剩下attr的
                 nowElement.attr('class', 'border border-danger p-3 text-danger');
-
+                // 上一層是text-danger
 
                 // nowElement.addClass('text-primary');  
                 //addClass是在後面增加
 
-                let newElement = $(this).parent().parent();
+                let newElement = $(nowThis).parent().parent();
                 console.log('newElement', newElement);
 
                 newElement.addClass('text-warning');
+                // 上上層是text-warning
 
             }
 
+            const mySpan=$('.mySpan');
+            const myB=$('.myB');
+
             mySpan.click(function () {
+                console.log('span click this', this);
+                colorChange(this);
+                // 原生的 DOM 元素
+            });
 
-
-
+            myB.click(function(){
+                colorChange(this);
             })
 
 
