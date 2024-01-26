@@ -64,7 +64,7 @@
         $(document).ready(function () {
             const box=$('.box');
             box.click(function (e) { 
-                console.log('this',this);  // js的..?
+                console.log('this',this);  // js的DOM原生
                 let thisChild=$(this).children(); 
                 console.log('thisChild', thisChild);  // jq的$(this)物件
                 thisChild.attr('class','border border-success p-3 text-danger');
