@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Angie's Bootstrap Example</title>
+  <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,43 +13,123 @@
 </head>
 
 <body>
-
-  <div class="container mb-3">
+  <div class="container">
     <div class="row mt-3">
       <div class="col">
-        <!-- 先用id -->
-        <button id="myBtn" type="button" class="btn btn-primary" data-name="咖啡" data-price="100"
-          data-img="a01.jpg">咖啡</button>
-        <button type="button" class="btn btn-primary" data-name="花茶" data-price="200" data-img="a02.jpg">花茶</button>
-        <button type="button" class="btn btn-primary" data-name="礦泉水" data-price="50" data-img="a03.jpg">礦泉水</button>
+        <button id="myBtn" type="button" class="btn btn-primary" data-name="咖啡" data-price="100" data-img="a01.jpg">
+          咖啡
+        </button>
+        <button type="button" class="btn btn-primary" data-name="花茶" data-price="200" data-img="a02.jpg">
+          花茶
+        </button>
+        <button type="button" class="btn btn-primary" data-name="礦泉水" data-price="50" data-img="a03.jpg">
+          礦泉水
+        </button>
       </div>
     </div>
-
     <div class="row mt-3">
       <div class="col">
-        <button type="button" class="btn btn-success" data-name="手工餅乾" data-price="120" data-img="b01.jpg">手工餅乾</button>
-        <button type="button" class="btn btn-success" data-name="吐司" data-price="80" data-img="b02.jpg">吐司</button>
-        <button type="button" class="btn btn-success" data-name="馬卡龍" data-price="85" data-img="b03.jpg">馬卡龍</button>
+        <button type="button" class="btn btn-success" data-name="手工餅乾" data-price="120" data-img="b01.jpg" data-id="1">
+          手工餅乾
+        </button>
+        <button type="button" class="btn btn-success" data-name="吐司" data-price="65" data-img="b02.jpg">
+          吐司
+        </button>
+        <button type="button" class="btn btn-success" data-name="馬卡龍" data-price="50" data-img="b03.jpg">
+          馬卡龍
+        </button>
       </div>
     </div>
   </div>
 
   <hr>
-
-  <div class="container mt-3">
+  <div class="container">
     <table class="table table-hover align-middle text-center">
       <thead>
         <tr>
           <th width="7%">編號</th>
-          <th>品名</th>
-          <th>單價</th>
-          <th>數量</th>
+          <th width="12%">品名</th>
+          <th width="12%">單價</th>
+          <th width="12%">數量</th>
           <th>小計</th>
-          <th>備註</th>
-          <th>Operate</th>
+          <th width="15%">備註</th>
+          <th width="15%">OPERATE</th>
         </tr>
       </thead>
       <tbody>
+        <!-- <tr>
+          <td>a01</td>
+          <td>
+            <img src="https://picsum.photos/id/26/160/120" alt="">
+            <br>
+            咖啡
+          </td>
+          <td>100</td>
+          <td>
+            <input type="number" class="form-control" name="" id="" value="1" max="10" min="1">
+          </td>
+          <td>100</td>
+          <td>
+            <input type="text" class="form-control" name="" id="" max="10" min="1">
+          </td>
+          <td>
+            <button type="button" class="cloneBtn btn btn-warning">Clone</button>
+            <button type="button" class="delBtn btn btn-danger">Del</button>
+          </td>
+        </tr> -->
+      </tbody>
+    </table>
+  </div>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    $(document).ready(function () {
+      function delFun(nowThis) {
+        console.log('del ok');
+        // 抓tr數量
+        // 如果tr <=2 不能刪除
+
+        // 抓tr數量
+        let getTrCount = $('tr').length;
+        console.log('getTrCount', getTrCount);
+        // 如果tr <= 2 不能刪除
+        if (getTrCount > 2) {
+          let nowTr = $(nowThis).parent().parent();
+          nowTr.remove();
+        }
+
+
+      }
+
+      function cloneFun(nowThis) {
+        console.log('clone ok');
+        let nowTr = $(nowThis).parent().parent();
+        // nowTr.clone(true).appendTo("tbody");
+        nowTr.clone(true).insertAfter(nowTr);
+      }
+
+      const myBtn = $('#myBtn');
+      let delBtn = $('.delBtn');
+      let cloneBtn = $('.cloneBtn');
+
+      // init cloneBtn
+      cloneBtn.click(function (e) {
+        cloneFun(this);
+      });
+
+      // init delBtn
+      delBtn.click(function (e) {
+        delFun(this);
+      });
+
+      myBtn.click(function (e) {
+        let name = "好喝的咖啡";
+        let content = `
         <tr>
           <td>a01</td>
           <td>
@@ -62,83 +142,32 @@
             <input type="number" class="form-control" name="" id="" value="1" max="10" min="1">
           </td>
           <td>100</td>
-          <td><input type="text" class="form-control" name="" id="" max="10" min="1"></td>
           <td>
-            <button type="button" class="delBtn btn btn-danger">Del</button>
+            <input type="text" class="form-control" name="" id="" max="10" min="1">
           </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <script>
-    $(document).ready(function () {
-      // 定義一個名為 delFun 的函數，用於處理刪除操作
-      function delFun(nowThis) {
-        // 在控制台中輸出 'del ok'，以確認刪除函數已執行
-        console.log('del ok');
-        // **抓取目前 'tr' 元素，即包含刪除按鈕的行
-        let nowTr = $(nowThis).parent().parent();
-        // 從 DOM 中刪除這個 tr 元素行
-        nowTr.remove();
-      }
-      // 通過id選擇id為 myBtn 的按鈕元素
-      const myBtn = $('#myBtn');
-      // 選擇所有具有 delBtn 類別的按鈕元素
-      let delBtn = $('.delBtn');
-
-      // init delBtn ，為每個 'delBtn' 元素添加點擊事件處理器
-      delBtn.click(function (e) {
-        // 當 delBtn 被點擊時，調用 delFun 函數，並將被點擊的按鈕作為參數傳遞
-        // 參數傳遞的意思是刪除 delBtn 參數的那一行
-        delFun(this);
-      });
-
-      // 當id為 myBtn 的按鈕被點擊時，執行以下
-      myBtn.click(function (e) {
-        // 定義變數 name 並賦值為 "好喝的咖啡"
-        let name = "好喝的咖啡";
-        let content = `
-        <tr>
-          <td>a01</td>
           <td>
-            <img src="https://picsum.photos/id/26/160/120" alt="">
-            <br>
-            ${name}
-          </td>
-          <td>100</td>
-          <td>
-            <input type="number" class="form-control" name="" id="" value="1" max="10" min="1">
-          </td>
-          <td>100</td>
-          <td>
-            <input type="text" class="form-control" name="" id="" value="1" max="10" min="1">
-            </td>
-          <td>
+            <button type="button" class="cloneBtn btn btn-warning">Clone</button>
             <button type="button" class="delBtn btn btn-danger">Del</button>
           </td>
         </tr>
         `;
 
-        // 將變數 'content' 的內容添加到 tbody 元素的末尾
         $('tbody').append(content);
-        
-        // **選擇所有 .delBtn 元素中的最後一個刪除按鈕，賦值為 addDelBtn
-        addDelBtn = $('.delBtn').last();
 
-        // 為 addDelBtn 元素添加一個點擊事件處理器
+        addDelBtn = $('.delBtn').last();
+        addCloneBtn = $('.cloneBtn').last();
+
+        // addDelBtn
         addDelBtn.click(function (e) {
-          // 確保最新添加的刪除按鈕能夠正確觸發 delFun 函數以執行刪除操作
           delFun(this);
         });
 
-      });
+        // addCloneBtn
+        addCloneBtn.click(function (e) {
+          cloneFun(this);
+        });
 
+      });
     });
 
   </script>
