@@ -15,20 +15,19 @@
 <body>
 
     <div class="container mb-3">
-        <div class="row mt-3">
+        <div class="row mt-3 text-center">
             <div class="col">
-                <button type="button" class="myBtn btn btn-light" data-name="咖啡" data-price="100"
-                    data-img="12">咖啡</button>
-                <button type="button" class="myBtn btn btn-light" data-name="花茶" data-price="200"
-                    data-img="14">花茶</button>
-                <button type="button" class="myBtn btn btn-light" data-name="礦泉水" data-price="50"
-                    data-img="16">礦泉水</button>
-                <button id="myBtn" type="button" class="myBtn btn btn-secondary" data-name="手工餅乾" data-price="120"
-                    data-img="22">手工餅乾</button>
-                <button type="button" class="myBtn btn btn-secondary" data-name="吐司" data-price="80"
-                    data-img="24">吐司</button>
-                <button type="button" class="myBtn btn btn-secondary" data-name="馬卡龍" data-price="85"
-                    data-img="26">馬卡龍</button>
+                <button id="sumBtn" type="button" class="btn btn-danger">合計</button>
+                <button type="button" class="myBtn btn btn-light" data-name="豬肉滿福堡" data-price="100"
+                    data-img="pork.jpg">豬肉滿福堡加蛋</button>
+                <button type="button" class="myBtn btn btn-light" data-name="薯餅塔" data-price="90"
+                    data-img="hashbrown.jpg">薯餅塔加蛋</button>
+                <button type="button" class="myBtn btn btn-light" data-name="鬆餅套餐" data-price="150"
+                    data-img="waffle.jpg">鬆餅套餐加蛋</button>
+                <button id="myBtn" type="button" class="myBtn btn btn-light" data-name="季節限定" data-price="160"
+                    data-img="mashroom.png">季節限定加蛋</button>
+                <button type="button" class="myBtn btn btn-light" data-name="隨意餐" data-price="120"
+                    data-img="whatever.jpg">隨意餐加蛋</button>
             </div>
         </div>
     </div>
@@ -39,34 +38,51 @@
         <table class="table table-hover text-center align-middle">
             <thead>
                 <tr>
-                    <th width="7%">編號</th>
+                    <!-- <th width="7%">編號</th> -->
                     <th>品名</th>
                     <th>單價</th>
                     <th>數量</th>
                     <th>小計</th>
-                    <th>備註</th>
                     <th>Operate</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr>
-                    <td>a01</td>
+                <tr>
+                    <!-- <td>a01</td> -->
                     <td><img src="https://picsum.photos/id/22/80/80/">
-                        <br>咖啡
+                    <br>咖啡
                     </td>
-                    <td>100</td>
                     <td>
+                        <!-- 單價 -->
+                        <span>100</span>元
+                    </td>
+                    <td>
+                        <!-- 數量 -->
                         <input type="number" class="form-control" name="" id="" value="1" max="10" min="1">
                     </td>
-                    <td>100</td>
-                    <td><textarea type="text" class="form-control" name="" id=""></textarea></td>
+                    <hr>
+                    <td>
+                        <!-- 小計: -->
+                        <span>100</span>
+                    </td>
+
                     <td>
                         <button id="cloneBtn" class="cloneBtn btn btn-warning"><i class="fa-solid fa-copy"></i></button>
                         <button id="delBtn" class="delBtn btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                     </td>
-                </tr> -->
+                </tr>
             </tbody>
         </table>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="text-center">
+                    合計：<span id="mySum" class="display-4">0</span> NT.
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -76,21 +92,36 @@
 
     <script>
         $(document).ready(function () {
+
+
+
+
+
             function delFun(nowThis) {
                 console.log('del ok');
-                let nowTr = $('nowThis').parent().parent();
+                let nowTr = $(nowThis).parent().parent();
                 nowTr.remove();
             }
 
             function cloneFun(nowThis) {
                 console.log('clone ok');
-                let nowTr = $('nowThis').parent().parent();
+                let nowTr = $(nowThis).parent().parent();
+                // nowTr.clone(true).insertAfter("tbody");
                 nowTr.clone(true).insertAfter(nowTr);
             }
 
             const myBtn = $('.myBtn');
+            // 總計的樣子
+            const mySum = $('#mySum');
+            // 總計的按鈕
+            const sumBtn = $('.#sumBtn')
             let delBtn = $('.delBtn');
             let cloneBtn = $('.cloneBtn');
+
+            // sumBtn click 
+            sumBtn.click(function (e) {
+                sumFun();
+            });
 
             // init cloneBtn 
             cloneBtn.click(function (e) {
@@ -104,7 +135,6 @@
             })
 
             myBtn.click(function (e) {
-                
                 let name = $(this).attr('data-name');
                 let price = $(this).attr('data-price');
                 let imgUrl = $(this).attr('data-img');
@@ -132,16 +162,16 @@
 
                 $('tbody').append(content);
 
-                addDelBtn=$('.delBtn').last();
-                addCloneBtn=$('.cloneBtn').last();
+                addDelBtn = $('.delBtn').last();
+                addCloneBtn = $('.cloneBtn').last();
 
                 // addDelBtn 
-                addDelBtn.click(function(e){
+                addDelBtn.click(function (e) {
                     delBtn(this);
                 })
 
                 // addCloneBtn 
-                addCloneBtn.click(function(e){
+                addCloneBtn.click(function (e) {
                     cloneBtn(this);
                 });
 

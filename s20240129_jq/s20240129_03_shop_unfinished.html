@@ -17,7 +17,7 @@
   <div class="container mb-3">
     <div class="row mt-3">
       <div class="col">
-        <button type="button" class="btn btn-primary" data-name="咖啡" data-price="100" data-img="a01.jpg">咖啡</button>
+        <button id="myBtn" type="button" class="btn btn-primary" data-name="咖啡" data-price="100" data-img="a01.jpg">咖啡</button>
         <button type="button" class="btn btn-primary" data-name="花茶" data-price="200" data-img="a02.jpg">花茶</button>
         <button type="button" class="btn btn-primary" data-name="礦泉水" data-price="50" data-img="a03.jpg">礦泉水</button>
       </div>
@@ -61,7 +61,7 @@
           <td>100</td>
           <td><textarea type="text" class="form-control" name="" id=""></textarea></td>
           <td>
-            <button id="delBtn" class="btn btn-danger">Del</button>
+            <button class="delBtn btn btn-danger">Del</button>
           </td>
         </tr>
       </tbody>
@@ -78,6 +78,7 @@
     $(document).ready(function () {
       function delFun(nowThis){
         console.log('del ok');
+
       }
     });
 

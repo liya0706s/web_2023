@@ -17,23 +17,16 @@
     <div class="container mb-3">
         <div class="row mt-3">
             <div class="col">
-                <button id="myBtn" type="button" class="btn btn-primary" data-name="咖啡" data-price="100"
-                    data-img="a01.jpg">咖啡</button>
-                <button type="button" class="btn btn-primary" data-name="花茶" data-price="200"
-                    data-img="a02.jpg">花茶</button>
-                <button type="button" class="btn btn-primary" data-name="礦泉水" data-price="50"
-                    data-img="a03.jpg">礦泉水</button>
-            </div>
-        </div>
-
-        <div class="row mt-3">
-            <div class="col">
-                <button id="myBtn" type="button" class="btn btn-success" data-name="手工餅乾" data-price="120"
-                    data-img="b01.jpg">手工餅乾</button>
-                <button type="button" class="btn btn-success" data-name="吐司" data-price="80"
-                    data-img="b02.jpg">吐司</button>
-                <button type="button" class="btn btn-success" data-name="馬卡龍" data-price="85"
-                    data-img="b03.jpg">馬卡龍</button>
+                <button type="button" class="myBtn btn btn-light" data-name="咖啡" data-price="100"
+                    data-img="12">紅茶</button>
+                <button type="button" class="myBtn btn btn-light" data-name="花茶" data-price="200"
+                    data-img="14">綠茶</button>
+                <button type="button" class="myBtn btn btn-light" data-name="礦泉水" data-price="50"
+                    data-img="16">奶茶</button>
+                <button id="myBtn" type="button" class="myBtn btn btn-secondary" data-name="手工餅乾" data-price="120"
+                    data-img="22">鮮奶茶</button>
+                <button type="button" class="myBtn btn btn-secondary" data-name="吐司" data-price="80"
+                    data-img="24">鮮奶綠</button>
             </div>
         </div>
     </div>
@@ -56,7 +49,7 @@
             <tbody>
                 <!-- <tr>
                     <td>a01</td>
-                    <td><img src="https://picsum.photos/160/120/?random=6">
+                    <td><img src="https://picsum.photos/id/22/80/80/">
                         <br>咖啡
                     </td>
                     <td>100</td>
@@ -66,8 +59,8 @@
                     <td>100</td>
                     <td><textarea type="text" class="form-control" name="" id=""></textarea></td>
                     <td>
-                        <button type="button" class="cloneBtn btn btn-warning">Clone</button>
-                        <button type="button" class="delBtn btn btn-danger">Del</button>
+                        <button id="cloneBtn" class="cloneBtn btn btn-warning"><i class="fa-solid fa-copy"></i></button>
+                        <button id="delBtn" class="delBtn btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                     </td>
                 </tr> -->
             </tbody>
@@ -81,36 +74,19 @@
 
     <script>
         $(document).ready(function () {
-            // 定義刪除了功能
-            // nowThis 抓現在的this
             function delFun(nowThis) {
                 console.log('del ok');
-                // 抓tr數量
-                // 如果 tr<=2 不能刪除，要留兩個tr在畫面上
-
-                // 抓tr數量
-                let getTrCount = $('tr').length;
-                console.log('getTrCount', getTrCount);
-                // 如果 tr<=2 不能刪除
-                if (getTrCount > 2) {
-                    // 現在tr的位置是在，刪除nowThis的parent的parent
-                    let nowTr = $(nowThis).parent().parent();
-                    nowTr.remove();
-                }
+                let nowTr = $('nowThis').parent().parent();
+                nowTr.remove();
             }
 
-            // 定義克隆的功能
-            // nowThis代表現在這個
             function cloneFun(nowThis) {
                 console.log('clone ok');
-                // 找到觸發事件的元素的父級的父級(即<tr>)
-                let nowTr = $(nowThis).parent().parent();
-                // nowTr.clone(true).appendTo("tbody");
+                let nowTr = $('nowThis').parent().parent();
                 nowTr.clone(true).insertAfter(nowTr);
             }
 
-
-            const myBtn = $('#myBtn');
+            const myBtn = $('.myBtn');
             let delBtn = $('.delBtn');
             let cloneBtn = $('.cloneBtn');
 
@@ -121,48 +97,52 @@
             });
 
             // init delBtn 
-            delBtn.click(function (e) {
+            delBtn.click(function () {
                 delFun(this);
             })
 
-            // 設置myBtn按鈕的點擊事件，添加新行到表格中
-            // myBtn按下click會接在tbody之後(append)以下content
             myBtn.click(function (e) {
-                // 定義要添加到表格的新行的 HTML 
-                let name = "好喝的咖啡";
+                
+                let name = $(this).attr('data-name');
+                let price = $(this).attr('data-price');
+                let imgUrl = $(this).attr('data-img');
+
                 let content = `
                 <tr>
-                    <td>a01</td>
-                    <td><img src="https://picsum.photos/160/120/?random=6">
-                        <br>咖啡
+                    <td>${imgUrl}</td>
+                    <td><img src="https://picsum.photos/id/${imgUrl}/80/80">
+                        <br>
+                        ${name}
+                        <br>
                     </td>
                     <td>100</td>
                     <td>
                         <input type="number" class="form-control" name="" id="" value="1" max="10" min="1">
                     </td>
-                    <td>100</td>
+                    <td>${price}</td>
                     <td><textarea type="text" class="form-control" name="" id=""></textarea></td>
                     <td>
-                        <button type="button" class="cloneBtn btn btn-warning">Clone</button>
-                        <button type="button" class="delBtn btn btn-danger">Del</button>
+                        <button id="cloneBtn" class="cloneBtn btn btn-warning"><i class="fa-solid fa-copy"></i></button>
+                        <button id="delBtn" class="delBtn btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                     </td>
                 </tr>
                 `;
 
                 $('tbody').append(content);
 
-                addDelBtn = $('.delBtn').last();
-                addCloneBtn = $('.cloneBtn').last();
+                addDelBtn=$('.delBtn').last();
+                addCloneBtn=$('.cloneBtn').last();
 
-                // addDelBtn
-                addDelBtn.click(function (e) {
-                    delFun(this);
-                });
+                // addDelBtn 
+                addDelBtn.click(function(e){
+                    delBtn(this);
+                })
 
                 // addCloneBtn 
-                addCloneBtn.click(function (e) {
-                    cloneFun(this);
+                addCloneBtn.click(function(e){
+                    cloneBtn(this);
                 });
+
             });
         });
 
