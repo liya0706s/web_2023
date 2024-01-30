@@ -17,7 +17,7 @@
     <div class="container-fluid">
         <div class="row mt-3 text-center">
             <div class="col">
-                <button id="sumBtn" type="button" class="btn btn-danger">合計</button>
+                <button id="sumBtn" type="button" class="btn btn-success">合計</button>
                 <button type="button" class="myBtn btn btn-light" data-name="豬肉滿福堡" data-price="100"
                     data-img="pork.jpg">豬肉滿福堡加蛋</button>
                 <button type="button" class="myBtn btn btn-light" data-name="薯餅塔加蛋" data-price="90"
@@ -25,7 +25,7 @@
                 <button type="button" class="myBtn btn btn-light" data-name="鬆餅套餐加蛋" data-price="150"
                     data-img="waffle.jpg">鬆餅套餐加蛋</button>
                 <button id="myBtn" type="button" class="myBtn btn btn-light" data-name="季節限定加蛋" data-price="160"
-                    data-img="mashroom.png">季節限定加蛋</button>
+                    data-img="mashroom.jpg">季節限定加蛋</button>
                 <button type="button" class="myBtn btn btn-light" data-name="隨意餐加蛋" data-price="120"
                     data-img="whatever.jpg">隨意餐加蛋</button>
             </div>
@@ -45,29 +45,28 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <!-- <tr>
                     <td>
-                        <img class="rounded-circle" src="https://picsum.photos/id/22/80/80/">
-                    <td class="text-start">
-                    咖啡
-                    <br>
-                    單價<span>100</span>元
-                    <div class="mb-3">
-                    <td>
-<label for="" class="form-label">數量</label>
-                        <input type="number" class="form-control" name="" id="" value="1" max="10" min="1">
+                        <img class="rounded-circle" src="https://picsum.photos/id/22/120/120/">
                     </td>
-                    <hr>
-                    <td>
-                        <!-- 小計: -->
-                        <span>100</span>
+                    <td class="text-start">
+                        咖啡
+                        <br>
+                        單價 <span>100</span>元
+                        <div class="mb-3">
+                            <label for="" class="form-label">數量</label>
+                            <input type="number" class="quantity form-control" name="" id="" value="1" max="10" min="1">
+                        </div>
+                        <hr>
+                        小計:<span>100</span>
                     </td>
 
-                    <td>
-                        <button id="cloneBtn" class="cloneBtn btn btn-warning"><i class="fa-solid fa-copy"></i></button>
-                        <button id="delBtn" class="delBtn btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                    <td class="text-center">
+                        <button type="button" class="cloneBtn btn btn-warning"><i class="fa-solid fa-copy"></i></button>
+                        <button type="button" class="delBtn btn btn-danger"><i
+                                class="fa-solid fa-trash-can"></i></button>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>
@@ -89,89 +88,145 @@
 
     <script>
         $(document).ready(function () {
+            function sumFun() {
+                console.log('sumBtn ok');
+                // 選擇所有類別為 mySubtotal 的元素
+                let mySubtotal = $('.mySubtotal');
+                // 獲得 mySubtotal 元素的數量
+                let getMySubtotalCount = mySubtotal.length;
+                console.log('mySubtotal', mySubtotal);
 
-
-
-
-
+                let sum = 0;
+                // 對每個 mySubtotal 元素進行迴圈迭代
+                mySubtotal.each(function (index, value) {
+                    console.log('index', index);
+                    console.log('value', value);
+                    // 加總所有小計，將每個元素的內容(數字)加到總和中
+                    sum = sum + Number($(value).text());
+                });
+                console.log('final sum', sum);
+                // 將加總的所有小計，更新到總計中
+                mySum.text(sum); 
+            }
+            // 函數刪除當前這行
             function delFun(nowThis) {
                 console.log('del ok');
+                // 找到觸發事件按鈕的所在行
                 let nowTr = $(nowThis).parent().parent();
+                // 刪除該行
                 nowTr.remove();
+                // 更新總計
+                sumFun();
             }
 
+            // 函數複製當前行
             function cloneFun(nowThis) {
                 console.log('clone ok');
+                // 找到觸發事件的按鈕所在行
                 let nowTr = $(nowThis).parent().parent();
-                // nowTr.clone(true).insertAfter("tbody");
+                // nowTr.clone(true).appendTo("tbody");
+                // 複製該行並插入到其後面
                 nowTr.clone(true).insertAfter(nowTr);
+                // 更新總計
+                sumFun();
             }
 
+            // 抓各種按鈕和元素
             const myBtn = $('.myBtn');
             // 總計的樣子
             const mySum = $('#mySum');
             // 總計的按鈕
-            const sumBtn = $('.#sumBtn')
+            const sumBtn = $('#sumBtn');
             let delBtn = $('.delBtn');
             let cloneBtn = $('.cloneBtn');
 
-            // sumBtn click 
+            // sumBtn click 綁定總計按鈕的點擊事件
             sumBtn.click(function (e) {
                 sumFun();
             });
 
-            // init cloneBtn 
+            // init cloneBtn 初始化複製按鈕的點擊事件
             cloneBtn.click(function (e) {
                 cloneFun(this);
-                // this 是 js原生
             });
 
-            // init delBtn 
-            delBtn.click(function () {
+            // init delBtn 初始化刪除按鈕的點擊事件
+            delBtn.click(function (e) {
                 delFun(this);
-            })
+            });
 
+            // 綁定 myBtn 按鈕的點擊事件
             myBtn.click(function (e) {
+                // 從按鈕的 data-* 屬性獲取資訊
                 let name = $(this).attr('data-name');
                 let price = $(this).attr('data-price');
                 let imgUrl = $(this).attr('data-img');
 
+                // 構造圖片路徑
+                let imgPath = `./img/${imgUrl}`;
+
+                // 創建新行的 HTML 內容
                 let content = `
                 <tr>
-                    <td>${imgUrl}</td>
-                    <td><img src="https://picsum.photos/id/${imgUrl}/80/80">
-                        <br>
+                    <td>
+                        <img class="rounded-circle" src="${imgPath}" width="120px" height="100px">
+                    </td>
+                    <td class="text-start">
                         ${name}
                         <br>
-                    </td>
-                    <td>100</td>
+                    單價 <span>${price}</span>元
+                    <div class="mb-3">
+                        <label for="" class="form-label">數量</label>
+                        <input type="number" class="quantity form-control" name="" id="" value="1" max="10" min="1">
+                    </div>
+                    <hr>
+                    小計:<span class="mySubtotal">${price}</span>
                     <td>
-                        <input type="number" class="form-control" name="" id="" value="1" max="10" min="1">
-                    </td>
-                    <td>${price}</td>
-                    <td><textarea type="text" class="form-control" name="" id=""></textarea></td>
+                        <td class="text-center">
                     <td>
-                        <button id="cloneBtn" class="cloneBtn btn btn-warning"><i class="fa-solid fa-copy"></i></button>
-                        <button id="delBtn" class="delBtn btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                        <button type="button" class="cloneBtn btn btn-warning"><i class="fa-solid fa-copy"></i></button>
+                        <button type="button" class="delBtn btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                     </td>
                 </tr>
                 `;
 
                 $('tbody').append(content);
 
+                // 獲取最新添加的刪除和複製按鈕，並為他們綁定事件
                 addDelBtn = $('.delBtn').last();
                 addCloneBtn = $('.cloneBtn').last();
+                addQuantity = $('.quantity').last();
+                sumFun();
 
                 // addDelBtn 
                 addDelBtn.click(function (e) {
-                    delBtn(this);
-                })
+                    delFun(this);
+                });
 
                 // addCloneBtn 
                 addCloneBtn.click(function (e) {
-                    cloneBtn(this);
+                    cloneFun(this);
                 });
 
+
+                // addQuantity 為數量輸入框綁定改變事件
+                addQuantity.change(function (e) {
+                    // 獲取輸入的數量
+                    let getQuantity = Number($(this).val());
+                    // 找到最近的tr元素
+                    let closestQuantityTr = $(this).parent().parent().parent();
+                    // 找到小計的元素
+                    let findTotal = closestQuantityTr.find('.mySubtotal');
+                    console.log('closestQuantityTr', closestQuantityTr);
+                    console.log('getQuantity', getQuantity);
+                    // 計算總價
+                    let total = getQuantity * price;
+                    console.log('total', total);
+                    // 更新小計顯示的數字
+                    findTotal.text(total);
+                    // 更新總計
+                    sumFun();
+                });
             });
         });
 
