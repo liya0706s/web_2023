@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Bootstrap Example</title>
+    <title>Angie's Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +37,7 @@
         <table class="table table-hover text-center align-middle">
             <thead>
                 <tr>
-                    <th width="7%">編號</th>
+                    <!-- <th width="7%">編號</th> -->
                     <th>品名</th>
                     <th>單價</th>
                     <th>數量</th>
@@ -49,18 +49,20 @@
             <tbody>
                 <!-- <tr>
                     <td>a01</td>
-                    <td><img src="https://picsum.photos/id/22/80/80/">
-                        <br>咖啡
+                    <td>
+                        <img class="rounded-circle" src="https://picsum.photos/id/22/80/80/">
+                        <br>
+                        咖啡
                     </td>
                     <td>100</td>
                     <td>
                         <input type="number" class="form-control" name="" id="" value="1" max="10" min="1">
                     </td>
                     <td>100</td>
-                    <td><textarea type="text" class="form-control" name="" id=""></textarea></td>
+                    <td><input type="text" class="form-control" name="" id="" max="10" min="1"></td>
                     <td>
-                        <button id="cloneBtn" class="cloneBtn btn btn-warning"><i class="fa-solid fa-copy"></i></button>
-                        <button id="delBtn" class="delBtn btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                        <button type="button" class="cloneBtn btn btn-warning"><i class="fa-solid fa-copy"></i></button>
+                        <button type="button" class="delBtn btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                     </td>
                 </tr> -->
             </tbody>
@@ -76,13 +78,13 @@
         $(document).ready(function () {
             function delFun(nowThis) {
                 console.log('del ok');
-                let nowTr = $('nowThis').parent().parent();
+                let nowTr = $(nowThis).parent().parent();
                 nowTr.remove();
             }
 
             function cloneFun(nowThis) {
                 console.log('clone ok');
-                let nowTr = $('nowThis').parent().parent();
+                let nowTr = $(nowThis).parent().parent();
                 nowTr.clone(true).insertAfter(nowTr);
             }
 
@@ -97,50 +99,51 @@
             });
 
             // init delBtn 
-            delBtn.click(function () {
+            delBtn.click(function (e) {
                 delFun(this);
             })
 
             myBtn.click(function (e) {
-                
+
                 let name = $(this).attr('data-name');
                 let price = $(this).attr('data-price');
                 let imgUrl = $(this).attr('data-img');
 
                 let content = `
                 <tr>
-                    <td>${imgUrl}</td>
-                    <td><img src="https://picsum.photos/id/${imgUrl}/80/80">
+                    <td>
+                        <img class="rounded-circle" src="https://picsum.photos/id/${imgUrl}/80/80">
                         <br>
                         ${name}
                         <br>
-                    </td>
-                    <td>100</td>
+                        <span class="text-danger">${price} 元</span>
                     <td>
                         <input type="number" class="form-control" name="" id="" value="1" max="10" min="1">
                     </td>
                     <td>${price}</td>
-                    <td><textarea type="text" class="form-control" name="" id=""></textarea></td>
                     <td>
-                        <button id="cloneBtn" class="cloneBtn btn btn-warning"><i class="fa-solid fa-copy"></i></button>
-                        <button id="delBtn" class="delBtn btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                        <input type="text" class="form-control" name="" id="" max="10" min="1">
+                        </td>
+                    <td>
+                        <button type="button" class="cloneBtn btn btn-warning"><i class="fa-solid fa-copy"></i></button>
+                        <button type="button" class="delBtn btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                     </td>
                 </tr>
                 `;
 
                 $('tbody').append(content);
 
-                addDelBtn=$('.delBtn').last();
-                addCloneBtn=$('.cloneBtn').last();
+                addDelBtn = $('.delBtn').last();
+                addCloneBtn = $('.cloneBtn').last();
 
                 // addDelBtn 
-                addDelBtn.click(function(e){
-                    delBtn(this);
-                })
+                addDelBtn.click(function (e) {
+                    delFun(this);
+                });
 
                 // addCloneBtn 
-                addCloneBtn.click(function(e){
-                    cloneBtn(this);
+                addCloneBtn.click(function (e) {
+                    cloneFun(this);
                 });
 
             });
