@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Bootstrap Example</title>
+    <title>Angie's Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,19 +14,19 @@
 
 <body>
 
-    <div class="container mb-3">
+    <div class="container-fluid">
         <div class="row mt-3 text-center">
             <div class="col">
                 <button id="sumBtn" type="button" class="btn btn-danger">合計</button>
                 <button type="button" class="myBtn btn btn-light" data-name="豬肉滿福堡" data-price="100"
                     data-img="pork.jpg">豬肉滿福堡加蛋</button>
-                <button type="button" class="myBtn btn btn-light" data-name="薯餅塔" data-price="90"
+                <button type="button" class="myBtn btn btn-light" data-name="薯餅塔加蛋" data-price="90"
                     data-img="hashbrown.jpg">薯餅塔加蛋</button>
-                <button type="button" class="myBtn btn btn-light" data-name="鬆餅套餐" data-price="150"
+                <button type="button" class="myBtn btn btn-light" data-name="鬆餅套餐加蛋" data-price="150"
                     data-img="waffle.jpg">鬆餅套餐加蛋</button>
-                <button id="myBtn" type="button" class="myBtn btn btn-light" data-name="季節限定" data-price="160"
+                <button id="myBtn" type="button" class="myBtn btn btn-light" data-name="季節限定加蛋" data-price="160"
                     data-img="mashroom.png">季節限定加蛋</button>
-                <button type="button" class="myBtn btn btn-light" data-name="隨意餐" data-price="120"
+                <button type="button" class="myBtn btn btn-light" data-name="隨意餐加蛋" data-price="120"
                     data-img="whatever.jpg">隨意餐加蛋</button>
             </div>
         </div>
@@ -40,24 +40,21 @@
                 <tr>
                     <!-- <th width="7%">編號</th> -->
                     <th>品名</th>
-                    <th>單價</th>
-                    <th>數量</th>
-                    <th>小計</th>
+                    <th>Desc</th>
                     <th>Operate</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <!-- <td>a01</td> -->
-                    <td><img src="https://picsum.photos/id/22/80/80/">
-                    <br>咖啡
-                    </td>
                     <td>
-                        <!-- 單價 -->
-                        <span>100</span>元
-                    </td>
+                        <img class="rounded-circle" src="https://picsum.photos/id/22/80/80/">
+                    <td class="text-start">
+                    咖啡
+                    <br>
+                    單價<span>100</span>元
+                    <div class="mb-3">
                     <td>
-                        <!-- 數量 -->
+<label for="" class="form-label">數量</label>
                         <input type="number" class="form-control" name="" id="" value="1" max="10" min="1">
                     </td>
                     <hr>
