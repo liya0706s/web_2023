@@ -1,0 +1,20 @@
+body {
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    background-position: top;
+    
+}
+
+table tr{
+    opacity:0.9;
+}
+
+.myBrown{
+    background-color: #C4A484;
+    opacity:0.9;
+}
+
+.discount{
+    font-weight: bold;
+    
+}
