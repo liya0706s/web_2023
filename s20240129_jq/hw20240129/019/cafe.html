@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>TaiShan Cafe</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- bs.css/style.css -->
+  <link href="./css/bs.css" rel="stylesheet">
+  <link href="./css/style.css" rel="stylesheet">
+  <!-- font-awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <!-- google-font -->
+  <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- opening animation start-->
+  <section class="openingCover">
+    <section class="welcome">Welcome</section>
+    <section class="loadingBar">
+      <section class="loadingValue"></section>
+    </section>
+  </section>
+  <!-- opening animation end -->
+  <dotlottie-player src="https://lottie.host/021bd8a2-017f-4785-97f0-8427adca4e23/Kh3tdWk93g.json"
+    background="transparent" speed="1" style="width: 1000px; height: 1000px;" loop autoplay></dotlottie-player>
+
+  <div class="container-fluid">
+    <h1><img src="./img/resturant.png" style="width: 130px;height: 120px;"><img src="./img/Vanilla-0.7s-240px.svg"
+        style="height: 100px;" class="mt-2"></h1>
+    <div class="row mt-3 text-center">
+      <div class="col-5"></div>
+      <div class="col text-start">
+        <img src="./img/Vanilla-0.7s-125px_Drinks.svg">
+        <button type="button" class="myBtn btn btn-primary jello-horizontal" data-name="咖啡" data-price="100"
+          data-img="coffee">
+          <!-- <img src="./coffee-1.1s-120px.png" alt=""> -->
+          咖啡
+        </button>
+        <button type="button" class="myBtn btn btn-primary jello-horizontal" data-name="花茶" data-price="200"
+          data-img="tea">
+          花茶
+        </button>
+        <button type="button" class="myBtn btn btn-primary jello-horizontal" data-name="礦泉水" data-price="50"
+          data-img="water">
+          礦泉水
+        </button>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row mt-3 text-center">
+      <div class="col-5"></div>
+      <div class="col text-start">
+        <img src="./img/Vanilla-0.7s-125px_Foods.svg" style="scale: 1.1;">
+        <button type="button" class="myBtn btn btn-success jello-vertical" data-name="手工餅乾" data-price="120"
+          data-img="cookies" data-id="1">
+          手工餅乾
+        </button>
+        <button type="button" class="myBtn btn btn-success jello-vertical" data-name="吐司" data-price="65"
+          data-img="toast">
+          吐司
+        </button>
+        <button type="button" class="myBtn btn btn-success jello-vertical" data-name="馬卡龍" data-price="50"
+          data-img="macaron">
+          馬卡龍
+        </button>
+      </div>
+      <div class="col"></div>
+    </div>
+  </div>
+  <br>
+  <div class="container-fluid">
+    <table class="table table-hover align-middle text-center">
+      <thead>
+        <tr>
+          <th width="15%" style="font-size: x-large">品項</th>
+          <th width="30%" style="font-size: x-large">描述</th>
+          <th width="20%" style="font-size: x-large" class="text-start">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr>
+        <td>
+          <img class="rounded-circle" src="./coffee-1.1s-120px.png" alt="">
+        </td>
+        <td class="text-start">
+          咖啡
+          <br>
+          單價 <span>100</span>元
+          <div class="mb-3">
+            <label for="" class="form-label">數量</label>
+            <input type="number" class="form-control" id="" max="20" min="1" value="1">
+          </div>
+          <hr>
+          小計 : <span>100</span>
+        </td>
+        <td class="text-start">
+          <button type="button" class="cloneBtn btn btn-warning">Clone</button>
+          <button type="button" class="delBtn btn btn-danger">Del</button>
+        </td>
+      </tr> -->
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container-fluid mt-3">
+    <div class="row">
+      <div class="col">
+        <div class="text-center">
+          <img src="./img/Vanilla-0.7s-130px_Total=.svg" class="mb-4"><span id="mySum" class="display-4">0</span> 元
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- bootstrap.js -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.js'></script>
+  <!-- jQuery -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
+  <!-- gsap.js -->
+  <script src="./css/gsap.js"></script>
+  <script src="./css/ScrollTrigger.js"></script>
+  <script src="./css/TextPlugin.js"></script>
+  <!-- lottie.js -->
+  <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+
+  <script>
+
+    // header cover: website opening animation
+    const loadingtl = gsap.timeline();
+
+    loadingtl
+      .to(".loadingValue", 2, { width: "100%" })
+      .to(".loadingBar", 0, { display: 'none' })
+      .to(".welcome", 0, { display: 'none' })
+      .to(".openingCover", 0.5, { height: 0 })
+
+
+    $(document).ready(function () {
+      function sumFun() {
+        console.log('sumBtn ok');
+        let myTotal = $('.myTotal');
+        let getMyTotalCount = myTotal.length;
+        console.log('myTotal', myTotal);
+        let sum = 0;
+        myTotal.each(function (index, value) {
+          console.log('index', index);
+          console.log('value', value);
+          sum = sum + Number($(value).text());
+        });
+        console.log('final sum', sum);
+        mySum.text(sum);
+      }
+
+
+      function delFun(nowThis) {
+        console.log('del ok');
+        let nowTr = $(nowThis).parent().parent();
+        nowTr.remove();
+        sumFun();
+
+
+        // 抓tr數量
+        // 如果tr <=2 不能刪除
+
+        // 抓tr數量
+        // let getTrCount = $('tr').length;
+        // console.log('getTrCount', getTrCount);
+        // 如果tr <= 2 不能刪除
+        // if (getTrCount > 2) {
+        //   let nowTr = $(nowThis).parent().parent();
+        //   nowTr.remove();
+        // }
+      }
+
+      function cloneFun(nowThis) {
+        console.log('clone ok');
+        let nowTr = $(nowThis).parent().parent();
+        // nowTr.clone(true).appendTo("tbody");
+        nowTr.clone(true).insertAfter(nowTr);
+        sumFun();
+      }
+
+      const myBtn = $('.myBtn');
+      const mySum = $('#mySum');
+      const sumBtn = $('#sumBtn');
+      let delBtn = $('.delBtn');
+      let cloneBtn = $('.cloneBtn');
+
+
+      //sumBtn click
+      sumBtn.click(function (e) {
+        sumFun();
+      });
+
+      // init cloneBtn
+      cloneBtn.click(function (e) {
+        cloneFun(this);
+      });
+
+      // init delBtn
+      delBtn.click(function (e) {
+        delFun(this);
+      });
+
+      myBtn.click(function (e) {
+        let name = $(this).attr('data-name');
+        let price = $(this).attr('data-price');
+        let imgUrl = $(this).attr('data-img');
+
+
+        let content = `
+        <tr>
+          <td>
+            <img class="rounded-circle" src="./img/${imgUrl}-1.1s-120px.png" alt="">
+            </td>
+            <td class="text-start">
+              <b>${name}</b>
+              <br>
+              單價 <span>${price}</span>元
+              <div class="mb-3">
+                <label for="" class="form-label">數量</label>
+                <input type="number" class="quantity form-control" id="" max="20" min="1" value="1">
+                </div>
+                小計 : <span class="myTotal">${price}</span>
+                </td>
+                <td class="text-start">
+                  <button type="button" class="cloneBtn btn btn-warning jello-vertical">增加</button>
+                  <button type="button" class="delBtn btn btn-danger jello-vertical">刪除</button>
+                  </td>
+                  </tr>
+                  `;
+
+        $('tbody').append(content);
+
+        addDelBtn = $('.delBtn').last();
+        addCloneBtn = $('.cloneBtn').last();
+        addQuantity = $('.quantity').last();
+
+        sumFun();
+
+        // addDelBtn
+        addDelBtn.click(function (e) {
+          delFun(this);
+        });
+
+        // addCloneBtn
+        addCloneBtn.click(function (e) {
+          cloneFun(this);
+        });
+
+        // addQuantity
+        addQuantity.change(function (e) {
+          let getQuantity = Number($(this).val());
+          let closestQuantityTr = $(this).parent().parent().parent();
+          let findTotal = closestQuantityTr.find('.myTotal');
+          console.log('closestQuantityTr', closestQuantityTr);
+          console.log('getQuantity', getQuantity);
+          let total = getQuantity * price;
+          console.log('total', total);
+          findTotal.text(total);
+
+          sumFun();
+        });
+
+      });
+    });
+
+    // VANTA.FOG({
+    //   el: "body",
+    //   mouseControls: true,
+    //   touchControls: true,
+    //   gyroControls: false,
+    //   minHeight: 2000.00,
+    //   // minWidth: 200.00,
+    //   highlightColor: 0xebdeb4,
+    //   midtoneColor: 0xf2f2f2,
+    //   lowlightColor: 0xd0c9e3,
+    //   blurFactor: 0.7,
+    //   speed: 4.10,
+    //   zoom: 2,
+    // })
+
+  </script>
+</body>
+
+</html>

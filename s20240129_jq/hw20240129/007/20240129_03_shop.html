@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body{
+            /* background-image: url(./background.jpg);
+            background-repeat: no-repeat;
+          background-position: center center; */
+          background-color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center">
+                <img src="./7-11.jpg" alt="小七訂單">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col">
+                <table class="table table-hover align-middle text-center">
+                    <tr>
+                        <td>
+                            <button type="button" class="cloneBtn btn btn-danger m-3">紅茶</i></button>
+                            <button type="button" class="cloneBtn btn btn-success m-3">綠茶</i></button>
+                            <button type="button" class="cloneBtn btn btn-warning m-3">奶茶</i></button>
+                            <button type="button" class="cloneBtn btn btn-dark m-3">咖啡</i></button>
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                        <td>
+                            <button type="button" class="cloneBtn btn btn-primary m-3">奶茶</i></button>
+                            <button type="button" class="cloneBtn btn btn-primary m-3">咖啡</i></button>
+                        </td>
+                    </tr> -->
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="text-end">
+
+        </div>
+        <table class="table table-hover" id="myTable">
+            <thead>
+                <tr >
+                    <th>品名</th>
+                    <th>單價</th>
+                    <th>數量</th>
+                    <th>總價</th>
+                    <th>operate</th>
+                </tr>
+
+            </thead>
+            <tbody class="align-middle" >
+                <!-- <tr>
+          <td>紅茶</td>
+          <td>25</td>
+          <td>
+          <input type="text" name="" id="" value="1" class="form-control">
+          </td>
+          <td>25</td>
+          <td>
+            <button type="button" class="cloneBtn btn btn-primary">紅茶</i></button>
+            <button type="button" class="delBtn btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+          </td>
+        </tr>
+        <tr>
+          <td>綠茶</td>
+          <td>20</td>
+          <td>
+            <input type="text" name="" id="" value="1" class="form-control">
+          </td>
+          <td>20</td>
+          <td>
+            <button type="button" class="cloneBtn btn btn-primary">綠茶</i></button>
+            <button type="button" class="delBtn btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+          </td>
+        </tr>
+        <tr>
+          <td>奶茶</td>
+          <td>50</td>
+          <td>
+            <input type="text" name="" id="" value="1" class="form-control">
+          </td>
+          <td>50</td>
+          <td>
+            <button type="button" class="cloneBtn btn btn-primary">奶茶</i></button>
+            <button type="button" class="delBtn btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+          </td>
+        </tr>
+        <tr>
+            <td>咖啡</td>
+            <td>60</td>
+            <td>
+                <input type="text" name="" id="" value="1" class="form-control">
+            </td>
+            <td>60</td>
+            <td>
+                <button type="button" class="cloneBtn btn btn-primary">咖啡</i></button>
+              <button type="button" class="delBtn btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+            </td>
+          </tr> -->
+            </tbody>
+        </table>
+        <p style="text-align: center; background-color:white">Total Price: <span id="totalPrice">0</span></p>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script>
+            $(document).ready(function () {
+                const myTable = $('#myTable');
+        
+                // Clone a new row on clone button click
+                $('.cloneBtn').click(function (e) {
+                    let teaType = $(this).text().trim();
+                    let price = getPrice(teaType); // Get price based on tea type
+                    let imageUrl = getImageUrl(teaType); // Get image URL based on tea type
+                    let newRow = `
+                        <tr>
+                            <td>
+                                <img src="${imageUrl}" alt="${teaType}" class="tea-image">
+                                ${teaType}
+                            </td>
+                            <td>${price}</td>
+                            <td><input type="text" name="" value="1" class="form-control quantity"></td>
+                            <td class="subtotal">${price}</td>
+                            <td>
+                                <button type="button" class="delBtn btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    `;
+                    myTable.find('tbody').append(newRow);
+                    updateTotalPrice(); // Update total price after adding a new row
+                });
+        
+                // Add a new row for each tea type button click
+                myTable.on('click', '.delBtn', function () {
+                    let thisParentParent = $(this).closest('tr');
+                    thisParentParent.css('display', 'none'); // Hide the row
+                    updateTotalPrice(); // Update total price after deleting a row
+                });
+        
+                // Function to get price based on tea type
+                function getPrice(teaType) {
+                    switch (teaType) {
+                        case '紅茶':
+                            return 25;
+                        case '綠茶':
+                            return 20;
+                        case '奶茶':
+                            return 50;
+                        case '咖啡':
+                            return 60;
+                        // Add more cases for other tea types if needed
+                        default:
+                            return 0; // Default value if tea type is not recognized
+                    }
+                }
+        
+                // Function to get image URL based on tea type
+                function getImageUrl(teaType) {
+                    // Add cases for image URLs based on tea type
+                    switch (teaType) {
+                        case '紅茶':
+                            return '01.jpg';
+                        case '綠茶':
+                            return '02.jpg';
+                        case '奶茶':
+                            return '03.jpg';
+                        case '咖啡':
+                            return '04.jpg';
+                        // Add more cases for other tea types if needed
+                        default:
+                            return ''; // Default value for image URL
+                    }
+                }
+        
+                // Update total price when quantity changes
+                myTable.on('input', '.quantity', function () {
+                    updateTotalPrice();
+                });
+        
+                // Function to update total price
+                function updateTotalPrice() {
+                    let total = 0;
+                    myTable.find('tbody tr:visible').each(function () { // Only consider visible rows
+                        let price = parseFloat($(this).find('td:eq(1)').text());
+                        let quantity = parseFloat($(this).find('.quantity').val());
+                        let subtotal = price * quantity;
+                        $(this).find('.subtotal').text(subtotal);
+                        total += subtotal;
+                    });
+                    // Update the total price in the frontend
+                    $('#totalPrice').text(total);
+                }
+            });
+        </script>
+        
+
+
+</body>
+
+</html>

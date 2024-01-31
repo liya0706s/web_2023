@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CB coffe Order</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="./img/battle-net.svg" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Kanit&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <style>
+    body {
+      font-family: "Kanit", sans-serif;
+      font-weight: 400;
+      background-color: #f5f5f5;
+      background-image: url("./img/bg2.png"), url("./img/bg.png");
+      background-size: contain, contain;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: left bottom, right top;
+    }
+    table {
+      width: 100%;
+    }
+    table,
+    tr,
+    th,
+    td {
+      border-bottom: 1px solid #333;
+      text-align: center;
+    }
+    td {
+      backdrop-filter: blur(10px);
+    }
+    th {
+      background: #e6d0ba;
+    }
+    th,
+    td {
+      padding: 10px;
+    }
+    img {
+      width: 100px;
+      height: 100px;
+    }
+    img {
+      box-shadow: 0 0 5px #947055;
+    }
+    #promation {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      z-index: 99;
+    }
+    #promation::before {
+      content: "";
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: #b3a18f83;
+      backdrop-filter: blur(30px);
+      z-index: 98;
+    }
+    .mask {
+      background: #000000;
+      position: fixed;
+      height: 30vh;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-15deg);
+      border: 1px solid rgb(0, 0, 0);
+      z-index: 100;
+      font-size: 3vw;
+      text-align: center;
+      box-shadow: 5px 5px 2px #635244;
+      b {
+        color: #e2721b;
+        font-family: "Kanit", sans-serif;
+        font-weight: 900;
+        font-style: normal;
+      }
+    }
+    .close {
+      position: fixed;
+      top: 5%;
+      right: 5%;
+      cursor: pointer;
+      z-index: 101;
+    }
+  </style>
+  <body>
+    <div id="promation">
+      <div class="close text-end"><i class="fa-solid fa-x fa-2xl"></i></div>
+      <div class="mask p-5">
+        <p class="text-light">tOdAy's Special Offer !!</p>
+        <b id="spDis">5% off over NT 500</b>
+      </div>
+    </div>
+    <div class="container">
+      <button
+        data-item="coffe"
+        class="itemBtn mt-2 mb-1 btn"
+        style="background: #947055; color: #f4d4b3"
+      >
+        <i class="fa-solid fa-mug-saucer fa-lg"></i>
+        Coffe
+      </button>
+      <button
+        data-item="bread"
+        class="itemBtn mt-2 mb-1 btn"
+        style="background: #e6d0ba; color: #947055"
+      >
+        <i class="fa-solid fa-bread-slice fa-lg"></i>
+        Bread
+      </button>
+      <div
+        class="row mt-1 border rounded-5 p-3"
+        id="coffe"
+        style="display: none; background: #947055"
+      >
+        <div class="col-3 text-center p-1">
+          <button
+            id="Latte"
+            class="orbtn btn btn-outline-light w-75"
+            data-img="Latte.jpg"
+            data-name="Latte"
+            data-price="180"
+          >
+            Latte
+          </button>
+        </div>
+        <div class="col-3 text-center p-1">
+          <button
+            id="Cappuccino"
+            class="orbtn btn btn-outline-light w-75"
+            data-img="Cappuccino.jpg"
+            data-name="Cappuccino"
+            data-price="200"
+          >
+            Cappuccino
+          </button>
+        </div>
+        <div class="col-3 text-center p-1">
+          <button
+            id="Mocha"
+            class="orbtn btn btn-outline-light w-75"
+            data-img="mocha.jpg"
+            data-name="Mocha"
+            data-price="160"
+          >
+            Mocha
+          </button>
+        </div>
+        <div class="col-3 text-center p-1">
+          <button
+            id="Espresso"
+            class="orbtn btn btn-outline-light w-75"
+            data-img="essp.jpg"
+            data-name="Espresso"
+            data-price="240"
+          >
+            Espresso
+          </button>
+        </div>
+      </div>
+      <!-- bread -->
+      <div
+        class="row mt-1 border rounded-5 p-3"
+        id="bread"
+        style="display: none; background: #e6d0ba"
+      >
+        <div class="col-3 text-center p-1">
+          <button
+            id="Croissant"
+            class="orbtn btn btn-outline-light w-75"
+            data-img="Croissant.jpg"
+            data-name="Croissant"
+            data-price="50"
+          >
+            Croissant
+          </button>
+        </div>
+        <div class="col-3 text-center p-1">
+          <button
+            id="Baguette"
+            class="orbtn btn btn-outline-light w-75"
+            data-img="Baguette.jpg"
+            data-name="Baguette"
+            data-price="120"
+          >
+            Baguette
+          </button>
+        </div>
+        <div class="col-3 text-center p-1">
+          <button
+            id="Scone"
+            class="orbtn btn btn-outline-light w-75"
+            data-img="Scone.jpg"
+            data-name="Scone"
+            data-price="30"
+          >
+            Scone
+          </button>
+        </div>
+        <div class="col-3 text-center p-1">
+          <button
+            id="Cinnamon-Roll"
+            class="orbtn btn btn-outline-light w-75"
+            data-img="Cinnamon-Roll.jpg"
+            data-name="Cinnamon-Roll"
+            data-price="30"
+          >
+            Cinnamon-Roll
+          </button>
+        </div>
+      </div>
+      <!-- /bread -->
+      <div class="row mt-3">
+        <div class="col">
+          <table>
+            <tr>
+              <td colspan="6" class="fs-1 fw-bolder">
+                <i class="fa-solid fa-mug-saucer fa-2xl"></i> CB coffe
+              </td>
+              <!-- <td></td> -->
+              <!-- <td></td> -->
+              <!-- <td></td> -->
+              <!-- <td></td> -->
+              <!-- <td></td> -->
+            </tr>
+            <tr id="orderHeader">
+              <th>item</th>
+              <th>price</th>
+              <th>Q'ty</th>
+              <th>Subtotal</th>
+              <th>Note</th>
+              <th class="text-light">operate</th>
+            </tr>
+            <tr class="bg-dark text-light">
+              <td>Total</td>
+              <td
+                colspan="2"
+                id="orderTotal"
+                class="fs-5 text-warning fw-bolder"
+              ></td>
+              <td>
+                <input
+                  id="calulate"
+                  class="btn btn-light w-100"
+                  type="button"
+                  value="CALULATE TOTAL"
+                />
+              </td>
+              <td>
+                <p>discount</p>
+                <p class="text-danger fw-bolder">
+                  5% off for purchases over 500
+                </p>
+              </td>
+              <td id="dis" class="text-danger fw-bolder"></td>
+              <!-- <td></td> -->
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col text-end">
+          <button id="ordernow" class="btn btn-dark">ORDER NOW</button>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      //啟用jquery
+      $("document").ready(function () {
+        //促銷訊息
+        InOut("#spDis");
+        //點餐
+        function order() {
+          // $(".orbtn").removeClass("btn-light");
+          $(this).removeClass("btn-outline-light");
+          $(this).addClass("btn-light");
+          let img = $(this).data("img");
+          let name = $(this).data("name");
+          let price = $(this).data("price");
+          let html = `
+            <tr>
+              <td class="name"><img src='./img/${img}'>
+                <br>${name}</td>
+              <td><input class='price' name='price' value=${price} readonly></td>
+              <td><input type="number" class='qty' name='qty' placeholder='0'></td>
+              <td class='subtotal'></td>
+              <td><input type="text" name="note"></td>
+              <td>
+                <button class='cloneBtn btn btn-dark mx-1'><i class="fa-solid fa-clone fa-2xl" data-name='${name}'></i></i>
+                <button class='delBtn btn btn-dark'><i class="fa-solid fa-square-minus fa-2xl" data-name='${name}'></i></button>
+                </td>
+            </tr>
+            `;
+          $("#orderHeader").after(html);
+          // 用來取消click事件
+          // $(this).off("click", order);
+        }
+        function cloneBtn() {
+          let cloneParent = $(this).closest("tr");
+          console.log(cloneParent);
+          cloneParent.clone(true).insertAfter(cloneParent);
+          totalAmount();
+        }
+        //列出選單
+        function itemToggle() {
+          let item = $(this).data("item");
+          $("#" + item).toggle();
+        }
+        //計算全部金額
+        function totalAmount() {
+          let allSubtotal = $(".subtotal");
+          console.log(allSubtotal);
+          let tmp = 0;
+          allSubtotal.each(function (idx, val) {
+            tmp += Number($(val).text());
+          });
+          if (tmp >= 500) {
+            let dis = tmp - Math.ceil(tmp * 0.95);
+            tmp = Math.ceil(tmp * 0.95);
+            $("#orderTotal").text(tmp);
+            $("#dis").text(dis);
+            // console.log(tmp);
+          } else {
+            $("#orderTotal").text(tmp);
+            $("#dis").text("0");
+          }
+        }
+        function InOut(elm) {
+          setInterval(function () {
+            $(elm).fadeOut(300).fadeIn(700);
+          }, 1000);
+        }
+        $(".itemBtn").on("click", itemToggle);
+        //clone
+        $("#orderHeader").parent().on("click", ".cloneBtn", cloneBtn);
+        $(".orbtn").on("click", order);
+        //刪除
+        $("#orderHeader")
+          .parent()
+          .on("click", ".delBtn", (e) => {
+            // console.log(e.target);
+            let thisBtn = $(e.target).data("name");
+            // console.log(e.target);
+            //用來回復click事件
+            // $("#" + thisBtn).on("click", order);
+            $("#" + thisBtn).removeClass("btn-light");
+            $("#" + thisBtn).addClass("btn-outline-light");
+            e.target.closest("tr").remove();
+            totalAmount();
+          });
+        let orderParent = $("#orderHeader").parent();
+        orderParent.on("change", ".qty", function (e) {
+          let price = $(this).closest("tr").find(".price").val();
+          let subtotal = Number($(this).val()) * Number(price);
+          $(this).closest("tr").find(".subtotal").text(subtotal);
+          totalAmount();
+        });
+        $("#calulate").on("click", totalAmount);
+        $("#ordernow").on("click", function () {
+          Swal.fire({
+            title: "check your order",
+            text: "NTD" + $("#orderTotal").text(),
+            icon: "info",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Confirmed!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              let today = new Date();
+              let lastNum = (
+                "0000" + Math.ceil(Math.random() * 1000).toString()
+              ).slice(-5);
+              let orderDate =
+                today.getFullYear().toString() +
+                ("0" + (today.getMonth() + 1)).slice(-2) +
+                ("0" + today.getDate()).slice(-2);
+              orderNum = orderDate + lastNum;
+              Swal.fire({
+                title: "YOUR ORDER NO:" + orderNum,
+                text: " NTD:" + $("#orderTotal").text(),
+                icon: "success",
+              });
+            }
+          });
+        });
+        $(".close").on("click", function () {
+          $("#promation").remove();
+        });
+      });
+    </script>
+  </body>
+</html>

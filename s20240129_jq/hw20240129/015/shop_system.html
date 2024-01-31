@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drink shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .dusk-bg-gray{
+            background-color: rgb(60, 60, 60);
+        }
+        .dusk-bg-lightgray{
+            background-color: rgb(80, 80, 80);
+        }
+    </style>
+</head>
+<body class="dusk-bg-gray">
+    <div class="container dusk-bg-lightgray rounded">
+        <div class="container option border rounded mt-3">
+            <div class="row text-center">
+                <div class="col-3 mt-3 mb-3">
+                    <button class="btn btn-primary item-btn" data-item="紅茶" data-price="30">紅茶 30元</button>
+                </div>
+                <div class="col-3 mt-3 mb-3">
+                    <button class="btn btn-primary item-btn" data-item="綠茶" data-price="30">綠茶 30元</button>
+                </div>
+                <div class="col-3 mt-3 mb-3">
+                    <button class="btn btn-primary item-btn" data-item="麥茶" data-price="35">麥茶 35元</button>
+                </div>
+                <div class="col-3 mt-3 mb-3">
+                    <button class="btn btn-primary item-btn" data-item="奶茶" data-price="40">奶茶 40元</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <table class="table align-middle text-center mt-3">
+                <thead>
+                    <th>品名</th>
+                    <th>單價</th>
+                    <th>甜度</th>
+                    <th>冰度</th>
+                    <th>數量</th>
+                    <th>總價</th>
+                    <th>操作</th>
+                </thead>
+                <tbody class="item-list">
+
+                </tbody>
+            </table>
+
+            <div class="container text-center border rounded mt-3">
+                <div class="text-light">總價為:<span class="cart-total">0</span>元</div>
+                <div><button class="btn btn-success">確認</button></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const itemList = $('.item-list');
+        const itemBtn = $('.item-btn');
+        const cartTotal = $('.cart-total');
+
+        const addItem = (event) => {
+            let item = $(event.target).data('item');
+            let price = $(event.target).data('price');
+            let element = `
+                    <tr>
+                        <td>${item}</td>
+                        <td class="item-price" data-price="${price}">${price}</td>
+                        <td>
+                            <select name="ice">
+                                <option value="1" selected>正常</option>
+                                <option value="2">少冰</option>
+                                <option value="3">去冰</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="sugar">
+                                <option value="1" selected>正常</option>
+                                <option value="2">少糖</option>
+                                <option value="3">無糖</option>
+                            </select>
+                        </td>
+                        <td><input type="number" class='item-amount' name="amount" min="1" value="1"></td>
+                        <td class='total-price'>${price}</td>
+                        <td><i class="btn btn-danger delete-btn fa-solid fa-delete-left"></i></td>
+                    </tr>`;
+            itemList.append(element);
+            let total = Number(cartTotal.text());
+            total += price;
+            cartTotal.text(total);
+
+            $('.item-amount').last().on('change', calcPrice);
+            $('.item-amount').last().on('change', calcTotal);
+            $('.delete-btn').last().on('click', delItem);
+        };
+        const calcPrice = (event) => {
+            const target = $(event.target).parent().siblings('.total-price');
+            let amount = $(event.target).val();
+            let price = target.siblings('.item-price').data('price');
+            target.text(amount*price);
+        };
+        const delItem = (event) => {
+            const target = $(event.target).parent().parent();
+            target.empty();
+            calcTotal();
+        }
+        const calcTotal = () => {
+            let total = 0;
+            $('.total-price').each((index, element) => {
+                total += Number($(element).text());
+            })
+
+            cartTotal.text(total);
+        };
+
+        itemBtn.on('click', addItem);
+    </script>
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order-List</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- STYLE -->
+    <style>
+      .myPrice::before {
+        content: "$";
+      }
+
+      /* .totalPrice::before{
+        content: "$";
+      } */
+
+      th,
+      tr,
+      td {
+        text-align: center;
+      }
+
+.delBtn{
+  display: none;
+}
+
+      .product-item {
+        display: none;
+      }
+
+      .product-add{
+        display: block;
+      }
+    </style>
+    <!-- STYLE -->
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div>
+
+<div>
+  <h3>PRODUCTS</h3>
+  <button type="button" class="btn btn-primary myBtn-class btn-success" data-item="item01">
+    item01
+  </button>
+  <button type="button" class="btn btn-primary myBtn-class" data-item="item02">
+    item02
+  </button>
+  <button type="button" class="btn btn-primary myBtn-class" data-item="item03">
+    item03
+  </button>
+  <button type="button" class="btn btn-primary myBtn-class" data-item="item04">
+    item04
+  </button>
+  <button
+    type="button"
+    class="btn btn-primary myBtn-class"
+    data-item="item-all"
+  >
+    ALL
+  </button>
+  <button
+    type="button"
+    class="btn btn-primary myBtn-class"
+    data-item="item-hide"
+  >
+    HIDE
+  </button>
+</div>
+
+    
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>PRICE</th>
+            <th>AMOUNT/PRICE</th>
+        
+          
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- item01 -->
+          <tr class="product-item" id="item01">
+            <td>1</td>
+            <td>
+              <div>ITEM_NUM_1</div>
+              <div>
+                <img src="https://picsum.photos/id/237/100/100" alt="" />
+              </div>
+            </td>
+            <td class="myPrice">100</td>
+            <td>
+              <div>
+                <input type="number" name="" id="" value="1" max="10" min="1"/>
+                <input type="text" name="" id="" value="100" readonly/>
+                <!-- addbutton -->
+                <button class="addBtn btn btn-warning" data-item="item01">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </td>
+            <td class="op-btn">
+              <button type="button" class="delBtn btn btn-danger">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+
+        <!-- item02 -->
+          <tr class="product-item" id="item02">
+            <td>2</td>
+            <td>
+              <div>ITEM_NUM_2</div>
+              <div>
+                <img src="https://picsum.photos/id/238/100/100" alt="" />
+              </div>
+            </td>
+            <td class="myPrice">200</td>
+            <td>
+              <div>
+                <input type="number" name="" id="" value="1" max="10" min="1"/>
+                <input type="text" name="" id="" value="200" readonly/>
+                               <!-- addbutton -->
+                <button class="addBtn btn btn-warning" data-item="item02">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </td>
+            <td class="op-btn">
+              <button type="button" class="delBtn btn btn-danger">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+
+          <!-- item03 -->
+          <tr class="product-item" id="item03">
+            <td>3</td>
+            <td>
+              <div>ITEM_NUM_3</div>
+              <div>
+                <img src="https://picsum.photos/id/240/100/100" alt="" />
+              </div>
+            </td>
+            <td class="myPrice">150</td>
+            <td>
+              <div>
+                <input type="number" name="" id="" value="1" max="10" min="1"/>
+                <input type="text" name="" id="" value="150" readonly/>
+                               <!-- addbutton -->
+                <button class="addBtn btn btn-warning" data-item="item03">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </td>
+            <td class="op-btn">
+              <button type="button" class="delBtn btn btn-danger">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+
+          <!-- item04 -->
+          <tr class="product-item" id="item04">
+            <td>4</td>
+            <td>
+              <div>ITEM_NUM_4</div>
+              <div>
+                <img src="https://picsum.photos/id/239/100/100" alt="" />
+              </div>
+            </td>
+            <td class="myPrice">120</td>
+            <td>
+              <div>
+                <input type="number" name="" id="" value="1" max="10" min="1"/>
+                <input type="text" name="" id="" value="120" readonly/>
+                               <!-- addbutton -->
+                <button class="addBtn btn btn-warning" data-item="item04">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </td>
+            <td class="op-btn">
+              <button type="button" class="delBtn btn btn-danger">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+          <hr>
+        
+        </tbody>
+      </table>
+
+      <div>
+        <h3>ADD</h3>
+        <button type="button" class="btn btn-danger myBtn" data-item="item01">
+          item01
+        </button>
+        <button type="button" class="btn btn-danger myBtn" data-item="item02">
+          item02
+        </button>
+        <button type="button" class="btn btn-danger myBtn" data-item="item03">
+          item03
+        </button>
+        <button type="button" class="btn btn-danger myBtn" data-item="item04">
+          item04
+        </button>
+      </div>
+
+      <table>
+        <h5>ORDER-LIST</h5>
+        <div class="row">
+          <div class="col-10"></div>
+          <div class="col">TOTAL:<span class="totalPrice">$0</span></div>
+        </div>
+      <table class="table table-hover order-table">
+        <tr class="order_list">
+            <th>ID</th>
+            <th>NAME</th>
+            <th>PRICE</th>
+            <th>AMOUNT/TOTAL</th>
+            <th>NOTE</th>
+            <th>OPERATE</th>
+        </tr>
+  
+      </table>
+
+    </div>
+
+    <table>
+    
+
+
+ 
+
+    <!-- BS5_JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+    <!-- JQ -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- JS -->
+    <script>
+      $(document).ready(function () {
+
+        // INIT
+$("#item01").show();
+
+// SUM
+function mySum(type,item=""){
+
+  switch(type){
+    case "add":
+    let array=$(".order-table").children().find("input[readonly]");
+   sum=0;
+  // console.log(array);
+
+  $.each(array, function (idx, e) { 
+    //  console.log('idx',idx);
+    eValue=$(this).val();
+    //  console.log('e',eValue);
+    sum=sum+Number(eValue)
+    // a=Number($(".totalPrice").html().substring(1));
+    // console.log(a);
+
+  });
+  $(".totalPrice").html("$"+sum);
+  // console.log('total',sum);
+      break;
+
+    case "del":
+     sum= Number($(".totalPrice").html().substring(1));
+     sum=sum-item.find("input[readonly]").val();
+    //  console.log(sum);
+    $(".totalPrice").html("$"+sum);
+       break;
+  }
+
+  
+}
+//showup
+function show_hide(a, b) {
+  console.log(b);
+  switch (b) {
+    case "item-all":
+      $(".product-item").show();
+      break;
+    case "item-hide":
+      $(".product-item").hide();
+      break;
+    default:
+      a.siblings().hide();
+      a.show();
+  }
+}
+
+const myBtnClass = $(".myBtn-class");
+myBtnClass.click(function (e) {
+  // interface
+  $(this).addClass("btn-success");
+  $(this).siblings().removeClass("btn-success");
+
+  // action
+  console.log("this", this);
+  let targetDataP = $(this).data("item");
+  console.log(targetDataP);
+  let targetItemP = $(`#${targetDataP}`);
+  // console.log(targetItem);
+  show_hide(targetItemP, targetDataP);
+  // targetItem.siblings().hide();
+  // targetItem.show();
+});
+
+        const myBtn = $(".myBtn");
+        const addBtn=$(".addBtn");
+        myBtn.click(function (e) {
+
+
+          // action
+          console.log("this", this);
+          let targetData = $(this).data("item");
+          console.log(targetData);
+          let targetItem = $(`#${targetData}`);
+
+          console.log(targetItem[0]);
+          orderItem=targetItem.clone(true).removeClass('product-item').show();
+
+          // orderItem=orderItem.children().find('deBtn').css("display:block");
+          $(".order_list").after(orderItem);
+          orderItem.children().find('.delBtn').show();
+          orderItem.find('.op-btn').before(`
+          <td>
+            <input type="text" name="" id="" value="" placeholder="note here..." />
+          </td>
+          `)
+
+          mySum('add');
+          
+        });
+
+addBtn.click(function (e){
+  console.log("this", this);
+          let targetData = $(this).data("item");
+          console.log(targetData);
+          let targetItem = $(`#${targetData}`);
+
+          console.log(targetItem[0]);
+          orderItem=targetItem.clone(true).removeClass('product-item').show();
+
+          // orderItem=orderItem.children().find('deBtn').css("display:block");
+          $(".order_list").after(orderItem);
+          orderItem.children().find('.delBtn').show();
+          orderItem.find('.op-btn').before(`
+          <td>
+            <input type="text" name="" id="" value="" placeholder="note here..." />
+          </td>
+          `)
+
+          mySum('add');
+          
+})
+
+
+        // del
+        const delBtn = $(".delBtn");
+        delBtn.click(function (e) {
+          console.log("this", this);
+          let thisParent = $(this).parent();
+          let thisParentParent = $(this).parent().parent();
+          console.log("thisParent", thisParent);
+          console.log("thisParentParent", thisParentParent);
+          thisParentParent.remove();
+          mySum('del',thisParentParent);
+          // ajax del method
+        });
+      });
+
+
+
+
+      // amount changed
+const inpAmount=$("input[type='number']");
+
+inpAmount.change(function(e){
+  theNum=$(this).val();
+  thePrice=parseInt($(this).parent().parent().parent().find('.myPrice').text());
+  theTotal=theNum*thePrice;
+  // console.log('price',theTotal);
+  let showPrice=$(this).parent().find("input[type='text']");
+  showPrice.val(theTotal);
+  // console.log(showPrice);
+
+})
+
+
+
+    </script>
+  </body>
+</html>

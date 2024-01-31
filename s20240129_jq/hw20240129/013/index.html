@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Shop Sum</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Libre+Baskerville&display=swap" rel="stylesheet">
+  <style>
+    body{
+      background-image: url(./image/bg.jpg);
+      background-repeat: no-repeat;      
+      background-position: center;
+      background-size: cover;
+      height: 200vh;
+      backdrop-filter: blur(8px);
+      font-family: 'Libre Baskerville', serif;
+      font-weight: 700;
+    }
+    .headerbgcolor{
+      background-color: rgba(255, 218, 158, 0.7)
+    }
+    .headerfontawesomecolor{
+      color: rgb(68, 42, 7);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container pt-5">
+    <div class="row headerbgcolor p-3 text-dark rounded-4">
+      <div class="fs-1">Shopping List</div>
+      <div class="fs-4">        
+        總計：<span id="mySum" class="fs-1">0</span> 元，
+        <button id="sumBtn" type="button" class="btn btn-danger">滿500元，打9折</button>&nbsp;折扣價：<span id="disTotal" class="fs-1">0</span> 元
+      </div>
+      <div class="clo mt-3">
+        <h2 class="headerfontawesomecolor d-inline-block"><i class="fa-solid fa-mug-hot"></i></h2>&nbsp;
+        <button type="button" class="myBtn btn btn-primary my-1" data-name="Espresso" data-price="70" data-img="001">Espresso</button>
+        <button type="button" class="myBtn btn btn-primary my-1" data-name="Americano" data-price="80" data-img="002">Americano</button>
+        <button type="button" class="myBtn btn btn-primary my-1" data-name="Caffè Latte" data-price="120" data-img="003">Caffè Latte</button>
+        <button type="button" class="myBtn btn btn-primary my-1" data-name="Macchiato" data-price="130" data-img="004">Macchiato</button>
+      </div>
+      <div class="clo mt-3">
+        <h2 class="headerfontawesomecolor d-inline-block"><i class="fa-solid fa-burger"></i></h2>&nbsp;
+        <button type="button" class="myBtn btn btn-success my-1" data-name="Sandwich" data-price="80" data-img="005">Sandwich</button>
+        <button type="button" class="myBtn btn btn-success my-1" data-name="Cupcake" data-price="60" data-img="006">Cupcake</button>
+        <button type="button" class="myBtn btn btn-success my-1" data-name="Bread" data-price="50" data-img="007">Bread</button>
+        <button type="button" class="myBtn btn btn-success my-1" data-name="Burger" data-price="90" data-img="008">Burger</button>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <div class="box">
+          <table class="table table-striped table-hover text-center opacity-75 myTable align-middle rounded-3">
+            <thead>
+              <tr>
+                <th>Product</th>                
+                <th>Desc</th>
+                <th>Oprate</th>
+              </tr>
+            </thead>
+            <tbody>    
+
+          </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    $(document).ready(function () {
+      // function      
+      function sumFun(){
+        let myTotal=$('.myTotal')
+        let sum = 0        
+        myTotal.each(function(index, value){
+          sum=sum+ Number($(value).text())
+        })
+        mySum.text(sum)
+        } 
+
+      function delFun(nowThis){
+        let nowTr=$(nowThis).parent().parent()
+        nowTr.remove()
+        sumFun()
+      }
+
+      function cloneFun(nowThis){
+        // console.log('clone ok');
+        let nowTr=$(nowThis).parent().parent()
+        nowTr.clone(true).insertAfter(nowTr)
+        sumFun() //要再計算
+      }
+
+      // 綁定
+      const myBtn=$('.myBtn')
+      const mySum=$('#mySum')
+      const disTotal=$('#disTotal')
+      const sumBtn=$('#sumBtn')
+      let delBtn=$('.delBtn')
+      let cloneBtn=$('.cloneBtn')
+
+      // 動作
+      delBtn.click(function(e){
+        delFun(this)
+      })  
+      cloneBtn.click(function(e){
+        cloneFun(this)
+      })  
+      sumBtn.click(function(e){
+      console.log('sumBtn ok');
+      let myTotal=$('.myTotal')
+        let sum=0
+        myTotal.each(function(index, value){
+          sum=sum+ Number($(value).text())
+        })
+        if(sum>=500){
+          let total=sum*0.9
+          disTotal.text(total)
+        }else{
+          let total=sum
+          disTotal.text(total)
+        }     
+      })
+
+          
+      myBtn.click(function(e){
+        let name=$(this).data('name')
+        let price=$(this).data('price')
+        let imgUrl=$(this).data('img')
+
+        let myTr=`
+        <tr>              
+              <td>
+                <img class="rounded-circle" src="./image/${imgUrl}.png" width="150px" height="150px">                
+              </td>
+              <td class="text-start">                
+                ${name} <br>
+                單價：${price} 元 <br>             
+                <div class="input-group w-50">
+                  數量：<input type="number" class="quantity form-control" id="" max="1000" min="1" value="1"></div>  
+                <hr>            
+                小計：<span class="myTotal">${price}</span> 元         
+              </td>              
+              <td>
+                <button type="button" class="cloneBtn btn btn-warning my-1"><i class="fa-regular fa-copy"></i></button>
+                <button type="button" class="delBtn btn btn-danger my-1"><i class="fa-solid fa-trash-can"></i></button>
+              </td>
+            </tr>
+        `
+        $('tbody').append(myTr)
+        
+        addDelBtn=$('.delBtn').last()
+        addCloneBtn=$('.cloneBtn').last()
+        addQuantity=$('.quantity').last() //數量
+
+        sumFun()
+
+        addDelBtn.click(function(e){
+          delFun(this)
+        })        
+        addCloneBtn.click(function(e){
+          cloneFun(this)
+        })
+        
+        addQuantity.change(function(e){
+          // console.log('$(this)',$(this));
+          let getQuantity=Number($(this).val()) // 數量的數字
+          let closestQuantityTr=$(this).parent().parent().parent()
+          let findTotal=closestQuantityTr.find('.myTotal') //經由tr找到裡面的小計myTotal
+          console.log('getQuantity',getQuantity);
+          // console.log('closestQuantityTr',closestQuantityTr)
+          let total=getQuantity * price // 數量的數字 * button的data-price的price
+          // console.log('total',total)
+          findTotal.text(total)
+
+          sumFun()
+        })       
+      })            
+    })
+
+  </script>
+</body>
+
+</html>
