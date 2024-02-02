@@ -13,7 +13,36 @@
 </head>
 
 <body>
-  <div class="container" id="myContainer">
+
+  <div class="container">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>area</th>
+            <th>city</th>
+            <th>name</th>
+            <th>location</th>
+            <th>website</th>
+          </tr>
+        </thead>
+
+        <!-- <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody> -->
+      </table>
+    </div>
+  </div>
+
+  <!-- <div class="container" id="myContainer">
     <div class="row mt-3">
       <div class="col-2">
         id
@@ -33,9 +62,9 @@
       <div class="col-2">
         website
       </div>
-    </div>
+    </div> -->
 
-    <!-- <div class="row mt-3">
+  <!-- <div class="row mt-3">
       <div class="col-2">
         1
       </div>
@@ -77,44 +106,30 @@
           console.log('res[12].name', res[12].name);
           console.log('res[12].location', res[12].location);
           console.log('res[12].website', res[12].website);
-    
-  
 
-          res.forEach(value => {
-          // 看看印出的result的值
-            console.log('res.value', value);
-            console.log('value.id', value.id);
-            console.log('value.area', value.area);
-            console.log('value.city', value.city);
-            console.log('value.name', value.name);
-            console.log('value.location', value.location);
-            console.log('value.website', value.website);
-            let locationString = value.location.toString();
+
+
+    
+
+            // jq each array 
+            $.each(res, function (key, value) { 
+               console.log('key',key);
+               console.log('value',value);
 
             let content = `
-            <div class="row mt-3">
-              <div class="col-2">
-                  ${value.id}
-                  </div>
-                  <div class="col-2">
-                  ${value.area}
-                  </div>
-                  <div class="col-2">
-                  ${value.city}
-                  </div>
-                  <div class="col-2">
-                  ${value.name}
-                  </div>
-                  <div class="col-2">
-                  ${value.location}
-                  </div>
-                  <div class="col-2">
-                  ${value.website}
-                  </div>
-                </div>
+              <tbody>
+                  <tr>
+                    <td>${value.id}</td>
+                    <td>${value.area}</td>
+                    <td>${value.city}</td>
+                    <td>${value.name}</td>
+                    <td>${value.location}</td>
+                    <td>${value.website}</td>
+                  </tr>
+              </tbody>
           `;
-
-          myContainer.append(content);
+            thead.after(content);
+            // myContainer.append(content);
 
           });
 
