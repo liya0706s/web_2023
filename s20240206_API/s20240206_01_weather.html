@@ -13,18 +13,39 @@
 </head>
 
 <body>
+    <ol id="myOl">
+        <!-- <li>11111</li> -->
+    </ol>
 
+    <!-- 先做假資料 -->
+    <table class="table table-hover" id="myTable">
+        <thead>
+            <tr>
+                <th class="text-center" width="30%">id</th>
+                <th class="text-center">name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td>1</td>
+                <td>amy</td>
+            </tr> -->
+        </tbody>
+    </table>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- pw url -->
     <script src="../ignore/js/pw.js"></script>
+
     <script>
         $(document).ready(function () {
-
             let url = weatherUrl;
             // let url = "https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWA-BD78FE08-13F5-4C27-9645-7AA37D0BABF5&format=JSON";  
             // request url 
+            const myOl = $('#myOl');
+            const myTable = $('#myTable');
 
             // jqajax 
             $.ajax({
@@ -33,10 +54,45 @@
                 // data: "data",
                 // dataType: "dataType",
                 success: function (res) {
+                    // . [] -> property variable
+                    // .xx[] ['xxx']() ->xxx() method function action
                     console.log('res', res);
+                    console.log('res.records', res.records);
+                    console.log('res["records"]', res['records']);
+                    // console.log('res.records.location', res.records.location);
+                    // 如果覺得.太長一串可以命名成變數
+                    let nowLocation = res.records.location;
+                    console.log('nowLocation', nowLocation);
+                    // jqeach 
+                    $.each(nowLocation, function (key, value) {
+                        console.log('key', key);
+                        console.log('value', value);
+                        // value裡面的locationName
+                        console.log('value.locationName', value.locationName);
+                        // 編號是key+1
+                        let nowID = key + 1;
+                        // 改成字串，用padStart()是字串的方法，補零 兩位數
+                        let stringID = nowID.toString().padStart(2, "0");
+                        let nowLocationName = value.locationName;
+                        // let content =`
+                        //     <li>${nowLocationName}</li>
+                        // `;
+
+                        let content = `
+                            <tr>
+                                <td class="text-center" width="30%">${stringID}</td>
+                                <td class="text-center">${nowLocationName}</td>
+                            </tr>
+                        `;
+
+                        console.log('nowLocationName', nowLocationName);
+                        $('tbody').append(content);
+                    });
                 }
+
             });
         });
+        $.each
 
     </script>
 </body>
