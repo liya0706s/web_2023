@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>angie Bootstrap Example</title>
+    <title>angie's Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,7 +18,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
-
+<h1>一般天氣預報-今明36小時天氣預報</h1>
+<p>臺灣各縣市天氣預報資料及國際都市天氣預報</p>
 <body>
     <table class="display" id="myTable">
         <thead>
@@ -26,6 +27,7 @@
                 <th class="text-center" width="30%">id</th>
                 <th class="text-center">name</th>
                 <th class="text-center">temperature</th>
+                <th class="text-center">img</th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +35,7 @@
                 <td>1</td>
                 <td>amy</td>
                 <td>....</td>
+                <td>img</td>
             </tr> -->
         </tbody>
     </table>
@@ -52,7 +55,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 
 
-
+<!-- <img src="./img/day/1.svg" alt=""> -->
 
     <script>
         $(document).ready(function () {
@@ -81,6 +84,7 @@
 
                     // 最低溫
                     // let nowLocationMinT = res.records.location.weatherElement[2]['time'][0]['parameter']['parameterName'];
+
                     // console.log('nowLocationMaxT', nowLocationMaxT);
                     // console.log('nowLocation', nowLocation);
                     // jqeach 
@@ -97,6 +101,11 @@
                         // 最低溫
                         let nowLocationMinT = value.weatherElement[2]['time'][0]['parameter']['parameterName'];
 
+                        let nowLocationWxName=value.weatherElement[0]['time'][0]['parameter']['parameterName'];
+                        // 檔名不用補零
+                        let nowLocationWxValue=value.weatherElement[0]['time'][0]['parameter']['parameterValue'];
+                        let imgUrl= nowLocationWxValue + '.svg';
+
                         // 編號是key+1
                         let nowID = key + 1;
                         // 改成字串，用padStart()是字串的方法，補零兩位數
@@ -111,6 +120,8 @@
                                 <td class="text-center" width="30%">${stringID}</td>
                                 <td class="text-center">${nowLocationName}</td>
                                 <td class="text-center">${nowLocationMinT} - ${nowLocationMaxT} °C</td>
+                                <td class="text-center">${nowLocationWxName}
+                                    <img src="./img/day/${imgUrl}" alt=""></td>
                             </tr>
                         `;
 
