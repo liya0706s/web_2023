@@ -18,40 +18,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <script src="../ignore/js/pw.js"></script>
     <script>
         $(document).ready(function () {
-            const obj = {
-                's1': 'amy',
-                's2': 'bob',
-                's3': 'cat',
-            }
-            console.log('obj', obj);
 
-            
-            const storeArr = [
-                {
-                    'name': '台北店',
-                    'mobile': '0911-111-111',
+            let url = weatherUrl;
+            // let url = "https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWA-BD78FE08-13F5-4C27-9645-7AA37D0BABF5&format=JSON";  
+            // request url 
 
-                },
-                {
-                    'name': '台中店',
-                    'mobile': '0922-222-222',
-                },
-                {
-                    'name': '高雄店',
-                    'mobile': '0933-333-333',
-                },
-            ]
-            console.log('storeArr', storeArr);
-            // js原生迭代
-            storeArr.forEach(element => {
-                console.log('element', element);
+            // jqajax 
+            $.ajax({
+                type: "get",
+                url: url,  //變數
+                // data: "data",
+                // dataType: "dataType",
+                success: function (res) {
+                    console.log('res', res);
+                }
             });
         });
-
-       
 
     </script>
 </body>
