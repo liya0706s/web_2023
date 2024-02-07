@@ -20,14 +20,16 @@
 </head>
 <h1>一般天氣預報-今明36小時天氣預報</h1>
 <p>臺灣各縣市天氣預報資料及國際都市天氣預報</p>
+
 <body>
     <table class="display" id="myTable">
         <thead>
             <tr>
-                <th class="text-center" width="30%">id</th>
-                <th class="text-center">name</th>
-                <th class="text-center">temperature</th>
-                <th class="text-center">img</th>
+                <th class="text-center" width="7%">id</th>
+                <th class="text-center" width="15">name</th>
+                <th class="text-center" id="title12">desc 12</th>
+                <th class="text-center" id="title24">desc 24</th>
+                <th class="text-center" id="title36">desc 36</th>
             </tr>
         </thead>
         <tbody>
@@ -49,13 +51,15 @@
 
     <!-- datatable js -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
+        integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
         integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 
 
-<!-- <img src="./img/day/1.svg" alt=""> -->
+    <!-- <img src="./img/day/1.svg" alt=""> -->
 
     <script>
         $(document).ready(function () {
@@ -63,6 +67,12 @@
             // let url = "https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWA-BD78FE08-13F5-4C27-9645-7AA37D0BABF5&format=JSON";  
             // request url 
             const myTable = $('#myTable');
+            const title12 = $('#title12');
+            const title24 = $('#title24');
+            const title36 = $('#title36');
+
+            let nowTime = new Date();
+            console.log('nowTime', nowTime);
 
             // jqajax 
             $.ajax({
@@ -72,13 +82,76 @@
                 // dataType: "dataType",
                 success: function (res) {
                     // . [] -> property variable
-                    // .xx[] ['xxx']() ->xxx() method function action
+                    // .xxx() ['xxx']() ->xxx() method function action
                     console.log('res', res);
                     console.log('res.records', res.records);
                     console.log('res["records"]', res['records']);
                     // console.log('res.records.location', res.records.location);
                     // 如果覺得.太長一串可以命名成變數
                     let nowLocation = res.records.location;
+                    // th title 
+                    let title12Text = res.records.location[1].weatherElement[2]['time'][0]['startTime'];
+                    let title24Text = res.records.location[1].weatherElement[2]['time'][1]['startTime'];
+                    let title36Text = res.records.location[1].weatherElement[2]['time'][2]['startTime'];
+                    title12.text(title12Text);
+                    title24.text(title24Text);
+                    title36.text(title36Text);
+
+                    // 抓不同時段的當下的時間 
+                    let time12 = new Date(title12Text);
+                    let time24 = new Date(title24Text);
+                    let time36 = new Date(title36Text);
+                    console.log('time12', time12);
+                    console.log('time24', time24);
+                    console.log('time36', time36);
+
+                    // 抓時間區間的小時
+                    tim12Hour = time12.getHours();
+                    tim24Hour = time24.getHours();
+                    tim36Hour = time36.getHours();
+                    console.log('tim12Hour', tim12Hour);
+                    console.log('tim24Hour', tim24Hour);
+                    console.log('tim36Hour', tim36Hour);
+
+                    // 0 night
+                    // 6 day
+                    // 12 day 
+                    // 18 night 
+                    
+                    // init set 
+                    let dayNight_12 = 'day';
+                    let dayNight_24 = 'day';
+                    let dayNight_36 = 'day';
+
+                    switch (tim12Hour) {
+                        case 12:
+                        case 18:
+                            dayNight_12 = 'night';
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    switch (tim24Hour) {
+                        case 12:
+                        case 18:
+                            dayNight_24 = 'night';
+                            break;
+                        default:
+                            break;
+                    }
+
+                    switch (tim36Hour) {
+                        case 12:
+                        case 18:
+                            dayNight_36 = 'night';
+                            break;
+                        default:
+                            break;
+                    }
+
+
                     // 最高溫
                     // let nowLocationMaxT = res.records.location.weatherElement[4]['time'][0]['parameter']['parameterName'];
 
@@ -101,31 +174,53 @@
                         // 最低溫
                         let nowLocationMinT = value.weatherElement[2]['time'][0]['parameter']['parameterName'];
 
-                        let nowLocationWxName=value.weatherElement[0]['time'][0]['parameter']['parameterName'];
+                        let nowLocationWxName = value.weatherElement[0]['time'][0]['parameter']['parameterName'];
                         // 檔名不用補零
-                        let nowLocationWxValue=value.weatherElement[0]['time'][0]['parameter']['parameterValue'];
-                        let imgUrl= nowLocationWxValue + '.svg';
+                        let nowLocationWxValue = value.weatherElement[0]['time'][0]['parameter']['parameterValue'];
+                        let imgUrl = nowLocationWxValue + '.svg';
 
                         // 編號是key+1
                         let nowID = key + 1;
                         // 改成字串，用padStart()是字串的方法，補零兩位數
                         let stringID = nowID.toString().padStart(2, "0");
                         let nowLocationName = value.locationName;
+                        console.log('value', value);
+            // 12
+            let nowLocationMaxT_12 = value.weatherElement[4]['time'][0]['parameter']['parameterName'];
+            let nowLocationMinT_12 = value.weatherElement[2]['time'][0]['parameter']['parameterName'];
+            let nowLocationWxName_12 = value.weatherElement[0]['time'][0]['parameter']['parameterName'];
+            let nowLocationWxValue_12 = value.weatherElement[0]['time'][0]['parameter']['parameterValue'].toString();
+            let imgUrl_12 = nowLocationWxValue_12 + '.svg';
+
+            // 24
+            let nowLocationMaxT_24 = value.weatherElement[4]['time'][1]['parameter']['parameterName'];
+            let nowLocationMinT_24 = value.weatherElement[2]['time'][1]['parameter']['parameterName'];
+            let nowLocationWxName_24 = value.weatherElement[0]['time'][1]['parameter']['parameterName'];
+            let nowLocationWxValue_24 = value.weatherElement[0]['time'][1]['parameter']['parameterValue'].toString();
+            let imgUrl_24 = nowLocationWxValue_24 + '.svg';
+
+            // 36
+            let nowLocationMaxT_36 = value.weatherElement[4]['time'][2]['parameter']['parameterName'];
+            let nowLocationMinT_36 = value.weatherElement[2]['time'][2]['parameter']['parameterName'];
+            let nowLocationWxName_36 = value.weatherElement[0]['time'][2]['parameter']['parameterName'];
+            let nowLocationWxValue_36 = value.weatherElement[0]['time'][2]['parameter']['parameterValue'].toString();
+            let imgUrl_36 = nowLocationWxValue_36 + '.svg';
+
                         // let content =`
                         //     <li>${nowLocationName}</li>
                         // `;
 
                         let content = `
                             <tr>
-                                <td class="text-center" width="30%">${stringID}</td>
+                                <td class="text-center">${stringID}</td>
                                 <td class="text-center">${nowLocationName}</td>
-                                <td class="text-center">${nowLocationMinT} - ${nowLocationMaxT} °C</td>
-                                <td class="text-center">${nowLocationWxName}
-                                    <img src="./img/day/${imgUrl}" alt=""></td>
+                                <td class="text-center">${nowLocationMinT_12} - ${nowLocationMaxT_12} °C ${nowLocationWxName_12} <img src="./img/${dayNight_12}/${imgUrl_12}" alt=""></td>
+                                <td class="text-center">${nowLocationMinT_24} - ${nowLocationMaxT_24} °C ${nowLocationWxName_24} <img src="./img/${dayNight_24}/${imgUrl_24}" alt=""></td>
+                                <td class="text-center">${nowLocationMinT_36} - ${nowLocationMaxT_36} °C ${nowLocationWxName_36} <img src="./img/${dayNight_36}/${imgUrl_36}" alt=""></td>
                             </tr>
                         `;
 
-                        console.log('nowLocationName', nowLocationName);
+                        // console.log('nowLocationName', nowLocationName);
                         $('tbody').append(content);
                     });
 
