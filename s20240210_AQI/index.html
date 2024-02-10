@@ -24,10 +24,8 @@
     <table class="display" id="myTable">
         <thead>
             <tr>
-                <th class="text-center" width="30%">id</th>
-                <th class="text-center">name</th>
-                <th class="text-center">temperature</th>
-                <th class="text-center">img</th>
+                <th class="text-center" width="30%">序號</th>
+                <th class="text-center">地區</th>
             </tr>
         </thead>
         <tbody>
@@ -45,7 +43,7 @@
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- pw url -->
-    <script src="../ignore/js/pw.js"></script>
+    <script src="../ignore/js/pw2.js"></script>
 
     <!-- datatable js -->
 
@@ -59,7 +57,7 @@
 
     <script>
         $(document).ready(function () {
-            let url = weatherUrl;
+            let url = aqiUrl;
             // let url = "https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWA-BD78FE08-13F5-4C27-9645-7AA37D0BABF5&format=JSON";  
             // request url 
             const myTable = $('#myTable');
@@ -75,42 +73,27 @@
                     // .xxx() ['xxx']() ->xxx() method function action
                     console.log('res', res);
                     console.log('res.records', res.records);
-                    console.log('res["records"]', res['records']);
-                    // console.log('res.records.location', res.records.location);
-                    // 如果覺得.太長一串可以命名成變數
-                    let nowLocation = res.records.location;
-                    // 最高溫
-                    // let nowLocationMaxT = res.records.location.weatherElement[4]['time'][0]['parameter']['parameterName'];
+                    console.log('res.records[99]', res.records[99]);
+                    console.log('res.records.length', res.records.length);
 
-                    // 最低溫
-                    // let nowLocationMinT = res.records.location.weatherElement[2]['time'][0]['parameter']['parameterName'];
 
-                    // console.log('nowLocationMaxT', nowLocationMaxT);
-                    // console.log('nowLocation', nowLocation);
+                    let nowRecords = res.records;
+                    
                     // jqeach 
-                    $.each(nowLocation, function (key, value) {
+                    $.each(nowRecords, function (key, value) {
+                        if(key<100){
                         console.log('key', key);
                         console.log('value', value);
-                        // value裡面的locationName
-                        // console.log('value.locationName', value.locationName);
-                        console.log('value.weatherElement', value.weatherElement);
 
-                        // 最高溫
-                        let nowLocationMaxT = value.weatherElement[4]['time'][0]['parameter']['parameterName'];
-
-                        // 最低溫
-                        let nowLocationMinT = value.weatherElement[2]['time'][0]['parameter']['parameterName'];
-
-                        let nowLocationWxName=value.weatherElement[0]['time'][0]['parameter']['parameterName'];
-                        // 檔名不用補零
-                        let nowLocationWxValue=value.weatherElement[0]['time'][0]['parameter']['parameterValue'];
-                        let imgUrl= nowLocationWxValue + '.svg';
-
-                        // 編號是key+1
-                        let nowID = key + 1;
+                         // 編號是key+1
+                         let nowID = key + 1;
                         // 改成字串，用padStart()是字串的方法，補零兩位數
                         let stringID = nowID.toString().padStart(2, "0");
-                        let nowLocationName = value.locationName;
+                        let nowRecordsArea = value.area;
+                        let nowRocords
+                        console.log('nowRecordsArea',nowRecordsArea);
+                        let nowRecordsContent = value.content;
+
                         // let content =`
                         //     <li>${nowLocationName}</li>
                         // `;
@@ -118,15 +101,18 @@
                         let content = `
                             <tr>
                                 <td class="text-center" width="30%">${stringID}</td>
-                                <td class="text-center">${nowLocationName}</td>
-                                <td class="text-center">${nowLocationMinT} - ${nowLocationMaxT} °C</td>
-                                <td class="text-center">${nowLocationWxName}
-                                    <img src="./img/day/${imgUrl}" alt=""></td>
+                                <td class="text-center">${nowRecordsArea}</td>
                             </tr>
                         `;
 
-                        console.log('nowLocationName', nowLocationName);
+                        // console.log('nowLocationName', nowLocationName);
                         $('tbody').append(content);
+                        
+                        }else{
+                            return false;  // 當索引達到100時停止迭代
+                        }
+
+                       
                     });
 
                     // run dataTable 
