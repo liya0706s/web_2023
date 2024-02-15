@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col text-center">
                 <h2>投籃大賽</h2>
@@ -99,19 +99,22 @@
 
             // init 
             let score = 0;
-            let nowTime = 15;
+            let nowTime = 10;
             let highScore = localStorage.getItem("highScore");
             // 用於儲存從本地存儲中讀取的最高分數
-            
+
             highSpan.text(highScore);
             // 顯示歷史最高分數的span元素
-            
+
             shootBtn.hide();
+            closeBtn.hide();
+            point3.hide();
 
             startBtn.click(function (e) {
                 scoreSpan.text(score);
                 startBtn.hide();
                 shootBtn.show();
+                resetBtn.hide();
 
                 const myInterval = setInterval(() => {
                     if (nowTime <= 0) {
@@ -119,8 +122,13 @@
                         timeSpan.text("時間到!");
                         shootBtn.hide();
                         closeBtn.show();
+                        resetBtn.show();
                         let getScore = score;
-                        if()
+                        // 如果得到的分數大於最高分，儲存紀錄最高分
+                        if (highScore < getScore) {
+                            localStorage.setItem("highScore", getScore);
+                        }
+                        // timeSpan.text('倒數計時');
                     }
                     timeSpan.text(nowTime);
                     nowTime -= 1;
@@ -128,14 +136,24 @@
             });
 
             shootBtn.click(function (e) {
+                if (nowTime > 5) {
+                    score += 2;
+                } else {
+                    score += 3;
+                    point3.show();
+                }
                 // score +=2;
-                score += 3;
                 scoreSpan.text(score);
             });
 
-            restBtn.click(function (e) {
+            resetBtn.click(function (e) {
                 score = 0;
+                nowTime = 10;
                 scoreSpan.text(score);
+                startBtn.show();
+                shootBtn.hide();
+                closeBtn.hide();
+                point3.hide();
             });
         });
 
