@@ -14,7 +14,7 @@
 
 
 <body>
-  <!-- <a href="./s20240215_03_php_back.php"></a> -->
+  <!-- <a href="./s20240215_04_php_zoo.php"></a> -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -22,19 +22,11 @@
 
   <script>
     $(document).ready(function () {
-      // 不同 domain CORS error
-      // front 127.0.0.1 ex. live server open
-      // back localhost ex. xampp open 
 
-      // 相同 domain CORS fix
-      // front localhost ex. php xampp open 
-      // back localhost 
-
-      // 相對路徑 :file_03有加上header
-      let url = './s20240215_03_php_back.php';
+      // let url = './s20240215_04_php_zoo.php';
 
       // 用不同的domain當示範CORS的情況
-      // let url = 'http://localhost/s20240215_03_php_back.php';
+      let url = 'http://localhost/s20240215_04_php_zoo.php';
 
       $.ajax({
         type: "get",
