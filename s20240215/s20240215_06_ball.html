@@ -116,7 +116,11 @@
                 const myInterval = setInterval(() => {
                     if (nowTime <= 0) {
                         clearInterval(myInterval);
-                        timeSpan.text("時間到!")
+                        timeSpan.text("時間到!");
+                        shootBtn.hide();
+                        closeBtn.show();
+                        let getScore = score;
+                        if()
                     }
                     timeSpan.text(nowTime);
                     nowTime -= 1;

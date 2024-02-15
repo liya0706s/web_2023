@@ -40,7 +40,7 @@
         <div class="box">
           <h4 class="mt-3">統計分數</h4>
           <h3 class="text-success mt-3">
-            歷史最高分數
+            歷史最高分數 <span id="highSpan"></span>
           </h3>
           <div class="text-primary mt-3">
             <span id="timeSpan">
@@ -63,6 +63,7 @@
           <div class="d-grid gap-2 mt-4">
             <button class="btn btn-primary" type="button" id="startBtn">開始</button>
             <button class="btn btn-primary" type="button" id="shootBtn">投籃</button>
+            <button class="btn btn-danger" type="button" id="closeBtn">遊戲結束</button>
           </div>
         </div>
         <div class="col-6">
@@ -97,21 +98,41 @@
     $(document).ready(function () {
       const scoreSpan = $('#scoreSpan');
       const timeSpan = $('#timeSpan');
+      const highSpan = $('#highSpan');
       const startBtn = $('#startBtn');
       const shootBtn = $('#shootBtn');
       const resetBtn = $('#resetBtn');
+      const closeBtn = $('#closeBtn');
+      const point3 = $('#point3');
+
       let score = 0;
       let nowTime = 10;
+      let highScore = localStorage.getItem("highScore");
+
+      highSpan.text(highScore);
+
       shootBtn.hide();
+      closeBtn.hide();
+      point3.hide();
 
       startBtn.click(function (e) {
         scoreSpan.text(score);
         startBtn.hide();
         shootBtn.show();
+        resetBtn.hide();
 
         const myInterval = setInterval(() => {
-          if(nowTime <= 0){
+          if (nowTime <= 0) {
             clearInterval(myInterval);
+            shootBtn.hide();
+            closeBtn.show();
+            resetBtn.show();
+            let getScore = score;
+            if (highScore < getScore) {
+              localStorage.setItem("highScore", getScore);
+            }
+
+            timeSpan.text('倒數計時');
           }
           timeSpan.text(nowTime);
           nowTime -= 1;
@@ -119,14 +140,23 @@
       });
 
       shootBtn.click(function (e) {
-        // score += 2;
-        score += 3;
+        if (nowTime > 5) {
+          score += 2;
+        } else {
+          score += 3;
+          point3.show();
+        }
         scoreSpan.text(score);
       });
 
       resetBtn.click(function (e) {
         score = 0;
+        nowTime = 3;
         scoreSpan.text(score);
+        startBtn.show();
+        shootBtn.hide();
+        closeBtn.hide();
+        point3.hide();
       });
 
     });
