@@ -14,11 +14,23 @@
 
 
 <body>
+
+  <div class="container" id="myContainer">
+    <div class="row">
+      <div class="col">id</div>
+      <div class="col">name</div>
+      <div class="col">pic</div>
+    </div>
+  </div>
+
   <!-- <a href="./s20240215_04_php_zoo.php"></a> -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<img src="http://www.zoo.gov.tw/iTAP/02_Services/01_Info/10659.jpg" alt="">
 
   <script>
     $(document).ready(function () {
@@ -27,7 +39,7 @@
 
       // 用不同的domain當示範CORS的情況
       let url = 'http://localhost/s20240215_04_php_zoo.php';
-
+      const myContainer = $('#myContainer');
       $.ajax({
         type: "get",
         url: url,
@@ -35,6 +47,31 @@
         dataType: "json",
         success: function (res) {
           console.log('res', res);
+          let data = res.result.results;
+          console.log('data', data);
+          // let locationName = res.result.results[0].s_location;
+          // console.log('locationName', locationName);
+          // let picUrl = res.result.results[2].s_pic01_url;
+          // console.log('picUrl', picUrl);
+
+          
+          $.each(data, function (key, value) {
+          let locationName = value.s_location;
+          let picUrl= value.s_pic01_url;
+            console.log('locationName',locationName);
+            console.log('picUrl',picUrl);
+          content =`
+          <div class="row">
+              <div class="col">id</div>
+              <div class="col">${locationName}</div>
+              <div class="col">
+                <img src="${picUrl}"></img>
+                </div>
+          </div>
+          `;
+
+          myContainer.append(content);
+          });
         }
       });
     });
